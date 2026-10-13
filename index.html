@@ -13,7 +13,7 @@
   <meta property="og:url" content="https://harshathippana1606.github.io/">
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310251f'/%3E%3Ctext x='12' y='43' font-family='Georgia' font-size='33' fill='%23f2f0e8'%3Ejh.%3C/text%3E%3C/svg%3E">
-  <style>
+  <style>@charset "UTF-8";
 
 /* A portfolio that reads like a considered leadership brief. */
 :root {
@@ -437,6 +437,512 @@ li + li { margin-top: 8px; }
   .contact-email { font-size: 16pt; }
   .footer-inner { border-color: #bbb; padding-block: 14px; }
 }
+
+/* A direct path for visitors who need the essentials first. */
+.rb-shell { width: min(1160px, calc(100% - 96px)); margin: 0 auto; padding: 52px 0 18px; }
+.rb-eyebrow { margin: 0 0 20px; color: var(--moss-dark); font-size: 10px; font-weight: 600; letter-spacing: 1.6px; }
+.rb-hero { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(270px, 1fr); gap: 64px; align-items: center; padding-bottom: 42px; }
+.rb-hero h1 { margin: 0 0 16px; font-family: var(--serif); font-size: clamp(42px, 4.8vw, 64px); line-height: 1.05; letter-spacing: -2.5px; }
+.rb-intro { max-width: 570px; margin-bottom: 14px; font-family: var(--serif); font-size: 27px; line-height: 1.3; letter-spacing: -.5px; }
+.rb-summary { max-width: 555px; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.rb-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 23px; }
+.rb-button { display: inline-flex; min-height: 46px; align-items: center; justify-content: space-between; gap: 25px; padding: 10px 17px; border: 1px solid var(--forest); background: transparent; color: var(--forest); font-size: 12px; line-height: 1.4; text-decoration: none; }
+.rb-button:hover { background: #e0e6d6; }
+.rb-button-primary { background: var(--forest); color: var(--paper); }
+.rb-button-primary:hover { background: var(--forest-soft); }
+.rb-current { background: var(--forest); color: var(--paper); padding: 27px 30px; }
+.rb-current .rb-eyebrow { margin-bottom: 15px; color: var(--moss); font-size: 9px; }
+.rb-current-title { margin: 0 0 21px; font-family: var(--serif); font-size: 33px; line-height: 1.1; letter-spacing: -.7px; }
+.rb-facts { margin: 0; }
+.rb-facts > div { display: flex; justify-content: space-between; gap: 14px; padding: 8px 0; border-top: 1px solid #405749; font-size: 11px; }
+.rb-facts dt { color: #b3c2af; }
+.rb-facts dd { margin: 0; text-align: right; }
+.rb-current-path { margin-top: 18px; color: var(--moss); font-size: 11px; }
+.rb-current-path span { color: #b3c2af; font-size: 10px; }
+.rb-section-label { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; margin-bottom: 19px; }
+.rb-section-label h2 { margin: 0; font-family: var(--serif); font-size: 26px; line-height: 1.2; letter-spacing: -.65px; }
+.rb-section-label p, .rb-section-label > a { margin: 0; color: var(--muted); font-size: 11px; }
+.rb-outcomes { padding-top: 29px; border-top: 1px solid var(--rule); }
+.rb-outcome-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #cbd2c0; background: #e5e9dc; }
+.rb-outcome { display: flex; flex-direction: column; align-items: flex-start; padding: 23px 25px 19px; text-decoration: none; border-left: 1px solid #cbd2c0; }
+.rb-outcome:first-child { border-left: 0; }
+.rb-outcome:hover { background: #dce3cf; }
+.rb-metric { margin-bottom: 2px; font-family: var(--serif); font-size: 44px; letter-spacing: -1.6px; line-height: 1.1; }
+.rb-outcome strong { margin: 6px 0; font-size: 13px; font-weight: 600; }
+.rb-outcome > span:not(.rb-metric) { color: var(--muted); font-size: 11px; line-height: 1.55; }
+.rb-outcome .rb-outcome-link { margin-top: 15px; padding-top: 1px; border-bottom: 1px solid #8d9e7e; color: var(--forest); }
+.rb-evidence-note { max-width: 1020px; margin: 13px 0 0; color: var(--muted); font-size: 10px; line-height: 1.7; }
+.rb-lenses { padding-top: 38px; }
+.rb-tabs { display: flex; border-bottom: 1px solid var(--forest); }
+.rb-tab { min-height: 46px; flex: 1; padding: 10px 16px; border: 1px solid var(--rule); border-bottom: 0; background: transparent; color: var(--muted); font-size: 12px; }
+.rb-tab + .rb-tab { border-left: 0; }
+.rb-tab:hover { background: #e4e7db; }
+.rb-tab[aria-selected="true"] { background: var(--forest); border-color: var(--forest); color: var(--paper); }
+.rb-tab:focus-visible { position: relative; z-index: 1; outline-offset: -5px; outline-color: var(--moss); }
+.rb-lens-panel { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 4px 40px; min-height: 229px; padding: 27px 30px; border: 1px solid var(--rule); border-top: 0; background: var(--paper-light); }
+.rb-lens-panel h3 { margin: 0 0 9px; font-family: var(--serif); font-size: 26px; line-height: 1.15; letter-spacing: -.5px; }
+.rb-lens-panel p, .rb-lens-panel li { color: var(--muted); font-size: 12px; line-height: 1.7; }
+.rb-lens-panel p { max-width: 370px; }
+.rb-lens-panel ul { margin: 0; padding-left: 17px; }
+.rb-lens-panel li + li { margin-top: 8px; }
+.rb-lens-panel > a { grid-column: 2; justify-self: start; align-self: end; margin-top: 8px; color: var(--moss-dark); font-size: 11px; }
+.rb-lens-panel .rb-lens-metric { margin-top: 18px; padding-top: 13px; border-top: 1px solid var(--rule); color: var(--forest); }
+.rb-lens-metric > span { display: block; margin-bottom: 5px; color: var(--moss-dark); font-size: 9px; letter-spacing: 1px; }
+.rb-lens-metric strong { font-size: 12px; font-weight: 600; line-height: 1.65; }
+.rb-lens-links { grid-column: 2; display: flex; flex-wrap: wrap; gap: 8px 20px; align-self: end; margin-top: 8px; }
+.rb-lens-links a { color: var(--moss-dark); font-size: 11px; }
+.rb-career { padding: 37px 0 31px; }
+.rb-timeline { list-style: none; padding: 0; margin: 0; }
+.rb-timeline > li { display: grid; grid-template-columns: 155px minmax(0, 1fr); gap: 20px; padding: 15px 0; border-top: 1px solid var(--rule); margin: 0; }
+.rb-period { padding-top: 4px; color: var(--moss-dark); font-size: 10px; letter-spacing: .5px; }
+.rb-timeline h3 { margin: 0 0 4px; font-size: 14px; font-weight: 600; line-height: 1.45; }
+.rb-timeline h3 span { margin-left: 11px; font-size: 12px; font-weight: 400; color: var(--muted); }
+.rb-timeline p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.rb-foundation { padding-top: 17px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 11px; line-height: 1.75; }
+.rb-foundation p { margin-bottom: 7px; }
+.rb-foundation strong { margin-right: 8px; font-weight: 600; color: var(--forest); }
+.rb-connect { display: grid; grid-template-columns: 1fr 225px; gap: 45px; padding: 30px; background: var(--forest); color: var(--paper); }
+.rb-connect .rb-eyebrow { color: var(--moss); font-size: 9px; margin-bottom: 12px; }
+.rb-connect h2 { margin-bottom: 12px; font-family: var(--serif); font-size: 34px; line-height: 1.15; letter-spacing: -.8px; }
+.rb-connect p:not(.rb-eyebrow) { color: #bccbb6; font-size: 12px; }
+.rb-email { display: inline-block; max-width: 100%; color: var(--moss); font-size: 14px; overflow-wrap: anywhere; }
+.rb-connect-links { display: grid; align-content: center; }
+.rb-connect-links a { display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid #405749; padding: 8px 0; font-size: 12px; text-decoration: none; }
+.rb-connect-links a:hover { color: var(--moss); }
+.rb-utility { display: flex; flex-wrap: wrap; gap: 2px 25px; margin-top: 13px; }
+.rb-utility button, .rb-utility a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 5px 0; border: 0; background: transparent; color: var(--muted); font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
+.rb-utility button:hover, .rb-utility a:hover { color: var(--forest); }
+.rb-status { min-height: 1.7em; margin-bottom: 0; font-size: 11px; color: var(--moss-dark); }
+@media (max-width: 900px) {
+  .rb-shell { width: calc(100% - 48px); padding-top: 34px; }
+  .rb-hero { gap: 28px; grid-template-columns: minmax(0, 1.3fr) minmax(250px, 1fr); }
+  .rb-current { padding: 24px; }
+  .rb-outcome { padding: 20px; }
+  .rb-lens-panel { padding: 24px; gap: 4px 26px; }
+  .rb-connect { grid-template-columns: 1fr 180px; gap: 25px; }
+}
+@media (max-width: 650px) {
+  .rb-shell { width: calc(100% - 40px); padding-top: 30px; }
+  .rb-hero { grid-template-columns: 1fr; gap: 25px; padding-bottom: 27px; }
+  .rb-hero h1 { font-size: clamp(39px, 10.7vw, 55px); letter-spacing: -1.6px; }
+  .rb-intro { font-size: 25px; }
+  .rb-actions { gap: 9px; }
+  .rb-button { padding-inline: 13px; gap: 14px; font-size: 11px; }
+  .rb-current { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 22px; padding: 22px; }
+  .rb-current .rb-eyebrow { grid-column: 1 / -1; margin-bottom: 16px; }
+  .rb-current-title { font-size: 27px; margin-bottom: 0; }
+  .rb-facts { grid-row: span 2; }
+  .rb-facts > div { display: block; padding-block: 6px; }
+  .rb-facts > div:first-child { border-top: 0; padding-top: 0; }
+  .rb-facts dd { text-align: left; font-size: 11px; }
+  .rb-facts dt { font-size: 9px; }
+  .rb-current-path { font-size: 10px; }
+  .rb-current-path span { font-size: 9px; }
+  .rb-section-label { display: block; margin-bottom: 17px; }
+  .rb-section-label h2 { font-size: 25px; }
+  .rb-section-label p, .rb-section-label > a { display: inline-block; margin-top: 9px; }
+  .rb-outcome-grid { grid-template-columns: 1fr; }
+  .rb-outcome { display: grid; grid-template-columns: 103px minmax(0, 1fr); column-gap: 12px; padding: 19px; border-left: 0; border-top: 1px solid #cbd2c0; }
+  .rb-outcome:first-child { border-top: 0; }
+  .rb-metric { grid-row: 1 / 4; align-self: center; font-size: 36px; letter-spacing: -1.2px; }
+  .rb-outcome strong { margin: 0 0 5px; font-size: 12px; }
+  .rb-outcome > span:not(.rb-metric) { font-size: 10px; }
+  .rb-outcome .rb-outcome-link { justify-self: start; margin-top: 9px; }
+  .rb-lenses { padding-top: 31px; }
+  .rb-tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rb-tab { min-height: 50px; padding: 9px 7px; font-size: 11px; }
+  .rb-tab:nth-child(odd) { border-left: 1px solid var(--rule); }
+  .rb-tab[aria-selected="true"] { border-color: var(--forest); }
+  .rb-lens-panel { grid-template-columns: 1fr; min-height: 365px; gap: 17px; padding: 23px; }
+  .rb-lens-panel h3 { font-size: 25px; }
+  .rb-lens-panel > a { grid-column: 1; margin-top: 0; }
+  .rb-lens-links { grid-column: 1; margin-top: 0; }
+  .rb-career { padding-top: 31px; }
+  .rb-timeline > li { grid-template-columns: 1fr; gap: 8px; padding-block: 17px; }
+  .rb-timeline h3 span { display: block; margin: 4px 0 0; }
+  .rb-timeline p { margin-top: 8px; }
+  .rb-connect { grid-template-columns: 1fr; gap: 22px; padding: 24px; }
+  .rb-connect h2 { font-size: 31px; }
+  .rb-email { font-size: 12px; }
+  .rb-connect-links { grid-template-columns: 1fr 1fr; gap: 6px 25px; }
+  .rb-utility { gap: 0 20px; }
+  .rb-utility button, .rb-utility a { font-size: 10px; }
+}
+@media print {
+  .rb-shell { width: 100%; padding: 0; }
+  .rb-hero { gap: 25px; padding-bottom: 20px; }
+  .rb-hero h1 { font-size: 34px; }
+  .rb-intro { font-size: 20px; }
+  .rb-hero, .rb-outcome-grid, .rb-lens-panel, .rb-connect, .rb-timeline > li { break-inside: avoid; }
+  .rb-actions, .rb-tabs, .rb-utility, .rb-status, .rb-outcome-link { display: none !important; }
+  .rb-current, .rb-connect { background: #fff; color: #111; border: 1px solid #888; }
+  .rb-current *, .rb-connect * { color: #111 !important; }
+  .rb-current, .rb-connect, .rb-lens-panel { padding: 18px; }
+  .rb-lenses, .rb-career, .rb-outcomes { padding-top: 22px; }
+  .rb-outcome-grid, .rb-lens-panel { background: #fff; }
+  .rb-section-label h2 { font-size: 21px; }
+  .rb-metric { font-size: 32px; }
+  .rb-lens-panel { min-height: 0; border-top: 1px solid var(--rule); }
+  .rb-connect { grid-template-columns: 1fr 170px; }
+}
+
+/* Causal inference: prominent evidence, with depth visitors can choose. */
+.ci-heading { margin-bottom: 35px; max-width: 950px; }
+.ci-eyebrow { display: block; margin: 0 0 23px; color: var(--moss-dark); font-size: 10px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; line-height: 1.7; }
+.ci-heading h2 { margin: 0 0 23px; font-family: var(--serif); font-size: clamp(35px, 4.3vw, 58px); line-height: 1.12; letter-spacing: -1.9px; }
+.ci-heading h2 em { color: var(--moss-dark); font-weight: 400; }
+.ci-intro { max-width: 670px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.85; }
+.ci-experience { display: grid; grid-template-columns: 1.05fr .95fr; border: 1px solid #aebb9f; }
+.ci-experience-copy { padding: 35px 38px; background: var(--forest); color: var(--paper); }
+.ci-experience-copy .ci-eyebrow { color: #bbcaa8; margin-bottom: 19px; font-size: 9px; }
+.ci-experience-copy h3 { margin: 0 0 21px; font-family: var(--serif); font-size: clamp(27px, 2.8vw, 36px); line-height: 1.17; letter-spacing: -.85px; }
+.ci-experience-copy > p { max-width: 570px; margin-bottom: 22px; color: #bdcbb6; font-size: 13px; line-height: 1.9; }
+.ci-experience-copy > a { display: inline-flex; align-items: center; gap: 22px; min-height: 33px; color: #d1dfbd; font-size: 11px; }
+.ci-experience-copy > a:focus-visible { outline-color: var(--moss); }
+.ci-proof { display: flex; flex-direction: column; justify-content: center; padding: 35px 38px; background: #e6ebdc; }
+.ci-proof-label { margin: 0 0 26px; color: #4e6341; font-size: 9px; letter-spacing: 1.2px; text-transform: uppercase; }
+.ci-metrics { display: grid; grid-template-columns: .8fr 1.2fr; }
+.ci-metrics p { margin: 0; padding: 0 22px; border-left: 1px solid #b9c8ac; }
+.ci-metrics p:first-child { padding-left: 0; border: 0; }
+.ci-metrics p:last-child { padding-right: 0; }
+.ci-metrics strong { display: block; margin-bottom: 16px; color: var(--forest); font-family: var(--serif); font-size: clamp(38px, 4vw, 54px); font-weight: 400; letter-spacing: -1.8px; line-height: 1.1; }
+.ci-metrics span { display: block; color: #455b3b; font-size: 12px; line-height: 1.8; }
+.ci-proof-note { margin: 27px 0 0; padding-top: 21px; border-top: 1px solid #bdc9b1; color: #586b4e; font-size: 10px; line-height: 1.8; }
+.ci-method-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; margin: 34px 0 17px; }
+.ci-method-heading h3 { margin: 0; color: var(--forest); font-family: var(--serif); font-size: 25px; line-height: 1.3; letter-spacing: -.6px; }
+.ci-method-heading p { margin: 0; color: var(--muted); font-size: 11px; }
+.ci-methods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 16px; }
+.ci-method { border: 1px solid #bbc8b1; background: var(--paper-light); }
+.ci-method summary { display: grid; grid-template-columns: 21px minmax(0, 1fr) 16px; gap: 12px; align-items: center; min-height: 103px; padding: 21px 19px; list-style: none; cursor: pointer; }
+.ci-method summary::-webkit-details-marker { display: none; }
+.ci-method summary::marker { content: ''; }
+.ci-method summary:hover { background: #eaf0df; }
+.ci-method summary:focus-visible { outline-offset: 3px; }
+.ci-method-number { color: #6a8157; font-family: var(--serif); font-size: 19px; }
+.ci-method-label { min-width: 0; }
+.ci-method-label small { display: block; margin-bottom: 7px; color: #627753; font-size: 8px; line-height: 1.6; letter-spacing: .65px; text-transform: uppercase; }
+.ci-method-label strong { display: block; font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.16; letter-spacing: -.45px; }
+.ci-method-toggle { position: relative; display: block; width: 14px; height: 14px; color: #586f47; }
+.ci-method-toggle::before, .ci-method-toggle::after { content: ''; position: absolute; width: 12px; height: 1px; top: 6px; left: 1px; background: currentColor; }
+.ci-method-toggle::after { transform: rotate(90deg); }
+.ci-method[open] .ci-method-toggle::after { transform: none; }
+.ci-method[open] summary { background: #e5ecda; border-bottom: 1px solid #c1cdb7; }
+.ci-method-body { padding: 21px 23px 24px; }
+.ci-method-body > p { margin: 0 0 16px; color: #3d5433; font-family: var(--serif); font-size: 20px; line-height: 1.4; letter-spacing: -.25px; }
+.ci-method-body ul { margin: 0; padding-left: 16px; }
+.ci-method-body li { color: var(--muted); font-size: 12px; line-height: 1.8; }
+.ci-method-body li + li { margin-top: 12px; }
+.ci-method-body li::marker { color: #849a71; }
+.ci-invitation { display: flex; justify-content: space-between; align-items: center; gap: 25px; margin-top: 25px; padding: 20px 0 0; border-top: 1px solid var(--rule); }
+.ci-invitation > p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.ci-invitation > a { display: inline-flex; align-items: center; gap: 23px; min-height: 40px; color: #48613b; font-size: 12px; white-space: nowrap; }
+@media (max-width: 1000px) {
+  .ci-experience-copy, .ci-proof { padding: 29px; }
+  .ci-methods { gap: 12px; }
+  .ci-method summary { padding: 18px 14px; gap: 9px; }
+  .ci-method-label strong { font-size: 20px; }
+  .ci-method-body { padding: 19px 19px 22px; }
+}
+@media (max-width: 760px) {
+  .ci-experience { grid-template-columns: 1fr; }
+  .ci-experience-copy, .ci-proof { padding: 27px; }
+  .ci-proof { border-top: 1px solid #aebb9f; }
+  .ci-proof-label { margin-bottom: 20px; }
+  .ci-metrics { grid-template-columns: 1fr 1fr; }
+  .ci-metrics strong { font-size: 44px; margin-bottom: 11px; }
+  .ci-proof-note { margin-top: 23px; padding-top: 18px; }
+  .ci-method-heading { align-items: flex-start; flex-direction: column; gap: 9px; margin-top: 29px; }
+  .ci-methods { grid-template-columns: 1fr; gap: 11px; }
+  .ci-method summary { min-height: 86px; padding: 20px; grid-template-columns: 23px minmax(0, 1fr) 16px; gap: 14px; }
+  .ci-method-label strong { font-size: 23px; }
+  .ci-method-body { padding: 22px 24px 26px; }
+  .ci-invitation { align-items: flex-start; flex-direction: column; gap: 8px; }
+}
+@media (max-width: 400px) {
+  .ci-experience-copy, .ci-proof { padding: 23px; }
+  .ci-metrics p { padding-inline: 15px; }
+  .ci-metrics strong { font-size: 38px; }
+  .ci-metrics span { font-size: 11px; }
+}
+
+.ci-rct-story {display:grid;grid-template-columns:1fr 1.4fr;gap:48px;padding:38px 0;border-bottom:1px solid var(--rule)}
+.ci-rct-story h3 {font:32px/1.15 var(--serif);margin:12px 0 0}
+.ci-rct-story p:not(.ci-eyebrow) {font-size:15px;line-height:1.8;margin:0 0 20px;color:var(--muted)}
+.ci-rct-story a {font-size:13px;text-underline-offset:5px}
+@media(max-width:650px){.ci-rct-story{grid-template-columns:1fr;gap:20px;padding-block:28px}.ci-rct-story h3{font-size:27px}}
+
+/* The Decision Room: a quiet, tactile game about consequential choices. */
+.dr-intro { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: end; margin-bottom: 34px; }
+.dr-kicker { margin: 0 0 17px; color: var(--moss-dark); font-size: 10px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; }
+.dr-intro h2 { margin: 0; font-family: var(--serif); font-size: clamp(36px, 4.2vw, 57px); line-height: 1.08; letter-spacing: -2px; }
+.dr-intro h2 span { color: var(--moss-dark); }
+.dr-intro-copy { max-width: 470px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.dr-shell { overflow: hidden; border: 1px solid #aebca5; background: var(--paper-light); }
+.dr-welcome { display: grid; grid-template-columns: 1.15fr .85fr; }
+.dr-welcome-copy { padding: 44px; }
+.dr-welcome-copy h3 { margin: 0 0 23px; font-family: var(--serif); font-size: clamp(31px, 3vw, 42px); line-height: 1.15; letter-spacing: -1.3px; }
+.dr-welcome-copy > p:not(.dr-kicker):not(.dr-fine) { max-width: 520px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+.dr-start-row { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; margin-top: 28px; }
+.dr-start-row > span { font-size: 10px; line-height: 1.8; color: var(--muted); }
+.dr-primary, .dr-secondary { display: inline-flex; justify-content: center; align-items: center; gap: 28px; min-height: 46px; padding: 12px 18px; border: 1px solid var(--forest); background: var(--forest); color: var(--paper-light); font: 500 12px/1.5 var(--sans); text-decoration: none; transition: background 150ms ease, color 150ms ease; }
+.dr-primary:hover { background: #304c3a; }
+.dr-primary span { font-size: 18px; line-height: 1; }
+.dr-secondary { background: transparent; color: var(--forest); border-color: #9aab91; }
+.dr-secondary:hover { background: #e5eadb; }
+.dr-fine { margin: 26px 0 0; max-width: 540px; color: var(--muted); font-size: 10px; line-height: 1.85; }
+.dr-map { display: flex; flex-direction: column; justify-content: center; padding: 37px 33px; border-left: 1px solid #aebca5; background: var(--forest); color: var(--paper); }
+.dr-map-header { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 24px; font-size: 9px; letter-spacing: 1.6px; color: #b8c8a5; }
+.dr-map-stop { display: grid; grid-template-columns: 32px 1fr 16px; align-items: center; gap: 14px; padding: 22px 0; border-top: 1px solid #405540; }
+.dr-map-stop > span { font-family: var(--serif); font-size: 22px; color: #a8bd94; }
+.dr-map-stop div { font-family: var(--serif); font-size: 20px; line-height: 1.3; }
+.dr-map-stop small { display: block; margin-bottom: 8px; color: #afbf9e; font: 9px/1.5 var(--sans); letter-spacing: 1.4px; }
+.dr-map-stop b { color: #a8bd94; font-weight: normal; }
+.dr-map > p { margin: 16px 0 0; color: #b6c4ad; font-size: 10px; line-height: 1.85; }
+.dr-topbar { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 19px 32px; border-bottom: 1px solid var(--rule); background: #e7ecdf; }
+.dr-topbar > span { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #465c40; }
+.dr-progress { display: flex; list-style: none; gap: 7px; margin: 0; padding: 0; }
+.dr-progress li { display: flex; align-items: center; justify-content: center; width: 27px; height: 27px; margin: 0; border: 1px solid #aab99e; border-radius: 50%; color: #4c6142; font-size: 10px; }
+.dr-progress li[aria-current="step"] { background: var(--forest); border-color: var(--forest); color: var(--paper); }
+.dr-progress li.dr-complete { background: #c5d3b5; border-color: #8fa67f; }
+.dr-play { padding: 34px 40px 40px; }
+.dr-round-header { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 48px; align-items: start; margin-bottom: 29px; }
+.dr-round-header h3, .dr-result-title { margin: 0 0 17px; font-family: var(--serif); font-size: clamp(28px, 3vw, 39px); line-height: 1.18; letter-spacing: -1.1px; }
+.dr-round-header h3:focus, .dr-result-title:focus, .dr-feedback-title:focus { outline: none; }
+.dr-round-header h3:focus-visible, .dr-result-title:focus-visible, .dr-feedback-title:focus-visible { outline: 2px solid var(--moss-dark); outline-offset: 7px; }
+.dr-scenario { max-width: 740px; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.dr-scores { padding: 17px 20px; border: 1px solid #c2ceba; background: #eff2e7; }
+.dr-score-label { display: flex; align-items: baseline; justify-content: space-between; gap: 15px; margin-bottom: 6px; font-size: 10px; color: #42533c; }
+.dr-score-label strong { font-weight: 500; font-variant-numeric: tabular-nums; }
+.dr-score + .dr-score { margin-top: 12px; }
+.dr-meter { height: 3px; background: #d2dcc6; }
+.dr-meter > span { display: block; height: 100%; background: #667f50; transition: width 250ms ease; }
+.dr-score-note { margin: 12px 0 0; color: #5e6b55; font-size: 9px; line-height: 1.65; }
+.dr-choice-label { margin: 0 0 13px; font-size: 11px; font-weight: 600; color: #4c6342; }
+.dr-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+.dr-choice { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 0; min-height: 202px; padding: 22px; border: 1px solid #b8c5af; background: transparent; color: var(--ink); text-align: left; transition: border-color 150ms ease, background 150ms ease, transform 150ms ease; }
+.dr-choice:not(:disabled):hover { border-color: #657d52; background: #edf2e4; transform: translateY(-3px); }
+.dr-choice-letter { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-bottom: 21px; border: 1px solid #a4b398; color: #5c724a; font-size: 10px; }
+.dr-choice strong { display: block; margin-bottom: 10px; font-family: var(--serif); font-size: 22px; font-weight: 400; line-height: 1.25; letter-spacing: -.3px; }
+.dr-choice > span:last-child { color: var(--muted); font-size: 12px; line-height: 1.75; }
+.dr-choice:disabled { cursor: default; }
+.dr-choice.dr-selected { border-color: #456035; background: #e0e9d4; box-shadow: inset 0 0 0 1px #456035; }
+.dr-choice.dr-selected .dr-choice-letter { color: var(--paper-light); background: #456035; border-color: #456035; }
+.dr-choice.dr-unselected { background: #f0f1e9; border-color: #d1d9c9; }
+.dr-feedback { margin-top: 22px; padding: 25px 28px; border-left: 3px solid #6b8856; background: #edf1e4; animation: dr-arrive 180ms ease-out; }
+.dr-feedback-title { margin: 0 0 9px; color: var(--forest); font-family: var(--serif); font-size: 25px; font-weight: 400; line-height: 1.3; }
+.dr-feedback > p { max-width: 880px; font-size: 13px; color: #4d5f43; line-height: 1.85; }
+.dr-tradeoff { display: flex; flex-wrap: wrap; gap: 7px 20px; margin-top: 16px; }
+.dr-tradeoff span { font-size: 10px; color: #4f673f; }
+.dr-feedback-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-top: 23px; }
+.dr-feedback-footer > p { max-width: 490px; margin: 0; color: var(--muted); font-size: 10px; line-height: 1.8; }
+.dr-result { padding: 38px 40px 40px; animation: dr-arrive 180ms ease-out; }
+.dr-result-heading { display: grid; grid-template-columns: minmax(0, 1fr) 255px; gap: 48px; align-items: start; margin-bottom: 27px; }
+.dr-result-heading > div > p:not(.dr-kicker) { color: var(--muted); font-size: 14px; line-height: 1.85; }
+.dr-result-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; padding-top: 27px; border-top: 1px solid var(--rule); }
+.dr-result-card { padding: 0 20px 0 0; border-right: 1px solid var(--rule); }
+.dr-result-card:last-child { padding-right: 0; border: 0; }
+.dr-result-card > span { display: block; margin-bottom: 12px; color: var(--moss-dark); font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase; }
+.dr-result-card h4 { margin: 0 0 12px; font: 400 22px/1.3 var(--serif); letter-spacing: -.35px; }
+.dr-result-card p { margin-bottom: 16px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.dr-result-card a { color: #405a34; font-size: 11px; }
+.dr-result-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.dr-share-status { margin: 14px 0 0; color: #466139; font-size: 11px; }
+.dr-share-fallback { display: block; width: 100%; min-height: 104px; margin-top: 15px; padding: 14px; border: 1px solid #9aaa8f; background: #fffef7; color: var(--ink); font: 12px/1.8 var(--sans); resize: vertical; }
+.dr-noscript { padding: 20px; border: 1px solid var(--rule); font-size: 13px; }
+.dr-sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.no-js .dr-start-row { display: none; }
+@keyframes dr-arrive { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 900px) {
+  .dr-intro { gap: 28px; }
+  .dr-welcome-copy { padding: 30px; }
+  .dr-map { padding: 28px; }
+  .dr-map-stop { grid-template-columns: 24px 1fr 12px; gap: 10px; }
+  .dr-map-stop div { font-size: 18px; }
+  .dr-round-header, .dr-result-heading { gap: 26px; grid-template-columns: minmax(0, 1fr) 200px; }
+  .dr-choice { padding: 19px 17px; }
+  .dr-choice strong { font-size: 21px; }
+  .dr-play, .dr-result { padding: 28px; }
+}
+@media (max-width: 680px) {
+  .dr-intro { grid-template-columns: 1fr; gap: 18px; margin-bottom: 25px; }
+  .dr-intro-copy { font-size: 13px; }
+  .dr-welcome { grid-template-columns: 1fr; }
+  .dr-welcome-copy { padding: 27px 24px; }
+  .dr-map { padding: 22px 24px; border-top: 1px solid #aebca5; border-left: 0; }
+  .dr-map-header { padding-bottom: 16px; }
+  .dr-map-stop { padding: 16px 0; }
+  .dr-map-stop small { display: inline-block; width: 54px; margin: 0 10px 0 0; font-size: 8px; }
+  .dr-map > p { margin-top: 10px; }
+  .dr-map > p br { display: none; }
+  .dr-topbar { padding: 16px 20px; gap: 12px; }
+  .dr-topbar > span { max-width: 170px; font-size: 9px; line-height: 1.7; }
+  .dr-play, .dr-result { padding: 25px 20px; }
+  .dr-round-header, .dr-result-heading { grid-template-columns: 1fr; gap: 22px; margin-bottom: 23px; }
+  .dr-scores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 15px; }
+  .dr-score + .dr-score { margin: 0; }
+  .dr-score-label { gap: 6px; font-size: 9px; }
+  .dr-score-note { grid-column: 1 / -1; margin: 0; font-size: 9px; }
+  .dr-options { grid-template-columns: 1fr; gap: 10px; }
+  .dr-choice { display: grid; grid-template-columns: 25px minmax(0, 1fr); column-gap: 13px; min-height: 0; padding: 19px 17px; }
+  .dr-choice-letter { grid-row: 1 / 3; margin: 2px 0 0; }
+  .dr-choice strong { margin-bottom: 7px; }
+  .dr-choice > span:last-child { grid-column: 2; font-size: 12px; }
+  .dr-feedback { padding: 20px; }
+  .dr-feedback-footer .dr-primary { width: 100%; }
+  .dr-result-links { grid-template-columns: 1fr; gap: 23px; }
+  .dr-result-card { padding: 0 0 23px; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .dr-result-card:last-child { padding: 0; }
+  .dr-result-card p { margin-bottom: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dr-primary, .dr-secondary, .dr-choice, .dr-meter > span { transition: none; }
+  .dr-choice:not(:disabled):hover { transform: none; }
+  .dr-feedback, .dr-result { animation: none; }
+}
+
+/* A quiet collection of optional surprises; no career evidence is gated. */
+.discovery-toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; margin-bottom: 25px; }
+.discovery-progress { display: flex; align-items: center; gap: 17px; color: var(--moss-dark); font-size: 12px; }
+.discovery-progress progress { width: 110px; height: 5px; border: 0; border-radius: 0; background: var(--rule); color: var(--moss-dark); appearance: none; }
+.discovery-progress progress::-webkit-progress-bar { background: var(--rule); }
+.discovery-progress progress::-webkit-progress-value { background: var(--moss-dark); }
+.discovery-progress progress::-moz-progress-bar { background: var(--moss-dark); }
+.discovery-reset-actions { display: flex; align-items: center; gap: 18px; }
+.discovery-text-button { border: 0; padding: 10px 0; background: transparent; color: var(--muted); font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
+.discovery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.discovery-card { position: relative; min-width: 0; padding: 29px; border: 1px solid var(--rule); background: var(--paper-light); transition: border-color 200ms ease; }
+.discovery-card.is-discovered { border-color: #94a58b; }
+.discovery-card-top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.discovery-number { color: var(--moss-dark); font-size: 9px; letter-spacing: 1.4px; }
+.discovery-badge { color: var(--muted); font-size: 9px; }
+.discovery-card.is-discovered .discovery-badge { color: var(--moss-dark); }
+.discovery-card h3 { margin-bottom: 9px; font-family: var(--serif); font-size: 28px; line-height: 1.2; letter-spacing: -.5px; }
+.discovery-teaser { max-width: 360px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.discovery-clue { margin-top: 21px; }
+.discovery-clue summary { width: fit-content; min-height: 44px; padding-block: 10px; cursor: pointer; color: var(--moss-dark); font-size: 11px; }
+.discovery-clue > p { max-width: 430px; margin: 10px 0 12px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.discovery-clue kbd { padding: 2px 5px; border: 1px solid var(--rule); font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; letter-spacing: 1px; }
+.discovery-clue-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 20px; }
+.discovery-clue-actions a, .discovery-clue-actions button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 6px 0; border: 0; background: transparent; color: var(--moss-dark); font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
+.discovery-note { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule); }
+.discovery-note:focus-visible { outline: 2px solid var(--moss-dark); outline-offset: 6px; }
+.discovery-note-label { display: block; margin-bottom: 12px; color: var(--moss-dark); font-size: 8px; letter-spacing: 1.6px; }
+.discovery-note > p { max-width: 480px; margin-bottom: 0; color: var(--ink); font-family: var(--serif); font-size: 21px; line-height: 1.5; letter-spacing: -.2px; }
+.discovery-terminal { margin-top: 20px; padding: 14px 16px; background: #e9ede1; color: #26432d; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; line-height: 1.8; overflow-wrap: anywhere; }
+.discovery-terminal-response { color: #526849; }
+.discovery-skin { min-height: 44px; margin-top: 9px; padding: 9px 0; border: 0; background: transparent; color: var(--moss-dark); font-size: 11px; text-decoration: underline; text-underline-offset: 4px; }
+.discovery-card.is-blueprint { --ink: #e1eef7; --muted: #bacfe0; --moss-dark: #b8dbfa; --rule: #496b89; --paper-light: #15364f; background-image: linear-gradient(#25465e 1px, transparent 1px), linear-gradient(90deg, #25465e 1px, transparent 1px); background-size: 22px 22px; color: var(--ink); border-color: #678cae; }
+.discovery-card.is-blueprint .discovery-terminal { background: #0d283d; color: #e1eef7; }
+.discovery-card.is-blueprint .discovery-terminal-response { color: #afcde3; }
+.discovery-card.is-blueprint button:focus-visible { outline-color: #c4e2fb; }
+.discovery-card.just-discovered .discovery-note { animation: discovery-unfold 450ms ease both; }
+.discovery-card.just-discovered::after { content: "✦"; position: absolute; right: 23px; top: 51px; color: var(--moss-dark); font-size: 19px; pointer-events: none; animation: discovery-spark 850ms ease both; }
+.discovery-storage { margin-top: 22px; max-width: 760px; color: var(--muted); font-size: 11px; line-height: 1.8; }
+@keyframes discovery-unfold { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes discovery-spark { 0% { opacity: 0; transform: translateY(5px) scale(.75); } 35%, 65% { opacity: 1; } 100% { opacity: 0; transform: translateY(-5px) scale(1); } }
+@media (max-width: 700px) { .discovery-grid { grid-template-columns: 1fr; } .discovery-card { padding: 24px; } .discovery-card h3 { font-size: 27px; } .discovery-note > p { font-size: 20px; } }
+@media (prefers-reduced-motion: reduce) { .discovery-card, .discovery-card.just-discovered .discovery-note { transition: none; animation: none; } .discovery-card.just-discovered::after { display: none; } }
+@media print { #discoveries { display: none !important; } }
+
+/* Navigation and two intentional reading paths. */
+html { scroll-padding-top: 166px; }
+.site-header { box-shadow: 0 3px 18px #10251f08; }
+.nav-inner { min-height: 78px; gap: 24px; }
+.mode-bar { border-top: 1px solid var(--rule); background: #e8ebdf; }
+.mode-inner { display: flex; min-height: 60px; align-items: center; justify-content: space-between; gap: 20px; }
+.mode-group { display: flex; align-items: center; gap: 16px; }
+.mode-label { color: var(--muted); font-size: 11px; }
+.mode-switch { display: flex; padding: 4px; border: 1px solid #bcc7b4; background: var(--paper); }
+.mode-switch button { border: 0; background: transparent; color: var(--forest); padding: 9px 15px; min-height: 40px; font-size: 12px; }
+.mode-switch button[aria-pressed="true"] { background: var(--forest); color: var(--paper); }
+.mode-switch small { opacity: .8; font-size: 10px; margin-left: 5px; }
+.mode-tools { display: flex; align-items: center; gap: 24px; }
+.mode-tools a { text-decoration: none; font-size: 12px; }
+.jump-button { display: inline-flex; align-items: center; gap: 10px; background: transparent; border: 1px solid #bac6b3; padding: 8px 12px; min-height: 38px; color: var(--forest); font-size: 11px; }
+kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px solid #b8c3b0; border-radius: 3px; }
+.hero-grid { padding-block: 62px 60px; }
+.hero-play { width: 100%; margin-top: 5px; font-size: 13px; color: var(--moss); }
+.signal-core { text-decoration: none; cursor: pointer; }
+.signal-core:hover { background: #d0dabb; }
+.signal-core:focus-visible { outline-color: #f2f0e8; }
+.board-caption { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.board-caption a { color: #d2dec3; font-size: 11px; }
+.case-tools { padding: 0 50px 24px 76px; display: flex; gap: 18px; }
+.case-tools button { background: transparent; color: var(--moss-dark); border: 0; border-bottom: 1px solid #b3c0a8; font-size: 12px; padding: 6px 0; }
+.work-search-row { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; }
+.work-search { display: flex; align-items: center; border: 1px solid #afbea7; padding: 0 14px; background: var(--paper-light); flex: 1; max-width: 550px; }
+.work-search input { border: 0; background: transparent; color: var(--forest); padding: 13px 10px; min-height: 48px; width: 100%; font-size: 14px; outline: none; }
+.work-search:focus-within { outline: 2px solid var(--moss-dark); outline-offset: 3px; }
+.work-search input::placeholder { color: #566153; }
+.work-search span { font-size: 20px; }
+.clear-search { min-height: 44px; border: 0; border-bottom: 1px solid #a9b6a2; background: transparent; color: var(--forest); padding: 8px; font-size: 12px; }
+.no-results { padding: 30px 25px; border: 1px dashed #a8b99d; color: var(--muted); font-size: 14px; }
+.command-dialog { padding: 0; width: min(580px, calc(100% - 32px)); max-height: min(740px, calc(100dvh - 48px)); overflow: auto; border: 1px solid #8f9f85; background: var(--paper-light); color: var(--forest); box-shadow: 0 24px 100px #07120d55; }
+.command-dialog::backdrop { background: #07120dc7; }
+.command-heading { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--rule); }
+.command-heading h2 { font-family: var(--serif); font-size: 27px; margin: 0; }
+.dialog-close { min-width: 40px; min-height: 40px; border: 1px solid #b2bfa9; background: transparent; color: var(--forest); font-size: 23px; }
+.command-search { padding: 20px 24px 10px; }
+.command-search label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 5px; }
+.command-search input { width: 100%; border: 1px solid #aebfa3; background: white; color: var(--forest); padding: 14px; font-size: 16px; }
+.command-list { list-style: none; margin: 0; padding: 8px 16px 20px; }
+.command-list button,.command-list a { display: flex; justify-content: space-between; gap: 15px; width: 100%; border: 0; background: transparent; color: var(--forest); text-decoration: none; padding: 15px 12px; text-align: left; font-size: 14px; }
+.command-list button:hover,.command-list a:hover { background: #e5eadb; }
+.command-list small { color: var(--muted); font-size: 11px; }
+.command-empty { margin: 12px 24px 25px; font-size: 14px; color: var(--muted); }
+.command-footer { margin: 0; padding: 12px 24px; border-top: 1px solid var(--rule); font-size: 11px; color: var(--muted); }
+.utility-button { border: 0; padding: 0; color: inherit; background: none; text-decoration: underline; text-underline-offset: 4px; }
+.site-footer { font-size: 11px; }
+.footer-shortcuts { display: flex; align-items: center; gap: 20px; }
+.no-js .js-feature { display: none !important; }
+.no-js .recruiter-only { display: block !important; }
+.no-js .case-tools { display: none; }
+.view-status { font-size: 12px; color: var(--muted); }
+@media (max-width: 1100px) { .mode-label { display: none; } .mode-tools { gap: 16px; } }
+@media (max-width: 760px) {
+ html { scroll-padding-top: 150px; }
+ .nav-inner { min-height: 68px; }
+ .nav-contact { display: inline-flex; margin-left: auto; }
+ .mode-inner { min-height: 64px; gap: 8px; }
+ .mode-switch button { font-size: 11px; padding: 9px 10px; }
+ .mode-switch small { display: none; }
+ .mode-tools { gap: 10px; }
+ .mode-tools a { font-size: 11px; }
+ .jump-button { padding: 8px 10px; min-height: 40px; }
+ .jump-button kbd { display: none; }
+ .hero-grid { padding-block: 45px; }
+ .case-tools { padding: 0 0 22px 42px; }
+ .board-caption { flex-wrap: wrap; }
+ .work-search-row { gap: 8px; }
+ .work-search { padding-inline: 8px; }
+ .work-search input { font-size: 12px; }
+ .footer-shortcuts { flex-wrap: wrap; }
+}
+@media (max-width: 480px) {
+ .mode-tools a { display: none; }
+ .mode-switch button { padding-inline: 12px; }
+ .nav-contact { display: none; }
+ .menu-toggle { margin-left: auto; }
+ .mode-inner { gap: 12px; }
+ .mode-group { flex: 1; }
+ .mode-switch { flex: 1; }
+ .mode-switch button { flex: 1; }
+ .mode-tools { flex-shrink: 0; }
+ .command-heading { padding: 16px; }
+ .command-search { padding-inline: 16px; }
+ .command-list { padding-inline: 8px; }
+ .command-list small { max-width: 100px; }
+}
+@media print {
+ .mode-bar,.jump-button,.hero-play,.case-tools,.work-search-row,.command-dialog,.footer-shortcuts,.js-feature,.dr-section,.dg-section { display:none!important; }
+ body[data-mode="recruiter"] .explore-only, body[data-mode="recruiter"] .contact, body[data-mode="recruiter"] .site-footer { display:none!important; }
+ body[data-mode="explore"] .recruiter-only { display:none!important; }
+ .site-header { box-shadow:none; }
+}
+
+@media print { .rb-lenses {break-inside:avoid} .rb-section-label {break-after:avoid} }
+
+.no-js .rb-tabs {display:none}.no-js .rb-lens-panel[hidden] {display:grid!important}@media print {#decision-room,#discoveries {display:none!important}}
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Jaya Harsha Thippana","url":"https://harshathippana1606.github.io/","jobTitle":"Principal Data Scientist","worksFor":{"@type":"Organization","name":"Vizit"},"sameAs":["https://www.linkedin.com/in/jayaharshathippana/","https://github.com/harshathippana1606"]}</script>
 </head>
@@ -445,43 +951,157 @@ li + li { margin-top: 8px; }
 <header class="site-header">
   <div class="container nav-inner">
     <a class="brand" href="#top" aria-label="Jaya Harsha Thippana, home"><span class="brand-mark">jh.</span><span class="brand-name">JAYA HARSHA<br>THIPPANA</span></a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="#leadership">Leadership</a><a href="#work">Selected work</a><a href="#experience">Experience</a></nav>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="#leadership">Leadership</a><a href="#work">Selected work</a><a href="#causal-inference">Experimentation</a><a href="#decision-room">Play</a><a href="#experience">Experience</a></nav>
     <a class="nav-contact" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a>
     <button class="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" hidden>Menu <span aria-hidden="true">+</span></button>
   </div>
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#leadership">Leadership</a><a href="#work">Selected work</a><a href="#experience">Experience</a><a href="#contact">Contact</a><a href="Jaya_Harsha_Thippana_Resume.pdf">Résumé</a></nav>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#leadership">Leadership</a><a href="#work">Selected work</a><a href="#causal-inference">Experimentation</a><a href="#experience">Experience</a><a href="#decision-room">Play the Decision Room</a><a href="#discoveries">Easter eggs</a><a href="#contact">Contact</a><a href="Jaya_Harsha_Thippana_Resume.pdf">Résumé</a></nav>
+<div class="mode-bar js-feature" hidden><div class="container mode-inner"><div class="mode-group"><span class="mode-label">CHOOSE YOUR PATH</span><div class="mode-switch" role="group" aria-label="Portfolio view"><button type="button" data-mode-button="explore" aria-pressed="true">Explore <small>the full story</small></button><button type="button" data-mode-button="recruiter" aria-pressed="false">Recruiter brief <small>60 seconds</small></button></div></div><div class="mode-tools"><a href="#decision-room">Play the Decision Room ↗</a><button type="button" class="jump-button" data-open-commands>Jump to <kbd>⌘ / Ctrl K</kbd></button></div></div></div>
 </header>
 <main id="main">
-  <section class="hero" id="top" aria-labelledby="hero-title">
+<section id="recruiter-view" class="recruiter-only" aria-labelledby="rb-title" hidden>
+  <div class="rb-shell">
+    <header class="rb-hero">
+      <div class="rb-hero-copy">
+        <p class="rb-eyebrow">JAYA HARSHA THIPPANA / RECRUITER VIEW</p>
+        <h1 id="rb-title" tabindex="-1">The 60-second brief.</h1>
+        <p class="rb-intro">AI leadership with the technical depth to build.</p>
+        <p class="rb-summary">I connect scientific judgment, team building and product delivery. My experience spans visual AI, causal inference, randomized experiments and production machine learning.</p>
+        <div class="rb-actions">
+          <a class="rb-button rb-button-primary" href="Jaya_Harsha_Thippana_Resume.pdf">Open résumé <span aria-hidden="true">↗</span></a>
+          <a class="rb-button" href="mailto:harshathippana1606@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <aside class="rb-current" aria-label="Current role at a glance">
+        <p class="rb-eyebrow">CURRENTLY AT VIZIT</p>
+        <p class="rb-current-title">Principal<br>Data Scientist</p>
+        <dl class="rb-facts">
+          <div><dt>Leadership</dt><dd>R&amp;D and Data Science</dd></div>
+          <div><dt>Reporting</dt><dd>Directly to the CEO</dd></div>
+          <div><dt>Team</dt><dd>Lead a team of five</dd></div>
+        </dl>
+        <p class="rb-current-path">Senior → Staff → Principal<br><span>April 2025 – March 2026</span></p>
+      </aside>
+    </header>
+
+    <section class="rb-outcomes" aria-labelledby="rb-outcomes-title">
+      <div class="rb-section-label"><h2 id="rb-outcomes-title">A few outcomes.</h2><p>Different initiatives. Distinct results.</p></div>
+      <div class="rb-outcome-grid">
+        <a class="rb-outcome" href="#case-growth" data-explore-case>
+          <span class="rb-metric">$35M</span><strong>Annualized revenue</strong>
+          <span>Harley-Davidson · Prospect identification</span>
+          <span class="rb-outcome-link">Read the context <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="rb-outcome" href="#case-claims" data-explore-case>
+          <span class="rb-metric">$15M+</span><strong>Annual savings</strong>
+          <span>Northwestern Mutual · Retention</span>
+          <span class="rb-outcome-link">Read the context <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="rb-outcome" href="#case-claims" data-explore-case>
+          <span class="rb-metric">75%</span><strong>Less claims decision time</strong>
+          <span>Northwestern Mutual · Claims automation</span>
+          <span class="rb-outcome-link">Read the context <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+      <p class="rb-evidence-note">Career results reported in my résumé; figures describe separate initiatives.</p>
+    </section>
+
+    <section class="rb-lenses" aria-labelledby="rb-lenses-title">
+      <div class="rb-section-label"><h2 id="rb-lenses-title">What are you hiring for?</h2><p>Four ways to explore the same body of work.</p></div>
+      <div class="rb-tabs" role="tablist" aria-label="Explore capabilities">
+        <button id="rb-tab-leadership" class="rb-tab" role="tab" aria-selected="true" aria-controls="rb-panel-leadership" tabindex="0" data-lens="leadership">Leadership</button>
+        <button id="rb-tab-science" class="rb-tab" role="tab" aria-selected="false" aria-controls="rb-panel-science" tabindex="-1" data-lens="science">Hands-on science</button>
+        <button id="rb-tab-product" class="rb-tab" role="tab" aria-selected="false" aria-controls="rb-panel-product" tabindex="-1" data-lens="product">Product &amp; delivery</button>
+        <button id="rb-tab-experimentation" class="rb-tab" role="tab" aria-selected="false" aria-controls="rb-panel-experimentation" tabindex="-1" data-lens="experimentation">Experimentation</button>
+      </div>
+      <div id="rb-panel-leadership" class="rb-lens-panel" role="tabpanel" aria-labelledby="rb-tab-leadership" tabindex="0" data-lens-panel="leadership">
+        <div><h3>Set direction.<br>Build the team.</h3><p>Scientific strategy, hiring and mentorship, executive communication, and enterprise customer engagement.</p></div>
+        <ul>
+          <li>Lead R&amp;D and Data Science at Vizit, reporting to the CEO.</li>
+          <li>Built a data science function as Harley-Davidson’s first data science hire.</li>
+          <li>Connect scientific decisions with product, engineering and customer needs.</li>
+        </ul>
+        <a href="#case-growth" data-explore-case>See the team-building story <span aria-hidden="true">↗</span></a>
+      </div>
+      <div id="rb-panel-science" class="rb-lens-panel" role="tabpanel" aria-labelledby="rb-tab-science" tabindex="0" data-lens-panel="science" hidden>
+        <div><h3>Go deep.<br>Keep the question useful.</h3><p>Computer vision, representation learning, generative AI, NLP, causal inference and experiment design.</p></div>
+        <ul>
+          <li>Led a shift toward commerce-relevant learning objectives for visual AI.</li>
+          <li>Designed more interpretable score aggregation while retaining ML in the underlying signals.</li>
+          <li>Built production predictive models and reusable methods for imbalanced learning.</li>
+        </ul>
+        <a href="#case-commerce" data-explore-case>See the scientific direction <span aria-hidden="true">↗</span></a>
+      </div>
+      <div id="rb-panel-product" class="rb-lens-panel" role="tabpanel" aria-labelledby="rb-tab-product" tabindex="0" data-lens-panel="product" hidden>
+        <div><h3>Carry the idea<br>into production.</h3><p>Product judgment, validation, production ML pipelines, reusable packages and customer-facing science.</p></div>
+        <ul>
+          <li>Used shadow-mode RCTs and cross-functional delivery to bring interpretable scoring into production.</li>
+          <li>Built and deployed disability-claims prediction at Northwestern Mutual.</li>
+          <li>Made repeated customer impact analysis more accessible through self-serve dashboards.</li>
+        </ul>
+        <a href="#case-scoring" data-explore-case>See a product decision <span aria-hidden="true">↗</span></a>
+      </div>
+      <div id="rb-panel-experimentation" class="rb-lens-panel" role="tabpanel" aria-labelledby="rb-tab-experimentation" tabindex="0" data-lens-panel="experimentation" hidden>
+        <div><h3>From test design<br>to decisions.</h3><p>Causal inference, randomized controlled trials (RCTs), A/B testing, difference-in-differences and experiment design.</p><p class="rb-lens-metric"><span>DELIVERY SCALE AT VIZIT</span><strong>60 impact studies<br>5,000+ analyst hours automated</strong></p></div>
+        <ul>
+          <li>Used RCTs during shadow evaluation of Vizit’s formula-based scores replacing GAM aggregation, assessing the change and building rollout confidence.</li>
+          <li>Applied difference-in-differences to customer impact studies at Vizit.</li>
+          <li>Presented and defended methodology with customer stakeholders, and made repeated analysis accessible through self-serve dashboards.</li>
+        </ul>
+        <div class="rb-lens-links"><a href="#causal-inference" data-explore-case>Explore measurement &amp; experiments <span aria-hidden="true">↗</span></a><a href="#case-delivery" data-explore-case>Read the impact-study case <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="rb-career" aria-labelledby="rb-career-title">
+      <div class="rb-section-label"><h2 id="rb-career-title">The career, at a glance.</h2><a href="Jaya_Harsha_Thippana_CV.pdf">Full CV <span aria-hidden="true">↗</span></a></div>
+      <ol class="rb-timeline">
+        <li><span class="rb-period">2025 – PRESENT</span><div><h3>Vizit <span>Principal Data Scientist</span></h3><p>Scientific direction, team leadership, visual AI products and causal-inference impact studies.</p></div></li>
+        <li><span class="rb-period">2021 – 2025</span><div><h3>Northwestern Mutual <span>Senior Data Scientist</span></h3><p>Production ML for claims and retention, talent management and reusable modeling tools.</p></div></li>
+        <li><span class="rb-period">2019 – 2021</span><div><h3>Harley-Davidson <span>Data Scientist · First data science hire</span></h3><p>Built the function and developed customer intelligence for business decisions.</p></div></li>
+      </ol>
+      <div class="rb-foundation"><p><strong>Earlier</strong> Data science &amp; research at the University of Oklahoma · Java development at Pyro Group.</p><p><strong>Education</strong> M.S. Computer Science, University of Oklahoma · B.Tech Computer Science, JNTU.</p></div>
+    </section>
+
+    <section class="rb-connect" aria-labelledby="rb-connect-title">
+      <div><p class="rb-eyebrow">YOUR NEXT STEP</p><h2 id="rb-connect-title">Let’s compare notes.</h2><p>AI leadership. Scientific depth. Products that make research useful.</p><a class="rb-email" href="mailto:harshathippana1606@gmail.com">harshathippana1606@gmail.com <span aria-hidden="true">↗</span></a></div>
+      <div class="rb-connect-links"><a href="Jaya_Harsha_Thippana_Resume.pdf">Résumé <span aria-hidden="true">↗</span></a><a href="Jaya_Harsha_Thippana_CV.pdf">Full CV <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/jayaharshathippana/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/harshathippana1606" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
+    </section>
+    <div class="rb-utility js-feature" hidden aria-label="Save or share this brief"><button type="button" data-copy-brief>Copy a short introduction</button><button type="button" data-copy-recruiter-link>Copy recruiter link</button><button type="button" data-print-brief>Print / save as PDF</button><a href="?view=recruiter">Direct link to this view <span aria-hidden="true">↗</span></a></div>
+    <p id="rb-copy-status" class="rb-status" role="status" aria-live="polite"></p>
+    <div id="rb-copy-text" hidden>Jaya Harsha Thippana is a Principal Data Scientist at Vizit, where he leads R&amp;D and Data Science, reports directly to the CEO and leads a team of five. His experience combines scientific strategy, hands-on machine learning, causal inference, experimentation, team building and production delivery. His experimentation work includes RCTs during shadow evaluation of Vizit’s transition from GAM aggregation to formula-based scores, as well as difference-in-differences and experiment design. At Vizit, he scaled causal-inference impact studies and self-serve analysis, reporting 60 studies delivered and 5,000+ analyst hours automated. Previously, he was a Senior Data Scientist at Northwestern Mutual and Harley-Davidson’s first data science hire. M.S. Computer Science, University of Oklahoma. Portfolio: https://harshathippana1606.github.io/?view=recruiter · Contact: harshathippana1606@gmail.com</div>
+  </div>
+</section>
+
+  <section class="hero explore-only" id="top" aria-labelledby="hero-title">
     <div class="container hero-grid">
       <div>
         <p class="eyebrow hero-kicker">PRINCIPAL DATA SCIENTIST & AI LEADER</p>
         <h1 id="hero-title">Deep in the science.<br><span class="accent">Accountable for<br>the outcome.</span></h1>
-        <p class="hero-intro">I’m Jaya Harsha Thippana. I build AI systems, lead data science teams, and turn difficult research questions into products people can understand and use.</p>
-        <div class="hero-actions"><a class="button button-light" href="#work">Explore my decisions <span aria-hidden="true">↗</span></a><a class="button button-outline" href="Jaya_Harsha_Thippana_Resume.pdf">View résumé <span aria-hidden="true">↗</span></a></div>
+        <p class="hero-intro">I’m Jaya Harsha Thippana. I build AI systems, lead data science teams, and use causal inference and experimentation to connect scientific decisions with business outcomes.</p>
+        <div class="hero-actions"><a class="button button-light" href="?view=recruiter" data-mode-button="recruiter">Get the 60-second brief <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#work">Explore my decisions <span aria-hidden="true">↗</span></a><a class="hero-play" href="#decision-room">Or step into the Decision Room · a 2-minute game ↗</a></div>
         <div class="hero-meta"><span>Currently at <strong>Vizit</strong></span><span>Boston, MA</span><a href="https://www.linkedin.com/in/jayaharshathippana/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
       </div>
       <div class="hero-visual" aria-label="My approach connects scientific depth, product judgment and delivery to useful decisions.">
         <div class="signal-board">
           <div class="board-top"><span class="board-label">THE WORK, CONNECTED</span><span aria-hidden="true">01 — 03</span></div>
-          <div class="signal-row"><span class="signal-source"><small>01 / SCIENCE</small>Ask the<br>right question.</span><span class="signal-line" aria-hidden="true"></span><span class="signal-core" aria-hidden="true">◎</span></div>
-          <div class="signal-row"><span class="signal-source"><small>02 / JUDGMENT</small>Make the<br>trade-off explicit.</span><span class="signal-line" aria-hidden="true"></span><span class="signal-core" aria-hidden="true">◇</span></div>
-          <div class="signal-row"><span class="signal-source"><small>03 / DELIVERY</small>Build the team.<br>Ship the decision.</span><span class="signal-line" aria-hidden="true"></span><span class="signal-core" aria-hidden="true">↗</span></div>
+          <div class="signal-row"><span class="signal-source"><small>01 / SCIENCE</small>Ask the<br>right question.</span><span class="signal-line" aria-hidden="true"></span><a class="signal-core" href="#discoveries" data-unlock="question" aria-label="Follow the spark: discover a hidden field note" title="A little curiosity goes a long way">◎</a></div>
+          <div class="signal-row"><span class="signal-source"><small>02 / JUDGMENT</small>Make the<br>trade-off explicit.</span><span class="signal-line" aria-hidden="true"></span><a class="signal-core" href="#case-scoring" aria-label="Explore the interpretable scoring decision">◇</a></div>
+          <div class="signal-row"><span class="signal-source"><small>03 / DELIVERY</small>Build the team.<br>Ship the decision.</span><span class="signal-line" aria-hidden="true"></span><a class="signal-core" href="#decision-room" aria-label="Play the Decision Room">↗</a></div>
           <div class="signal-output">Useful intelligence.<br><em>Owned from end to end.</em></div>
-          <p class="board-caption">RESEARCH → PRODUCT → BUSINESS</p>
+          <p class="board-caption"><span>RESEARCH → PRODUCT → BUSINESS</span><a href="#discoveries">4 hidden field notes ↗</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="impact-strip" aria-label="Leadership and selected career results"><div class="container impact-grid">
+  <section class="impact-strip explore-only" aria-label="Leadership and selected career results"><div class="container impact-grid">
     <div class="metric"><span class="metric-value">5</span><span class="metric-label">Data scientists led</span><span class="metric-source">VIZIT · CEO REPORTING</span></div>
     <div class="metric"><span class="metric-value">$35M</span><span class="metric-label">Reported annualized revenue</span><span class="metric-source">HARLEY-DAVIDSON</span></div>
     <div class="metric"><span class="metric-value">$15M+</span><span class="metric-label">Reported annual savings</span><span class="metric-source">NORTHWESTERN MUTUAL</span></div>
     <div class="metric"><span class="metric-value">0 → 1</span><span class="metric-label">Data science function building</span><span class="metric-source">PEOPLE · SYSTEMS · STANDARDS</span></div>
   </div></section>
 
-  <section class="section container" id="leadership" aria-labelledby="leadership-title">
+  <section class="section container explore-only" id="leadership" aria-labelledby="leadership-title">
     <div class="section-heading"><p class="section-index">01 / LEADERSHIP</p><h2 class="section-title" id="leadership-title">The model is one part.<br>The responsibility is bigger.</h2></div>
     <p class="leadership-intro">At Vizit, I lead R&D and Data Science and report directly to the CEO. My work spans scientific direction, hiring and mentorship, production delivery, and explaining the science to enterprise customers. I stay close to the technical decisions while giving the team a clear reason to make them.</p>
     <div class="leadership-grid">
@@ -491,76 +1111,651 @@ li + li { margin-top: 8px; }
     </div>
   </section>
 
-  <section class="section container" id="work" aria-labelledby="work-title">
+<section id="causal-inference" class="section container explore-only" aria-labelledby="ci-title">
+  <div class="ci-heading">
+    <p class="ci-eyebrow">Causal inference &amp; experimentation</p>
+    <h2 id="ci-title">Measure what changed.<br><em>Understand what caused it.</em></h2>
+    <p class="ci-intro">A stronger result starts with a better question: did the intervention make the difference, and is that difference worth acting on?</p>
+  </div>
+
+  <div class="ci-experience">
+    <div class="ci-experience-copy">
+      <span class="ci-eyebrow">From study design to customer decisions</span>
+      <h3>Science that holds up<br>in the customer’s room.</h3>
+      <p>My work at Vizit spans randomized evaluation of a scoring change and difference-in-differences for customer impact studies. I connect study design, interpretation and customer communication, then turn repeatable analysis into self-serve dashboards.</p>
+      <a href="#case-delivery" data-explore-case>Read the customer impact story <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="ci-proof" aria-label="Reported delivery outcomes at Vizit">
+      <p class="ci-proof-label">Reported delivery outcomes / Vizit</p>
+      <div class="ci-metrics">
+        <p><strong>60</strong><span>Customer impact<br>studies delivered</span></p>
+        <p><strong>5,000+</strong><span>Analyst hours automated<br>through dashboards</span></p>
+      </div>
+      <p class="ci-proof-note">Study volume and hours automated describe delivery and efficiency; they are not measures of sales uplift.</p>
+    </div>
+  </div>
+
+  <article class="ci-rct-story"><div><p class="ci-eyebrow">RCTs in practice / Vizit</p><h3>A scoring change.<br>A question of confidence.</h3></div><div><p>When replacing GAM score aggregation with formula-based scores, I used randomized controlled trials during shadow-mode evaluation to understand the size and impact of the change. The tests helped build confidence in the new approach alongside the work of making the score more interpretable.</p><a href="#case-scoring">Explore the scoring transition <span aria-hidden="true">↗</span></a></div></article>
+  <div class="ci-method-heading"><h3>How I approach the work</h3><p>Open a method to explore the thinking.</p></div>
+  <div class="ci-methods">
+    <details class="ci-method" open>
+      <summary><span class="ci-method-number" aria-hidden="true">01</span><span class="ci-method-label"><small>RCTs / A/B tests</small><strong>Randomized experiments</strong></span><span class="ci-method-toggle" aria-hidden="true"></span></summary>
+      <div class="ci-method-body">
+        <p>Start with the decision, then design the test around it.</p>
+        <ul>
+          <li>Choose the unit of assignment and randomize into comparable treatment and control groups.</li>
+          <li>Define the primary metric, guardrails, and a practically meaningful effect before the test.</li>
+          <li>Plan sample size and duration for adequate power; check execution and uncertainty before drawing conclusions.</li>
+        </ul>
+      </div>
+    </details>
+    <details class="ci-method">
+      <summary><span class="ci-method-number" aria-hidden="true">02</span><span class="ci-method-label"><small>Difference-in-differences</small><strong>Quasi-experiments</strong></span><span class="ci-method-toggle" aria-hidden="true"></span></summary>
+      <div class="ci-method-body">
+        <p>When randomization is unavailable, make the assumptions visible.</p>
+        <ul>
+          <li>Find a credible comparison group and examine differences before the intervention.</li>
+          <li>Assess the plausibility of parallel trends; pre-period checks inform that judgment but cannot prove it.</li>
+          <li>Investigate concurrent changes, spillovers, and sensitivity to the analysis choices before attributing an effect.</li>
+        </ul>
+      </div>
+    </details>
+    <details class="ci-method">
+      <summary><span class="ci-method-number" aria-hidden="true">03</span><span class="ci-method-label"><small>Communication / repeatability</small><strong>Decision &amp; scale</strong></span><span class="ci-method-toggle" aria-hidden="true"></span></summary>
+      <div class="ci-method-body">
+        <p>A study is useful when people understand what they can do with it.</p>
+        <ul>
+          <li>Explain the estimated effect, its uncertainty, and its practical size in the customer’s context.</li>
+          <li>Keep conclusions within the design’s limits and distinguish evidence from assumptions.</li>
+          <li>Turn repeatable analysis into dashboards, so the next decision does not require starting over.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+  <div class="ci-invitation"><p>What would you do with a promising signal and imperfect evidence?</p><a href="#decision-room">Try the Decision Room <span aria-hidden="true">↗</span></a></div>
+</section>
+
+  <section class="section container explore-only" id="work" aria-labelledby="work-title">
     <div class="section-heading"><p class="section-index">02 / SELECTED WORK</p><div><h2 class="section-title" id="work-title">Decisions that<br>changed the work.</h2><p class="section-intro">The context, the judgment, and what reached production.<br>Open a case study to follow the reasoning.</p></div></div>
-    <div class="work-toolbar" hidden><div class="filters" role="group" aria-label="Filter case studies"><button class="filter-button" data-filter="all" aria-pressed="true">All work</button><button class="filter-button" data-filter="strategy" aria-pressed="false">AI & product strategy</button><button class="filter-button" data-filter="delivery" aria-pressed="false">Delivery & business impact</button></div><span class="project-count" aria-live="polite">5 case studies</span></div>
+    <div class="work-toolbar js-feature" hidden><div class="filters" role="group" aria-label="Filter case studies"><button class="filter-button" data-filter="all" aria-pressed="true">All work</button><button class="filter-button" data-filter="strategy" aria-pressed="false">AI & product strategy</button><button class="filter-button" data-filter="experimentation" aria-pressed="false">Causal inference & experiments</button><button class="filter-button" data-filter="delivery" aria-pressed="false">Delivery & business impact</button></div><span class="project-count" aria-live="polite">5 case studies</span></div>
+    <div class="work-search-row js-feature" hidden><label class="work-search" for="work-search"><span aria-hidden="true">⌕</span><span class="sr-only">Search case studies</span><input id="work-search" type="search" placeholder="Search by skill, company, or problem…" autocomplete="off"></label><button class="clear-search" type="button" id="clear-search" hidden>Clear filters</button></div><p id="no-results" class="no-results" role="status" hidden>No case studies match. Try a company name, a skill, or clear the filters.</p>
     <div class="case-list">
       <details class="case-study" id="case-commerce" data-category="strategy" open>
         <summary class="case-summary"><span class="case-number">01</span><div><p class="case-company">VIZIT / SCIENTIFIC DIRECTION</p><h3 class="case-heading">Changing what “better” means.</h3><p class="case-tags">Problem framing · Representation learning · Evaluation</p></div><span class="case-toggle" aria-hidden="true"></span></summary>
         <div class="case-body"><p class="case-lede">An image that attracts attention is not necessarily an image that helps someone choose a product. I brought that distinction into the learning problem.</p><div class="case-columns"><div class="case-column"><h4>The context</h4><p>Brands use Vizit to evaluate the imagery on their ecommerce pages. Engagement-based learning offered a useful signal, but the product needed guidance relevant to shopping decisions.</p></div><div class="case-column"><h4>The decision I owned</h4><p>I led a shift toward commerce-related learning objectives. That meant revisiting the target, learning from imperfect labels, and evaluating the resulting signal against the problem the product was meant to solve.</p></div><div class="case-column"><h4>The leadership work</h4><p>I connected the research agenda to customer needs and made the scientific trade-offs explicit. Progress meant improving the relevance of the learning problem, alongside the model itself.</p></div></div><div class="case-outcome"><strong>What changed</strong><p>A new learning direction and scoring approach centered on commerce relevance. Predictive evidence supports that direction; proving that an image change causes more purchases is a separate evaluation.</p></div></div>
+      <div class="case-tools js-feature" hidden><button type="button" data-copy-case="case-commerce">Copy link to this case study ↗</button></div>
       </details>
-      <details class="case-study" id="case-scoring" data-category="strategy">
-        <summary class="case-summary"><span class="case-number">02</span><div><p class="case-company">VIZIT / PRODUCT JUDGMENT</p><h3 class="case-heading">A score customers can reason with.</h3><p class="case-tags">Interpretability · KPI definition · Cross-functional delivery</p></div><span class="case-toggle" aria-hidden="true"></span></summary>
-        <div class="case-body"><p class="case-lede">A competitive ranking can tell you where you stand without telling you what to improve. I made the case for changing the meaning of the score.</p><div class="case-columns"><div class="case-column"><h4>The context</h4><p>The overall product-page score expressed competitive rank. Customers also needed an understandable metric they could use to guide improvements and track a KPI.</p></div><div class="case-column"><h4>The decision I owned</h4><p>I replaced the learned model that combined our signals into an overall score with a more interpretable formula. Machine learning continued to power the underlying signals. The aggregation and explanation changed.</p></div><div class="case-column"><h4>The leadership work</h4><p>I advocated for interpretability as a product requirement and accepted the trade-off: the new number could not retain the old percentile’s meaning. I evaluated the formula against a conversion-related outcome and partnered with product and engineering to deliver it.</p></div></div><div class="case-outcome"><strong>What changed</strong><p>The formula reached production through a controlled release with a clearer scoring definition. Delivery and evaluation are established; customer adoption and causal sales lift are separate measures.</p></div></div>
+      <details class="case-study" id="case-scoring" data-category="strategy experimentation">
+        <summary class="case-summary"><span class="case-number">02</span><div><p class="case-company">VIZIT / PRODUCT JUDGMENT</p><h3 class="case-heading">A score customers can reason with.</h3><p class="case-tags">RCTs · Shadow evaluation · Interpretable scoring</p></div><span class="case-toggle" aria-hidden="true"></span></summary>
+        <div class="case-body"><p class="case-lede">A competitive ranking can tell you where you stand without telling you what to improve. I made the case for changing the meaning of the score.</p><div class="case-columns"><div class="case-column"><h4>The context</h4><p>The overall product-page score expressed competitive rank. Customers also needed an understandable metric they could use to guide improvements and track a KPI.</p></div><div class="case-column"><h4>The decision I owned</h4><p>I replaced the generalized additive model (GAM) used to combine our signals into an overall score with a more interpretable formula. Machine learning continued to power the underlying signals; the aggregation and meaning of the score changed.</p></div><div class="case-column"><h4>The leadership work</h4><p>I advocated for interpretability as a product requirement and accepted that the new score could not retain the old percentile’s meaning. During shadow evaluation, I used randomized controlled trials (RCTs) to understand the magnitude and impact of the scoring change and build confidence in the formula-based approach. I partnered with product and engineering on delivery.</p></div></div><div class="case-outcome"><strong>What changed</strong><p>The formula reached production with a clearer scoring definition. Shadow-mode RCTs helped assess the size and impact of the change and build confidence in the new approach.</p></div></div>
+      <div class="case-tools js-feature" hidden><button type="button" data-copy-case="case-scoring">Copy link to this case study ↗</button></div>
       </details>
-      <details class="case-study" id="case-delivery" data-category="delivery">
-        <summary class="case-summary"><span class="case-number">03</span><div><p class="case-company">VIZIT / CUSTOMER-FACING SCIENCE</p><h3 class="case-heading">Make the evidence useful. Then make it scale.</h3><p class="case-tags">Causal inference · Customer communication · Analytics automation</p></div><span class="case-toggle" aria-hidden="true"></span></summary>
-        <div class="case-body"><p class="case-lede">Enterprise customers needed more than a model score. They needed an understandable account of performance and a repeatable way to examine it.</p><div class="case-columns"><div class="case-column"><h4>The context</h4><p>Measuring commerce imagery requires separating an observed change from the effect attributable to the intervention. Delivering that analysis repeatedly also creates a substantial operational workload.</p></div><div class="case-column"><h4>The work I led</h4><p>I applied difference-in-differences and experiment design to customer impact studies, then built self-serve dashboards to make the analysis repeatable.</p></div><div class="case-column"><h4>The leadership work</h4><p>I presented and defended the methodology directly with customer stakeholders. That brought scientific reasoning, its assumptions, and the customer's business question into the same conversation.</p></div></div><div class="case-outcome"><strong>Reported career results</strong><p>60 impact studies delivered and more than 5,000 analyst hours automated. These are delivery and efficiency outcomes; any causal interpretation of a study depends on its design and assumptions.</p></div></div>
+      <details class="case-study" id="case-delivery" data-category="delivery experimentation">
+        <summary class="case-summary"><span class="case-number">03</span><div><p class="case-company">VIZIT / CAUSAL INFERENCE & EXPERIMENTATION</p><h3 class="case-heading">From observed change to defensible impact.</h3><p class="case-tags">Causal inference · Difference-in-differences · Experiment design</p></div><span class="case-toggle" aria-hidden="true"></span></summary>
+        <div class="case-body"><p class="case-lede">Enterprise customers needed to understand whether imagery changes made a difference. I scaled causal-inference impact studies from experimental design to direct customer presentations.</p><div class="case-columns"><div class="case-column"><h4>The context</h4><p>Measuring commerce imagery requires separating an observed change from the effect attributable to the intervention. Delivering that analysis repeatedly also creates a substantial operational workload.</p></div><div class="case-column"><h4>The work I led</h4><p>I applied difference-in-differences and experiment design to customer impact studies. I carried the work through analysis and customer presentations, then built self-serve dashboards to make repeated analysis scalable.</p></div><div class="case-column"><h4>The leadership work</h4><p>I presented and defended the methodology directly with customer stakeholders. That brought scientific reasoning, its assumptions, and the customer's business question into the same conversation.</p></div></div><div class="case-outcome"><strong>Reported career results</strong><p>60 impact studies delivered and more than 5,000 analyst hours automated. These are delivery and efficiency outcomes; any causal interpretation of a study depends on its design and assumptions.</p></div></div>
+      <div class="case-tools js-feature" hidden><button type="button" data-copy-case="case-delivery">Copy link to this case study ↗</button></div>
       </details>
       <details class="case-study" id="case-growth" data-category="delivery">
         <summary class="case-summary"><span class="case-number">04</span><div><p class="case-company">HARLEY-DAVIDSON / BUILDING FROM ZERO</p><h3 class="case-heading">A data science function built around decisions.</h3><p class="case-tags">Team building · Customer intelligence · Executive communication</p></div><span class="case-toggle" aria-hidden="true"></span></summary>
         <div class="case-body"><p class="case-lede">As the first data science hire, I helped build both the modeling capability and the way the business used its results.</p><div class="case-columns"><div class="case-column"><h4>The context</h4><p>Marketing and product teams needed a more useful view of prospects, rider behavior and customer value.</p></div><div class="case-column"><h4>The work</h4><p>I built prospect-identification models and customer intelligence spanning lifetime value, lead and retention scores, sentiment, and purchase journeys.</p></div><div class="case-column"><h4>The leadership work</h4><p>I grew the function, led data scientists and analysts, and communicated insights to executives. Reusable customer metrics became part of how the business made decisions.</p></div></div><div class="case-outcome"><strong>Reported career result</strong><p>$35M in annualized revenue attributed to the prospect-identification initiative. The result reflects this initiative’s reported business outcome, rather than an independent causal audit.</p></div></div>
+      <div class="case-tools js-feature" hidden><button type="button" data-copy-case="case-growth">Copy link to this case study ↗</button></div>
       </details>
       <details class="case-study" id="case-claims" data-category="delivery">
         <summary class="case-summary"><span class="case-number">05</span><div><p class="case-company">NORTHWESTERN MUTUAL / PRODUCTION ML</p><h3 class="case-heading">Less waiting. More useful intelligence.</h3><p class="case-tags">Claims automation · Retention · Reusable research</p></div><span class="case-toggle" aria-hidden="true"></span></summary>
         <div class="case-body"><p class="case-lede">I brought predictive modeling into claims and retention workflows, while developing methods other data science teams could reuse.</p><div class="case-columns"><div class="case-column"><h4>Claims decisions</h4><p>Built and deployed an XGBoost pipeline for disability claims and worked on language-model extraction of medical terminology from handwritten forms.</p></div><div class="case-column"><h4>Retention decisions</h4><p>Built financial-representative churn prediction and connected model results to business outcomes so teams could act on the signal.</p></div><div class="case-column"><h4>Team capability</h4><p>Managed junior analysts and data scientists and developed a generative-AI oversampling method, packaged as an internal Python library for reuse.</p></div></div><div class="case-outcome"><strong>Reported career results</strong><p>75% less claims decision time and more than $15M in annual savings from the separate retention initiative. These figures describe distinct projects and are not combined.</p></div></div>
+      <div class="case-tools js-feature" hidden><button type="button" data-copy-case="case-claims">Copy link to this case study ↗</button></div>
       </details>
     </div>
     <p class="evidence-note">Career figures are self-reported results from my résumé and prior portfolio. Project narratives describe my contributions within collaborative teams. Predictive performance and causal business impact are distinct claims.</p>
   </section>
 
-  <section class="section container journey" id="experience" aria-labelledby="experience-title">
+<section id="decision-room" class="section container explore-only" aria-labelledby="dr-title">
+  <div class="dr-intro">
+    <div>
+      <p class="dr-kicker">A small experiment in judgment</p>
+      <h2 id="dr-title">The Decision Room<span>.</span></h2>
+    </div>
+    <p class="dr-intro-copy">Step into an AI lead’s shoes. Three decisions, competing priorities, and a chance to see the thinking behind the work.</p>
+  </div>
+  <div id="dr-shell" class="dr-shell" data-dr-phase="intro" data-dr-round="0">
+    <div id="dr-content">
+      <div class="dr-welcome">
+        <div class="dr-welcome-copy">
+          <p class="dr-kicker">Your brief / Visual AI for commerce</p>
+          <h3>A beautiful image.<br>A harder question.</h3>
+          <p>An imaginary commerce team wants AI to help customers choose better product imagery. You decide what to optimize, what evidence to trust, and how to put the result into people’s hands.</p>
+          <div class="dr-start-row"><button type="button" class="dr-primary" data-dr-action="start">Take a seat <span aria-hidden="true">↗</span></button><span>3 decisions · about 2 minutes<br>No timer. No wrong door.</span></div>
+          <p class="dr-fine">A fictional scenario inspired by real areas of my work. Points describe your choices in the game; they are not project results or a leadership assessment.</p>
+        </div>
+        <div class="dr-map" aria-hidden="true">
+          <div class="dr-map-header"><span>THE DECISION PATH</span><span>01—03</span></div>
+          <div class="dr-map-stop"><span>01</span><div><small>DEFINE</small>Choose the right problem.</div><b>↘</b></div>
+          <div class="dr-map-stop"><span>02</span><div><small>TEST</small>Decide what to trust.</div><b>↘</b></div>
+          <div class="dr-map-stop"><span>03</span><div><small>SHIP</small>Make the output useful.</div><b>↗</b></div>
+          <p>Every choice makes a trade-off.<br>That’s where the interesting work begins.</p>
+        </div>
+      </div>
+    </div>
+    <div id="dr-status" class="dr-sr" role="status" aria-live="polite" aria-atomic="true"></div>
+  </div>
+  <noscript><p class="dr-noscript">The Decision Room needs JavaScript. You can still explore the real decisions in the <a href="#case-commerce">commerce learning</a>, <a href="#case-scoring">scoring</a>, and <a href="#case-delivery">customer impact</a> case studies.</p></noscript>
+</section>
+
+  <section class="section container journey explore-only" id="experience" aria-labelledby="experience-title">
     <div class="section-heading"><p class="section-index">03 / EXPERIENCE</p><h2 class="section-title" id="experience-title">A builder’s foundation.<br>A leader’s perspective.</h2></div>
-    <div class="career-item"><p class="career-period">APR 2025 — PRESENT</p><div><h3 class="career-company">Vizit</h3><p class="career-role">Principal Data Scientist</p><p class="career-description">Lead R&D and Data Science, reporting directly to the CEO. Lead five data scientists across scientific direction, product development and customer-facing science.</p><p class="promotion-path">Senior · Apr 2025 <span aria-hidden="true">→</span> Staff · Sep 2025 <span aria-hidden="true">→</span> Principal · Mar 2026</p></div></div>
+    <div class="career-item"><p class="career-period">APR 2025 — PRESENT</p><div><h3 class="career-company">Vizit</h3><p class="career-role">Principal Data Scientist</p><p class="career-description">Lead R&D and Data Science, reporting directly to the CEO. Lead five data scientists across scientific direction, experimentation, product development and customer-facing science.</p><p class="promotion-path">Senior · Apr 2025 <span aria-hidden="true">→</span> Staff · Sep 2025 <span aria-hidden="true">→</span> Principal · Mar 2026</p></div></div>
     <div class="career-item"><p class="career-period">DEC 2021 — APR 2025</p><div><h3 class="career-company">Northwestern Mutual</h3><p class="career-role">Senior Data Scientist</p><p class="career-description">Delivered production machine learning for claims and retention, managed junior talent, and turned new modeling methods into reusable tools.</p></div></div>
     <div class="career-item"><p class="career-period">AUG 2019 — DEC 2021</p><div><h3 class="career-company">Harley-Davidson</h3><p class="career-role">Data Scientist · First data science hire</p><p class="career-description">Built the data science function from zero, grew its team, and developed customer intelligence adopted across the business.</p></div></div>
     <div class="career-item"><p class="career-period">MAR 2018 — JUN 2019</p><div><h3 class="career-company">University of Oklahoma</h3><p class="career-role">Data Scientist · Intern → Data Scientist</p><p class="career-description">Worked on mammography classification research, data pipelines and gray-market device detection. Served as a graduate teaching assistant.</p></div></div>
     <div class="career-item"><p class="career-period">JUN 2016 — JUL 2017</p><div><h3 class="career-company">Pyro Group</h3><p class="career-role">Java Developer</p><p class="career-description">Built dynamic web applications in an agile team. Recognized with the Best Employee award for design and development.</p></div></div>
   </section>
 
-  <section class="section container" aria-labelledby="capability-title">
+  <section class="section container explore-only" aria-labelledby="capability-title">
     <div class="section-heading"><p class="section-index">04 / RANGE</p><h2 class="section-title" id="capability-title">Technical depth.<br>Organizational reach.</h2></div>
-    <div class="capability-grid"><div class="capability-item"><h3>Research & evaluation</h3><p>Computer vision · Representation learning · CLIP · Generative AI · NLP · Causal inference · Experiment design · Imbalanced learning</p></div><div class="capability-item"><h3>Engineering & delivery</h3><p>Python · SQL · XGBoost · ONNX · Production ML pipelines · AWS · Snowflake · Validation · Reusable packages</p></div><div class="capability-item"><h3>Leadership & product</h3><p>Scientific strategy · Hiring & mentorship · Team building · Product judgment · Executive communication · Enterprise customer engagement</p></div></div>
+    <div class="capability-grid"><div class="capability-item"><h3>Research & evaluation</h3><p>Computer vision · Representation learning · CLIP · Generative AI · NLP · Causal inference · RCTs / A/B testing · Difference-in-differences · Experiment design · Imbalanced learning</p></div><div class="capability-item"><h3>Engineering & delivery</h3><p>Python · SQL · XGBoost · ONNX · Production ML pipelines · AWS · Snowflake · Validation · Reusable packages</p></div><div class="capability-item"><h3>Leadership & product</h3><p>Scientific strategy · Hiring & mentorship · Team building · Product judgment · Executive communication · Enterprise customer engagement</p></div></div>
     <div class="education"><p><strong>M.S. Computer Science</strong><br>University of Oklahoma</p><p><strong>B.Tech Computer Science</strong><br>Jawaharlal Nehru Technological University</p><p><strong>English · Hindi · Telugu</strong><br>Languages</p></div>
   </section>
 
-  <section class="principle"><div class="container"><p class="eyebrow">THE QUESTION I COME BACK TO</p><blockquote class="principle-quote">“If this model improves,<br>what becomes a better<br><em>decision for the customer?</em>”</blockquote><p>That question connects how I do science with how I lead.</p></div></section>
+  <section class="principle explore-only"><div class="container"><p class="eyebrow">THE QUESTION I COME BACK TO</p><blockquote class="principle-quote">“If this model improves,<br>what becomes a better<br><em>decision for the customer?</em>”</blockquote><p>That question connects how I do science with how I lead.</p></div></section>
+  <section class="section container explore-only" id="discoveries" aria-labelledby="discoveries-title">
+    <div class="section-heading">
+      <span class="section-index">THE CURIOSITY FILES</span>
+      <div>
+        <h2 class="section-title" id="discoveries-title">A few things for<br><em>the curious.</em></h2>
+        <p class="section-intro">Easter eggs are small surprises tucked into an experience. These four reveal a thought about doing useful AI work. Follow a clue, explore at your own pace, or simply open any note.</p>
+      </div>
+    </div>
+    <div class="discovery-toolbar">
+      <div class="discovery-progress"><span id="discovery-count">4 field notes to explore</span><progress id="discovery-meter" value="0" max="4" aria-label="Field notes discovered" hidden></progress></div>
+      <div class="discovery-reset-actions"><button type="button" class="discovery-text-button" id="discovery-reset" hidden>Reset discoveries</button><button type="button" class="discovery-text-button" id="discovery-undo" hidden>Undo reset</button></div>
+    </div>
+    <div class="discovery-grid">
+      <article class="discovery-card" data-discovery="question">
+        <div class="discovery-card-top"><span class="discovery-number">FIELD NOTE / 01</span><span class="discovery-badge" aria-hidden="true">A better question</span></div>
+        <h3>Before the model.</h3>
+        <p class="discovery-teaser">The smallest spark can change the problem.</p>
+        <details class="discovery-clue" hidden><summary>Reveal a clue</summary><p>There is a small spark near the opening statement. Activate it to find this note.</p><div class="discovery-clue-actions"><a href="#top">Find the spark <span aria-hidden="true">↗</span></a><button type="button" data-discovery-reveal="question">Reveal note now</button></div></details>
+        <div class="discovery-note" id="discovery-note-question"><span class="discovery-note-label">THE PRINCIPLE</span><p>A compass cannot choose your destination. Define whose decision needs to improve before optimizing the route.</p></div>
+      </article>
+      <article class="discovery-card" data-discovery="connection">
+        <div class="discovery-card-top"><span class="discovery-number">FIELD NOTE / 02</span><span class="discovery-badge" aria-hidden="true">Connect the dots</span></div>
+        <h3>Make the bridge visible.</h3>
+        <p class="discovery-teaser">Science becomes useful when it reaches a decision.</p>
+        <details class="discovery-clue" hidden><summary>Reveal a clue</summary><p>With focus outside a text field, type <kbd>THINK</kbd>. On touch devices, or anytime you prefer, use the button below.</p><div class="discovery-clue-actions"><button type="button" data-discovery-reveal="connection">Make the connection</button></div></details>
+        <div class="discovery-note" id="discovery-note-connection"><span class="discovery-note-label">THE PRINCIPLE</span><p>A useful AI system joins a signal people can trust, an explanation they can understand, and an action they can take.</p><div class="discovery-terminal" aria-label="An illustrated connection"><span aria-hidden="true">&gt; </span>connect science → decisions<br><span class="discovery-terminal-response">Connection established.</span></div><button type="button" class="discovery-skin" id="discovery-blueprint" aria-pressed="false" hidden>Try blueprint ink</button></div>
+      </article>
+      <article class="discovery-card" data-discovery="explorer">
+        <div class="discovery-card-top"><span class="discovery-number">FIELD NOTE / 03</span><span class="discovery-badge" aria-hidden="true">Find the pattern</span></div>
+        <h3>Look across the work.</h3>
+        <p class="discovery-teaser">Different settings. A recurring question.</p>
+        <details class="discovery-clue" hidden><summary>Reveal a clue</summary><p>Open three different case studies. Look for how framing, judgment and delivery connect them. <span id="discovery-case-count">0 of 3 explored.</span></p><div class="discovery-clue-actions"><a href="#work">Explore case studies <span aria-hidden="true">↗</span></a><button type="button" data-discovery-reveal="explorer">Reveal note now</button></div></details>
+        <div class="discovery-note" id="discovery-note-explorer"><span class="discovery-note-label">THE PRINCIPLE</span><p>A portfolio is more than a collection of outputs. Look for the decisions behind them: what changed, what was traded off, and what the evidence can actually support.</p></div>
+      </article>
+      <article class="discovery-card" data-discovery="decision-maker">
+        <div class="discovery-card-top"><span class="discovery-number">FIELD NOTE / 04</span><span class="discovery-badge" aria-hidden="true">Own the trade-off</span></div>
+        <h3>There is no magic metric.</h3>
+        <p class="discovery-teaser">The interesting part starts when the options compete.</p>
+        <details class="discovery-clue" hidden><summary>Reveal a clue</summary><p>Finish the decision game to find this note. Different choices expose different trade-offs; there is no perfect score to chase.</p><div class="discovery-clue-actions"><a href="#decision-room">Play the decision game <span aria-hidden="true">↗</span></a><button type="button" data-discovery-reveal="decision-maker">Reveal note now</button></div></details>
+        <div class="discovery-note" id="discovery-note-decision-maker"><span class="discovery-note-label">THE PRINCIPLE</span><p>A dashboard can show the trade-off. Leadership means choosing which one to accept, explaining why, and naming the evidence that would change your mind.</p></div>
+      </article>
+    </div>
+    <p class="discovery-storage" id="discovery-storage">The notes are optional; every career detail is available without collecting them.</p>
+    <p class="sr-only" id="discovery-status" role="status" aria-live="polite" aria-atomic="true"></p>
+  </section>
+
   <section class="contact" id="contact" aria-labelledby="contact-title"><div class="container contact-grid"><div><p class="section-index">05 / LET’S CONNECT</p><h2 class="section-title" id="contact-title">Bring a hard problem.<br>Let’s find the right direction.</h2><p>For conversations about AI leadership, hands-on scientific work, and building teams that turn research into useful products.</p></div><div class="contact-links"><a class="contact-email" href="mailto:harshathippana1606@gmail.com">Email Harsha <span aria-hidden="true">↗</span></a><span>harshathippana1606@gmail.com</span><button class="copy-button" hidden>Copy email</button><a href="https://www.linkedin.com/in/jayaharshathippana/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="Jaya_Harsha_Thippana_Resume.pdf">Résumé ↗</a><a href="Jaya_Harsha_Thippana_CV.pdf">Full CV ↗</a><a href="https://github.com/harshathippana1606" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="container footer-inner"><span>© <span id="year">2026</span> Jaya Harsha Thippana</span><span>Science. Judgment. Impact.</span><a href="#top">Back to top ↑</a></div></footer>
+<footer class="site-footer"><div class="container footer-inner"><span>© <span id="year">2026</span> Jaya Harsha Thippana</span><span>Science. Judgment. Impact.</span><div class="footer-shortcuts"><button class="utility-button js-feature" data-open-commands hidden>Jump to…</button><a href="#main">Back to top ↑</a></div></div></footer>
+<dialog class="command-dialog" id="command-dialog" aria-labelledby="command-title"><div class="command-heading"><h2 id="command-title">Where would you like to go?</h2><button type="button" class="dialog-close" id="close-commands" aria-label="Close quick navigation">×</button></div><div class="command-search"><label for="command-search">FIND A PAGE OR ACTION</label><input id="command-search" type="search" placeholder="Try recruiter, play, résumé…" autocomplete="off"></div><ul class="command-list"><li><button data-command="recruiter">Recruiter brief <small>The 60-second view</small></button></li><li><button data-command="work">Selected work <small>5 case studies</small></button></li><li><button data-command="causal-inference">Causal inference & experimentation <small>RCTs · A/B tests · DiD</small></button></li><li><button data-command="decision-room">Play the Decision Room <small>3 decisions · 2 minutes</small></button></li><li><button data-command="experience">Career & experience <small>A decade of building</small></button></li><li><button data-command="discoveries">Easter eggs & field notes <small>A little curiosity</small></button></li><li><a href="Jaya_Harsha_Thippana_Resume.pdf">Open résumé <small>PDF</small></a></li><li><button data-command="email">Copy email address <small>Start a conversation</small></button></li></ul><p class="command-empty" id="command-empty" hidden>No match. Try “work”, “play”, or “email”.</p><p class="command-footer">Enter to choose · Tab to move · Esc to close</p></dialog>
 <div class="toast" role="status" aria-live="polite"></div>
 <script>
-'use strict';
-document.documentElement.classList.remove('no-js');
-const menu = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.mobile-nav');
-menu.hidden = false;
-menu.addEventListener('click', () => { const expanded = menu.getAttribute('aria-expanded') === 'true'; menu.setAttribute('aria-expanded', String(!expanded)); nav.hidden = expanded; });
-nav.addEventListener('click', event => { if (event.target.closest('a')) { nav.hidden = true; menu.setAttribute('aria-expanded', 'false'); } });
-document.addEventListener('keydown', event => { if (event.key === 'Escape' && !nav.hidden) { nav.hidden = true; menu.setAttribute('aria-expanded', 'false'); menu.focus(); } });
-const toolbar = document.querySelector('.work-toolbar'); toolbar.hidden = false;
-const filters = [...document.querySelectorAll('[data-filter]')];
-const cases = [...document.querySelectorAll('details.case-study')];
-function filterCases(category) { let count = 0; cases.forEach(item => { item.hidden = category !== 'all' && item.dataset.category !== category; if (!item.hidden) count++; }); filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category))); document.querySelector('.project-count').textContent = count + (count === 1 ? ' case study' : ' case studies'); }
-filters.forEach(button => button.addEventListener('click', () => filterCases(button.dataset.filter)));
-function revealLinkedCase() { const id = location.hash.slice(1); const item = cases.find(entry => entry.id === id); if (item) { filterCases('all'); item.open = true; requestAnimationFrame(() => item.scrollIntoView({block: 'start'})); } }
-window.addEventListener('hashchange', revealLinkedCase); revealLinkedCase();
-const copyButton = document.querySelector('.copy-button'); copyButton.hidden = false;
-let toastTimer;
-copyButton.addEventListener('click', async () => { let message; try { await navigator.clipboard.writeText('harshathippana1606@gmail.com'); message = 'Email address copied'; } catch { message = 'Please select and copy the email address above.'; } const toast = document.querySelector('.toast'); toast.textContent = message; toast.classList.add('visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('visible'), 3500); });
-document.getElementById('year').textContent = new Date().getFullYear();
-window.addEventListener('beforeprint', () => cases.forEach(item => { item.dataset.printOpen = String(item.open); item.dataset.printHidden = String(item.hidden); item.open = true; item.hidden = false; }));
-window.addEventListener('afterprint', () => cases.forEach(item => { item.open = item.dataset.printOpen === 'true'; item.hidden = item.dataset.printHidden === 'true'; }));
+(() => {
+ 'use strict';
+ document.documentElement.classList.remove('no-js');
+ const $ = (s, root = document) => root.querySelector(s);
+ const $$ = (s, root = document) => [...root.querySelectorAll(s)];
+ const write = (key, value) => { try { localStorage.setItem(key,value); } catch {} };
+ const read = key => { try { return localStorage.getItem(key); } catch { return null; } };
+ let toastTimer;
+ window.portfolioToast = message => { const el = $('.toast'); el.textContent = message; el.classList.add('visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('visible'),4200); };
+ const menu = $('.menu-toggle'), nav = $('.mobile-nav');
+ const closeMenu = () => { nav.hidden = true; menu.setAttribute('aria-expanded','false'); };
+ menu.hidden = false;
+ menu.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; nav.hidden = !open; menu.setAttribute('aria-expanded',String(open)); });
+ nav.addEventListener('click', event => { if (event.target.closest('a,button')) closeMenu(); });
+ $$('.js-feature').forEach(el => el.hidden = false);
+ const cases = $$('details.case-study'), filterButtons = $$('[data-filter]');
+ let category = 'all';
+ const search = $('#work-search');
+ function filterCases() {
+  const query = search.value.trim().toLocaleLowerCase(); let count = 0;
+  cases.forEach(item => { item.hidden = (category !== 'all' && !item.dataset.category.split(' ').includes(category)) || !item.textContent.toLocaleLowerCase().includes(query); if (!item.hidden) count++; });
+  filterButtons.forEach(button => button.setAttribute('aria-pressed',String(button.dataset.filter === category)));
+  $('.project-count').textContent = count + (count === 1 ? ' case study' : ' case studies');
+  $('#no-results').hidden = count !== 0;
+  $('#clear-search').hidden = !query && category === 'all';
+ }
+ filterButtons.forEach(button => button.addEventListener('click',() => { category = button.dataset.filter; filterCases(); }));
+ search.addEventListener('input',filterCases);
+ $('#clear-search').addEventListener('click',() => { search.value=''; category='all'; filterCases(); search.focus(); });
+ const requestedMode = new URL(location.href).searchParams.get('view');
+ let mode = 'explore';
+ function setMode(next, {save=true, update=true, focus=false, clearHash=true} = {}) {
+  mode = next === 'recruiter' ? 'recruiter' : 'explore';
+  document.body.dataset.mode = mode;
+  $$('.explore-only').forEach(el => el.hidden = mode !== 'explore');
+  $$('.recruiter-only').forEach(el => el.hidden = mode !== 'recruiter');
+  $$('[data-mode-button]').forEach(el => el.setAttribute('aria-pressed',String(el.dataset.modeButton === mode)));
+  if (save) write('jht-portfolio-v2-mode',mode);
+  if (update) { const url = new URL(location.href); url.searchParams.set('view',mode); if (clearHash) url.hash = ''; history.replaceState(null,'',url); }
+  closeMenu();
+  window.dispatchEvent(new CustomEvent('portfolio:modechange',{detail:{mode}}));
+  if (focus) { const target = mode === 'recruiter' ? $('#rb-title') || $('#recruiter-view h1') : $('#hero-title'); if (target) { target.setAttribute('tabindex','-1'); target.focus({preventScroll:true}); } window.scrollTo({top:0,behavior:'instant'}); }
+ }
+ function goTo(hash) {
+  const id = hash.replace(/^#/, '');
+  const target = document.getElementById(id);
+  if (!target) return;
+  if (target.closest('.recruiter-only')) setMode('recruiter',{update:false});
+  else if (target.closest('.explore-only')) setMode('explore',{update:false});
+  if (target.matches('details.case-study')) { category='all'; search.value=''; filterCases(); target.open=true; window.dispatchEvent(new CustomEvent('portfolio:case-view',{detail:{id:target.id}})); }
+  const url = new URL(location.href); url.searchParams.set('view',mode); url.hash=id; history.pushState(null,'',url);
+  closeMenu();
+  target.scrollIntoView({block:'start',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+  const focusTarget = target.matches('details') ? $('summary',target) : $$('h1,h2',target).find(el => el.getClientRects().length) || target;
+  if (!focusTarget.matches('summary,a[href],button,input,select,textarea,[tabindex]')) focusTarget.setAttribute('tabindex','-1');
+  focusTarget.focus({preventScroll:true});
+ }
+ function routeFromURL() {
+  const hash = location.hash.slice(1), target = document.getElementById(hash);
+  const value = new URL(location.href).searchParams.get('view');
+  const next = target?.closest('.explore-only') ? 'explore' : target?.closest('.recruiter-only') ? 'recruiter' : value === 'recruiter' ? 'recruiter' : 'explore';
+  setMode(next,{save:false,update:false});
+  if (target?.matches('details.case-study')) { category='all';search.value='';filterCases();target.open=true; window.dispatchEvent(new CustomEvent('portfolio:case-view',{detail:{id:target.id}})); }
+  if (target) requestAnimationFrame(() => target.scrollIntoView({block:'start',behavior:'instant'}));
+ }
+ document.addEventListener('click',event => {
+  const modeButton = event.target.closest('[data-mode-button]');
+  if (modeButton) { event.preventDefault(); setMode(modeButton.dataset.modeButton,{focus:true}); return; }
+  const anchor = event.target.closest('a[href^="#"]');
+  if (anchor && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) { const id=anchor.getAttribute('href').slice(1); if(document.getElementById(id)) { event.preventDefault(); goTo(id); } }
+ });
+ const storedMode = read('jht-portfolio-v2-mode');
+ setMode(requestedMode === 'recruiter' || requestedMode === 'explore' ? requestedMode : storedMode === 'recruiter' ? 'recruiter' : 'explore',{save:false,update:false});
+ if (location.hash) routeFromURL();
+ window.addEventListener('popstate',routeFromURL); window.addEventListener('hashchange',routeFromURL);
+ window.portfolioNavigate = goTo;
+ async function copyText(text, success, fallbackTarget) {
+  try { await navigator.clipboard.writeText(text); window.portfolioToast(success); if(fallbackTarget) fallbackTarget.textContent=success; }
+  catch { if(fallbackTarget) fallbackTarget.textContent='Copy this text: '+text; else window.portfolioToast('Copy is unavailable here. Select the text or copy the address from your browser.'); }
+ }
+ $$('.copy-button').forEach(button => { button.hidden=false; button.addEventListener('click',() => copyText('harshathippana1606@gmail.com','Email address copied.')); });
+ $$('[data-copy-case]').forEach(button => button.addEventListener('click',() => { const url = new URL(location.href); url.search='?view=explore'; url.hash=button.dataset.copyCase; copyText(url.href,'Case-study link copied.'); }));
+ const briefText = 'Jaya Harsha Thippana — Principal Data Scientist at Vizit. Leads R&D and Data Science, reports to the CEO, and leads five data scientists. Prior roles: Senior Data Scientist at Northwestern Mutual; first data science hire at Harley-Davidson. Experience spans computer vision, representation learning, production ML, causal inference, product judgment, hiring and mentorship. Reported career results: $35M annualized revenue at Harley-Davidson; $15M+ annual savings from Northwestern Mutual retention work; 75% less claims decision time from a separate initiative. M.S. Computer Science, University of Oklahoma. Contact: harshathippana1606@gmail.com. Portfolio: https://harshathippana1606.github.io/?view=recruiter';
+ $$('[data-copy-brief]').forEach(button=>button.addEventListener('click',()=>copyText($('#rb-copy-text')?.textContent.trim() || briefText,'Recruiter summary copied.',$('#rb-copy-status'))));
+ $$('[data-copy-recruiter-link]').forEach(button=>button.addEventListener('click',()=>{const url=new URL(location.href);url.search='?view=recruiter';url.hash='';copyText(url.href,'Recruiter-view link copied.',$('#rb-copy-status'));}));
+ $$('[data-print-brief]').forEach(button=>button.addEventListener('click',()=>window.print()));
+ const lenses=$$('[data-lens]');
+ function activateLens(name,focus=false) { lenses.forEach(button=>{const on=button.dataset.lens===name;button.setAttribute('aria-selected',String(on));button.tabIndex=on?0:-1;if(on&&focus)button.focus();});$$('[data-lens-panel]').forEach(panel=>panel.hidden=panel.dataset.lensPanel!==name); }
+ lenses.forEach((button,index)=>{button.addEventListener('click',()=>activateLens(button.dataset.lens));button.addEventListener('keydown',event=>{let next;if(event.key==='ArrowRight')next=(index+1)%lenses.length;else if(event.key==='ArrowLeft')next=(index+lenses.length-1)%lenses.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=lenses.length-1;else return;event.preventDefault();activateLens(lenses[next].dataset.lens,true);});});
+ if(lenses.length)activateLens(lenses[0].dataset.lens);
+ const dialog=$('#command-dialog'), commandInput=$('#command-search');
+ let previousFocus;
+ function openCommands(){ if(dialog.open)return;previousFocus=document.activeElement;commandInput.value='';filterCommands();dialog.showModal();commandInput.focus(); }
+ function closeCommands(){dialog.close();if(previousFocus?.isConnected && !previousFocus.closest('[hidden]'))previousFocus.focus({preventScroll:true});}
+ function filterCommands(){let n=0;$$('.command-list li').forEach(item=>{item.hidden=!item.textContent.toLowerCase().includes(commandInput.value.toLowerCase());if(!item.hidden)n++;});$('#command-empty').hidden=n!==0;}
+ $$('[data-open-commands]').forEach(button=>button.addEventListener('click',openCommands));
+ $('#close-commands').addEventListener('click',closeCommands);
+ dialog.addEventListener('cancel',event=>{event.preventDefault();closeCommands();});
+ dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)closeCommands();}});
+ commandInput.addEventListener('input',filterCommands);
+ commandInput.addEventListener('keydown',event=>{if(event.key==='ArrowDown'){event.preventDefault();$('.command-list li:not([hidden]) button,.command-list li:not([hidden]) a')?.focus();}if(event.key==='Enter'){event.preventDefault();$('.command-list li:not([hidden]) button,.command-list li:not([hidden]) a')?.click();}});
+ $$('.command-list [data-command]').forEach(button=>button.addEventListener('click',()=>{const cmd=button.dataset.command;closeCommands();if(cmd==='recruiter')setMode('recruiter',{focus:true});else if(cmd==='email')copyText('harshathippana1606@gmail.com','Email address copied.');else goTo(cmd);}));
+ $$('.command-list a').forEach(anchor=>anchor.addEventListener('click',closeCommands));
+ document.addEventListener('keydown',event=>{
+  const editable=event.target.closest('input,textarea,select,[contenteditable="true"],[contenteditable=""]');
+  if(!editable && ((event.key.toLowerCase()==='k' && (event.metaKey||event.ctrlKey)) || (event.key==='/' && !event.metaKey&&!event.ctrlKey&&!event.altKey))){event.preventDefault();openCommands();}
+  if(event.key==='Escape'&&!nav.hidden){closeMenu();menu.focus();}
+ });
+ $('#year').textContent=new Date().getFullYear();
+ window.addEventListener('beforeprint',()=>cases.forEach(item=>{item.dataset.printOpen=String(item.open);item.dataset.printHidden=String(item.hidden);item.open=true;item.hidden=false;}));
+ window.addEventListener('afterprint',()=>cases.forEach(item=>{item.open=item.dataset.printOpen==='true';item.hidden=item.dataset.printHidden==='true';}));
+ filterCases();
+})();
+
+(() => {
+  'use strict';
+  const root = document.getElementById('decision-room');
+  if (!root) return;
+  const shell = root.querySelector('#dr-shell');
+  const content = root.querySelector('#dr-content');
+  const status = root.querySelector('#dr-status');
+  if (!shell || !content || !status) return;
+
+  const axes = ['Evidence', 'Customer', 'Delivery'];
+  const rounds = [
+    {
+      stage: 'Define the problem', title: 'What does “better” mean?',
+      scenario: 'The team can identify images that attract attention. But customers want help choosing imagery that supports a shopping decision. Your first release needs a clear learning objective. Where do you put the effort?',
+      options: [
+        { title: 'Start with attention', body: 'Use the large engagement dataset. Ship a useful baseline while commerce data matures.', points: [1, 2, 3], feedbackTitle: 'Speed, with a proxy to watch.', feedback: 'You get an initial signal into the product sooner. The trade-off: an engaging image may not help someone decide what to buy. Be explicit about what the score measures, and set a plan to test its commerce relevance.' },
+        { title: 'Learn from commerce', body: 'Invest in shopping-related signals, accepting noisier labels and a slower first release.', points: [3, 3, 1], feedbackTitle: 'A more relevant question. A messier dataset.', feedback: 'You align the learning target with the customer’s decision. The trade-off is the extra work of handling imperfect labels and checking what they really capture. A commerce-related prediction still does not prove that changing an image causes a sale.' },
+        { title: 'Start with a narrow use case', body: 'Work with a small customer group to define useful image criteria before scaling the model.', points: [2, 3, 2], feedbackTitle: 'Close to the customer, narrower in scope.', feedback: 'You make the first problem concrete and learn the language customers use. The trade-off: a small group may not represent other categories or audiences. Treat this as a focused starting point and test the boundaries before expanding.' }
+      ]
+    },
+    {
+      stage: 'Evaluate the signal', title: 'A promising pattern. Enough to act?',
+      scenario: 'In this fictional scenario, higher-scoring images appear on pages with stronger sales. The team is excited. Price, traffic, brand, and seasonality could also explain the pattern. What do you recommend next?',
+      options: [
+        { title: 'Launch a measured pilot', body: 'Use the pattern as predictive evidence. Offer a limited pilot with clear caveats and monitoring.', points: [1, 2, 3], feedbackTitle: 'Learn in the field, keep the claim narrow.', feedback: 'A limited pilot can reveal workflow problems and customer needs sooner. But monitoring alone does not isolate the image’s effect. Describe the score as predictive, track possible harms, and avoid presenting the sales pattern as causal proof.' },
+        { title: 'Run a randomized experiment', body: 'Randomly assign eligible visitors to image variants. Test whether imagery changes the conversion outcome.', points: [3, 2, 1], feedbackTitle: 'Stronger identification, a longer runway.', feedback: 'A well-designed experiment can support a causal claim for the tested setting. It also takes time, traffic, and coordination. Define the primary outcome, guardrails and sample plan in advance; check assignment and uncertainty, then consider where the result generalizes.' },
+        { title: 'Triangulate before expanding', body: 'Check category-level stability and plausible confounders, then agree on a bounded rollout.', points: [2, 3, 2], feedbackTitle: 'More angles on the evidence, with limits.', feedback: 'You reduce the risk of a single misleading aggregate and help the customer understand where the signal holds. The trade-off: additional observational checks can still leave unmeasured confounding. Keep the distinction between a useful signal and an identified causal effect.' }
+      ]
+    },
+    {
+      stage: 'Make it useful', title: 'The score is ready. Is the customer?',
+      scenario: 'The model produces several image signals. Customers need a clear way to decide what to improve. Product and engineering can support a focused first release. How do you turn the science into something people can use?',
+      options: [
+        { title: 'Keep one familiar ranking', body: 'Combine the signals into a single rank, with supporting detail available on demand.', points: [2, 1, 3], feedbackTitle: 'Familiar and quick to ship, harder to diagnose.', feedback: 'A ranking gives people a fast comparison and keeps the interface simple. The trade-off: a competitive position may change when peers change, and it may not tell a customer what to improve. Make the meaning and limitations visible.' },
+        { title: 'Make the score explainable', body: 'Use a clear aggregation formula and show how each component contributes to the result.', points: [2, 3, 2], feedbackTitle: 'A number people can reason about.', feedback: 'You give customers a clearer connection between the signals and the score. The trade-off: changing the formula changes the number’s meaning, so old and new values may not be comparable. Validate the definition, explain the transition, and release with care.' },
+        { title: 'Lead with a guided review', body: 'Pair the signals with an analyst-led recommendation and gather feedback before self-service.', points: [3, 2, 1], feedbackTitle: 'Rich context, with a scaling challenge.', feedback: 'A human review can surface ambiguity and establish what customers need explained. The trade-off is ongoing analyst time and slower access. Document repeated questions so the workflow can become a repeatable product rather than a permanent service bottleneck.' }
+      ]
+    }
+  ];
+
+  const state = { phase: 'intro', round: 0, choices: [], scores: [0, 0, 0] };
+  const setPhase = (phase) => { state.phase = phase; shell.dataset.drPhase = phase; shell.dataset.drRound = String(state.round + 1); };
+  const focusHeading = (id) => {
+    const heading = root.querySelector(id);
+    if (heading) heading.focus({ preventScroll: false });
+  };
+  const scoreMarkup = () => `<div class="dr-scores" aria-label="Your emphasis points">${axes.map((axis, i) => `<div class="dr-score"><div class="dr-score-label"><span>${axis}</span><strong>${state.scores[i]} / 9</strong></div><div class="dr-meter" aria-hidden="true"><span style="width:${state.scores[i] / 9 * 100}%"></span></div></div>`).join('')}<p class="dr-score-note">Illustrative emphasis points. More on one axis can mean less on another.</p></div>`;
+  const topbarMarkup = () => `<div class="dr-topbar"><span>${state.phase === 'result' ? 'Your decisions, connected' : `Decision ${state.round + 1} of 3 · ${rounds[state.round].stage}`}</span><ol class="dr-progress" aria-label="Decision progress">${rounds.map((round, i) => `<li class="${i < state.choices.length ? 'dr-complete' : ''}"${state.phase !== 'result' && i === state.round ? ' aria-current="step"' : ''} aria-label="${i + 1}. ${round.stage}${i < state.choices.length ? ', complete' : ''}">${i < state.choices.length ? '✓' : i + 1}</li>`).join('')}</ol></div>`;
+
+  function renderRound() {
+    setPhase('choice');
+    const round = rounds[state.round];
+    content.innerHTML = `${topbarMarkup()}<div class="dr-play"><div class="dr-round-header"><div><p class="dr-kicker">Your move</p><h3 id="dr-round-title" tabindex="-1">${round.title}</h3><p class="dr-scenario">${round.scenario}</p></div>${scoreMarkup()}</div><p class="dr-choice-label" id="dr-choice-prompt">Choose the trade-off you would make.</p><div class="dr-options" role="group" aria-labelledby="dr-choice-prompt">${round.options.map((option, i) => `<button type="button" class="dr-choice" data-dr-choice="${i}"><span class="dr-choice-letter" aria-hidden="true">${String.fromCharCode(65 + i)}</span><strong>${option.title}</strong><span>${option.body}</span></button>`).join('')}</div><div id="dr-feedback-slot"></div></div>`;
+    status.textContent = '';
+    focusHeading('#dr-round-title');
+  }
+
+  function choose(index) {
+    if (state.phase !== 'choice' || !Number.isInteger(index) || !rounds[state.round].options[index]) return;
+    setPhase('feedback');
+    const choice = rounds[state.round].options[index];
+    state.choices.push(index);
+    state.scores = state.scores.map((value, i) => value + choice.points[i]);
+    root.querySelectorAll('[data-dr-choice]').forEach((button) => {
+      const selected = Number(button.dataset.drChoice) === index;
+      button.disabled = true;
+      button.classList.add(selected ? 'dr-selected' : 'dr-unselected');
+      button.setAttribute('aria-pressed', String(selected));
+    });
+    root.querySelector('.dr-round-header .dr-scores').outerHTML = scoreMarkup();
+    root.querySelector('#dr-feedback-slot').innerHTML = `<div class="dr-feedback"><h4 class="dr-feedback-title" id="dr-feedback-title" tabindex="-1">${choice.feedbackTitle}</h4><p>${choice.feedback}</p><div class="dr-tradeoff" aria-label="Points from this decision">${axes.map((axis, i) => `<span>${axis} +${choice.points[i]}</span>`).join('')}</div><div class="dr-feedback-footer"><p>There is a cost to every route. These points show emphasis in this simulation, not a right or wrong answer.</p><button type="button" class="dr-primary" data-dr-action="next">${state.round === 2 ? 'See your debrief' : 'Next decision'} <span aria-hidden="true">→</span></button></div></div>`;
+    status.textContent = `Decision recorded: ${choice.title}. Evidence ${state.scores[0]}, Customer ${state.scores[1]}, Delivery ${state.scores[2]} emphasis points.`;
+    focusHeading('#dr-feedback-title');
+  }
+
+  function getRoute() {
+    const max = Math.max(...state.scores);
+    const leaders = state.scores.reduce((list, value, i) => value === max ? list.concat(i) : list, []);
+    if (leaders.length > 1) return { title: 'A balance of priorities.', short: 'Balanced priorities', text: 'Your choices spread the emphasis across multiple priorities. That balance still has costs: the next step is to make the trade-offs explicit and agree on what the team will test, deliver, and revisit.' };
+    return [
+      { title: 'Evidence at the center.', short: 'Evidence first', text: 'Your route placed the greatest emphasis on reducing uncertainty. That can strengthen the case for a decision; the next challenge is to make the evidence usable and agree on when it is sufficient to act.' },
+      { title: 'The customer’s decision first.', short: 'Customer first', text: 'Your route placed the greatest emphasis on relevance and usability. That keeps the work connected to a real decision; the next challenge is to validate the signal and make the experience repeatable.' },
+      { title: 'Momentum, with intent.', short: 'Delivery first', text: 'Your route placed the greatest emphasis on getting something useful into people’s hands. That creates opportunities to learn; the next challenge is to keep claims proportional to the evidence and protect time for validation.' }
+    ][leaders[0]];
+  }
+
+  function finish() {
+    if (state.phase !== 'feedback' || state.round !== 2 || state.choices.length !== 3) return;
+    setPhase('result');
+    const route = getRoute();
+    const debriefs = [
+      { label: '01 / A relevant objective', title: 'What should the model learn?', copy: 'In my commerce-learning work, I shifted the objective toward shopping relevance and worked through imperfect labels.', target: 'case-commerce', link: 'Explore the learning decision' },
+      { label: '02 / A defensible claim', title: 'What does the evidence support?', copy: 'In customer impact work, I used experiment design and difference-in-differences, then made the analysis repeatable.', target: 'case-delivery', link: 'Explore customer impact' },
+      { label: '03 / A usable product', title: 'What does the number mean?', copy: 'In scoring work, I replaced GAM aggregation with an interpretable formula, used shadow-mode RCTs to assess the change, and partnered on delivery.', target: 'case-scoring', link: 'Explore the scoring decision' }
+    ];
+    content.innerHTML = `${topbarMarkup()}<div class="dr-result"><div class="dr-result-heading"><div><p class="dr-kicker">Decision maker unlocked · 3 of 3</p><h3 class="dr-result-title" id="dr-result-title" tabindex="-1">${route.title}</h3><p>${route.text}</p></div>${scoreMarkup()}</div><p class="dr-choice-label">The scenario was fictional. The questions connect to real work.</p><div class="dr-result-links">${debriefs.map((item, i) => `<article class="dr-result-card"><span>${item.label}</span><h4>${item.title}</h4><p><strong>Your choice:</strong> ${rounds[i].options[state.choices[i]].title}.</p><p>${item.copy}</p><a href="#${item.target}" data-dr-case="${item.target}">${item.link} <span aria-hidden="true">↗</span></a></article>`).join('')}</div><div class="dr-result-actions"><button type="button" class="dr-primary" data-dr-action="replay">Try another route <span aria-hidden="true">↻</span></button><button type="button" class="dr-secondary" data-dr-action="copy">Copy my game result</button></div><p id="dr-share-status" class="dr-share-status" role="status" aria-live="polite"></p><div id="dr-share-fallback-slot"></div><p class="dr-fine">This is a reflection game, not a personality test. The points are illustrative and do not describe actual project performance. Nothing is submitted or sent.</p></div>`;
+    status.textContent = 'All three decisions complete. Decision maker unlocked.';
+    window.dispatchEvent(new CustomEvent('portfolio:unlock', { detail: { id: 'decision-maker' } }));
+    focusHeading('#dr-result-title');
+  }
+
+  async function copyResult() {
+    if (state.phase !== 'result') return;
+    const result = `I completed The Decision Room — a fictional, three-decision AI leadership game. My route: ${getRoute().short}. Illustrative emphasis points: Evidence ${state.scores[0]}/9, Customer ${state.scores[1]}/9, Delivery ${state.scores[2]}/9. Try it: https://harshathippana1606.github.io/#decision-room`;
+    const shareStatus = root.querySelector('#dr-share-status');
+    const fallbackSlot = root.querySelector('#dr-share-fallback-slot');
+    try {
+      if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(result);
+      if (!shareStatus.isConnected) return;
+      shareStatus.textContent = 'Game result copied. Share it wherever you like.';
+      fallbackSlot.replaceChildren();
+    } catch (_) {
+      if (!shareStatus.isConnected) return;
+      shareStatus.textContent = 'Select and copy the game result below.';
+      fallbackSlot.innerHTML = '<textarea class="dr-share-fallback" id="dr-share-text" readonly aria-label="Your game result to copy"></textarea>';
+      const field = root.querySelector('#dr-share-text');
+      field.value = result;
+      field.focus();
+      field.select();
+    }
+  }
+
+  root.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-dr-action], [data-dr-choice], [data-dr-case]');
+    if (!button || !root.contains(button)) return;
+    if (button.hasAttribute('data-dr-choice')) { choose(Number(button.dataset.drChoice)); return; }
+    if (button.dataset.drCase) {
+      const detail = document.getElementById(button.dataset.drCase);
+      if (detail) { detail.hidden = false; detail.open = true; }
+      return;
+    }
+    const action = button.dataset.drAction;
+    if ((action === 'start' && state.phase === 'intro') || (action === 'replay' && state.phase === 'result')) {
+      state.round = 0; state.choices = []; state.scores = [0, 0, 0]; renderRound();
+    } else if (action === 'next' && state.phase === 'feedback') {
+      if (state.round === 2) finish();
+      else { state.round += 1; renderRound(); }
+    } else if (action === 'copy') copyResult();
+  });
+})();
+
+/* Optional field notes, with equivalent pointer, touch and keyboard paths. */
+(() => {
+  function initializeDiscoveries() {
+    const section = document.getElementById('discoveries');
+    if (!section || section.dataset.initialized === 'true') return;
+    section.dataset.initialized = 'true';
+    const storageKey = 'jht-portfolio-v2-discoveries';
+    const ids = ['question', 'connection', 'explorer', 'decision-maker'];
+    const cards = new Map(ids.map(id => [id, section.querySelector('[data-discovery="' + id + '"]')]));
+    const cases = Array.from(document.querySelectorAll('details.case-study'));
+    const caseIds = new Set(cases.map((item, index) => item.id || 'case-' + index));
+    const count = section.querySelector('#discovery-count');
+    const meter = section.querySelector('#discovery-meter');
+    const status = section.querySelector('#discovery-status');
+    const reset = section.querySelector('#discovery-reset');
+    const undo = section.querySelector('#discovery-undo');
+    const skin = section.querySelector('#discovery-blueprint');
+    const storageNote = section.querySelector('#discovery-storage');
+    let unlocked = new Set();
+    let seenCases = new Set();
+    let resetSnapshot = null;
+    let storageAvailable = true;
+    let announcementTimer;
+    let keyboardBuffer = '';
+    let keyboardLastAt = 0;
+
+    function storageDescription() {
+      storageNote.textContent = storageAvailable
+        ? 'Discoveries are saved only in this browser. Every career detail is available without collecting them.'
+        : 'Discoveries last for this visit because browser storage is unavailable. Every career detail is available without collecting them.';
+    }
+    function save() {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify({ unlocked: Array.from(unlocked), seenCases: Array.from(seenCases) }));
+        storageAvailable = true;
+      } catch (_) { storageAvailable = false; }
+      storageDescription();
+    }
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (raw && raw.length < 5000) {
+        const saved = JSON.parse(raw);
+        if (saved && typeof saved === 'object') {
+          if (Array.isArray(saved.unlocked)) unlocked = new Set(saved.unlocked.filter(id => ids.includes(id)));
+          if (Array.isArray(saved.seenCases)) seenCases = new Set(saved.seenCases.filter(id => caseIds.has(id)));
+        }
+      }
+      // Verify storage without keeping a second key or changing existing progress.
+      save();
+    } catch (_) { storageAvailable = false; }
+
+    function announce(message) {
+      clearTimeout(announcementTimer);
+      status.textContent = '';
+      announcementTimer = setTimeout(() => { status.textContent = message; }, 30);
+    }
+    function refresh() {
+      cards.forEach((card, id) => {
+        if (!card) return;
+        const found = unlocked.has(id);
+        card.classList.toggle('is-discovered', found);
+        card.querySelector('.discovery-note').hidden = !found;
+        card.querySelector('.discovery-clue').hidden = found;
+        card.querySelector('.discovery-badge').textContent = found ? '✓ Discovered' : 'Not yet discovered';
+      });
+      count.textContent = unlocked.size + ' / 4 field notes discovered';
+      meter.hidden = false;
+      meter.value = unlocked.size;
+      reset.hidden = unlocked.size === 0 && seenCases.size === 0;
+      undo.hidden = !resetSnapshot;
+      skin.hidden = !unlocked.has('connection');
+      section.querySelector('#discovery-case-count').textContent = Math.min(seenCases.size, 3) + ' of 3 explored.';
+      storageDescription();
+    }
+    function unlock(id) {
+      if (!ids.includes(id) || unlocked.has(id)) return false;
+      const card = cards.get(id);
+      if (!card) return false;
+      const focusWasInClue = card.querySelector('.discovery-clue').contains(document.activeElement);
+      unlocked.add(id);
+      resetSnapshot = null;
+      refresh();
+      save();
+      card.classList.add('just-discovered');
+      setTimeout(() => card.classList.remove('just-discovered'), 1000);
+      const title = card.querySelector('h3').textContent;
+      const message = unlocked.size === 4 ? 'All four field notes discovered. Curiosity looks good on you.' : 'Field note discovered: ' + title + ' ' + unlocked.size + ' of 4.';
+      if (typeof window.portfolioToast === 'function') window.portfolioToast(message);
+      else announce(message);
+      // A revealed clue disappears; move focus to the content it revealed.
+      if (focusWasInClue) {
+        const note = card.querySelector('.discovery-note');
+        note.tabIndex = -1;
+        note.focus({ preventScroll: true });
+      }
+      return true;
+    }
+    function rememberCase(item, index) {
+      if (!item.open || item.hidden || window.matchMedia('print').matches) return;
+      const id = item.id || 'case-' + index;
+      if (seenCases.has(id)) return;
+      seenCases.add(id);
+      resetSnapshot = null;
+      if (seenCases.size >= 3) unlock('explorer');
+      refresh();
+      save();
+    }
+
+    // Listen for deliberate case-study interactions, including an already open first case.
+    cases.forEach((item, index) => {
+      item.addEventListener('toggle', () => { if (item.dataset.discoveryTouched === 'true') rememberCase(item, index); });
+      item.querySelector('summary')?.addEventListener('click', () => {
+        item.dataset.discoveryTouched = 'true';
+        if (item.open) rememberCase(item, index);
+      });
+    });
+    window.addEventListener('portfolio:case-view', event => {
+      const index = cases.findIndex(item => item.id === event.detail?.id);
+      if (index !== -1) rememberCase(cases[index], index);
+    });
+    document.addEventListener('click', event => {
+      if (!(event.target instanceof Element)) return;
+      const trigger = event.target.closest('[data-unlock], [data-discovery-reveal]');
+      if (!trigger) return;
+      unlock(trigger.dataset.unlock || trigger.dataset.discoveryReveal);
+    });
+    document.addEventListener('portfolio:unlock', event => {
+      unlock(typeof event.detail === 'string' ? event.detail : event.detail?.id);
+    });
+    window.addEventListener('portfolio:unlock', event => {
+      // Supports non-bubbling events dispatched directly on window as well.
+      if (event.target === window) unlock(typeof event.detail === 'string' ? event.detail : event.detail?.id);
+    });
+    document.addEventListener('keydown', event => {
+      const target = event.target;
+      if (event.ctrlKey || event.metaKey || event.altKey || event.isComposing || event.repeat ||
+          (target instanceof Element && (target.closest('input, textarea, select, [role="textbox"]') || target.isContentEditable))) {
+        keyboardBuffer = '';
+        return;
+      }
+      if (event.key.length !== 1 || !/^[a-z]$/i.test(event.key)) { keyboardBuffer = ''; return; }
+      const now = Date.now();
+      if (now - keyboardLastAt > 2500) keyboardBuffer = '';
+      keyboardLastAt = now;
+      keyboardBuffer = (keyboardBuffer + event.key.toLowerCase()).slice(-5);
+      if (keyboardBuffer === 'think') { unlock('connection'); keyboardBuffer = ''; }
+    });
+    skin.addEventListener('click', () => {
+      const enabled = skin.getAttribute('aria-pressed') !== 'true';
+      skin.setAttribute('aria-pressed', String(enabled));
+      cards.get('connection').classList.toggle('is-blueprint', enabled);
+      skin.textContent = enabled ? 'Return to field-note ink' : 'Try blueprint ink';
+    });
+    reset.addEventListener('click', () => {
+      resetSnapshot = { unlocked: new Set(unlocked), seenCases: new Set(seenCases), blueprint: skin.getAttribute('aria-pressed') === 'true' };
+      unlocked = new Set();
+      seenCases = new Set();
+      keyboardBuffer = '';
+      cards.get('connection').classList.remove('is-blueprint');
+      skin.setAttribute('aria-pressed', 'false');
+      skin.textContent = 'Try blueprint ink';
+      cases.forEach(item => { delete item.dataset.discoveryTouched; });
+      try { localStorage.removeItem(storageKey); } catch (_) { storageAvailable = false; }
+      refresh();
+      announce('Discoveries reset. You can undo this until you discover another note or open another case study.');
+      undo.focus({ preventScroll: true });
+    });
+    undo.addEventListener('click', () => {
+      if (!resetSnapshot) return;
+      unlocked = new Set(resetSnapshot.unlocked);
+      seenCases = new Set(resetSnapshot.seenCases);
+      const blueprint = resetSnapshot.blueprint;
+      resetSnapshot = null;
+      cards.get('connection').classList.toggle('is-blueprint', blueprint);
+      skin.setAttribute('aria-pressed', String(blueprint));
+      skin.textContent = blueprint ? 'Return to field-note ink' : 'Try blueprint ink';
+      refresh();
+      save();
+      announce('Your previous discoveries have been restored.');
+      reset.focus({ preventScroll: true });
+    });
+    window.portfolioDiscoveries = { unlock, refresh };
+    // Routing can happen before this module initializes; include that deliberate visit.
+    const initialCaseIndex = cases.findIndex(item => item.id === location.hash.slice(1));
+    if (initialCaseIndex !== -1 && !cases[initialCaseIndex].closest('[hidden]')) rememberCase(cases[initialCaseIndex], initialCaseIndex);
+    refresh();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initializeDiscoveries, { once: true });
+  else initializeDiscoveries();
+})();
+
 </script>
 </body>
 </html>
