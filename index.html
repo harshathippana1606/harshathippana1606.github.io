@@ -943,6 +943,183 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
 @media print { .rb-lenses {break-inside:avoid} .rb-section-label {break-after:avoid} }
 
 .no-js .rb-tabs {display:none}.no-js .rb-lens-panel[hidden] {display:grid!important}@media print {#decision-room,#discoveries {display:none!important}}
+/* A local, prepared-answer guide. All visual hooks use pg-. */
+.pg-feature-body { display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 28px; }
+.pg-feature-aside { padding: 0 12px 0 0; }
+.pg-feature-mark { display: block; width: 53px; height: 53px; margin-bottom: 24px; border: 1px solid #a5b398; color: var(--moss-dark); text-align: center; font-family: var(--serif); font-size: 36px; line-height: 51px; }
+.pg-feature-aside > p { margin-bottom: 18px; font-family: var(--serif); font-size: 20px; line-height: 1.35; }
+.pg-feature-caption { color: var(--muted); font-size: 10px; line-height: 1.8; }
+.pg-question-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.pg-question { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 19px; min-height: 160px; padding: 24px 49px 24px 25px; border: 0; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--paper-light); color: var(--forest); text-align: left; transition: background 150ms ease; }
+.pg-question:hover { background: #e5eadc; }
+.pg-question-label { color: var(--moss-dark); font-size: 9px; line-height: 1.6; letter-spacing: 1px; text-transform: uppercase; }
+.pg-question-text { max-width: 320px; font-family: var(--serif); font-size: clamp(21px,2vw,27px); line-height: 1.2; letter-spacing: -.5px; }
+.pg-question-arrow { position: absolute; right: 22px; bottom: 26px; color: var(--moss-dark); font-size: 22px; }
+.pg-feature-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 24px; margin-top: 25px; }
+.pg-feature-actions > a { font-size: 12px; }
+.pg-open-button:hover { background: var(--forest-soft); }
+.pg-feature-note { margin: 16px 0 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+.pg-launcher { position: fixed; z-index: 40; right: 23px; bottom: max(20px,env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 12px; min-height: 62px; padding: 12px 19px; border: 1px solid #6c8068; border-radius: 3px; background: var(--forest); color: var(--paper-light); box-shadow: 0 5px 20px #10251f26; text-align: left; font-size: 14px; line-height: 1.4; transition: background 150ms ease, border-color 150ms ease; }
+.pg-launcher:hover { background: var(--forest-soft); border-color: var(--moss); }
+.pg-launcher > svg { width: 24px; height: 24px; flex: none; color: var(--moss); }
+.pg-launcher small { display: block; margin-top: 2px; color: #c5d0b9; font-size: 9px; letter-spacing: .5px; }
+.pg-launcher:focus-visible { outline-offset: 4px; }
+body:has(.pg-launcher:not([hidden])) .toast { bottom: 101px; }
+.pg-dialog { width: min(1050px,calc(100vw - 40px)); height: min(810px,calc(100dvh - 40px)); max-width: none; max-height: none; padding: 0; overflow: hidden; border: 1px solid #899a7d; border-radius: 0; background: var(--paper-light); color: var(--forest); box-shadow: 0 24px 100px #07120d55; }
+.pg-dialog[open] { display: grid; grid-template-rows: auto minmax(0,1fr) auto; }
+.pg-dialog::backdrop { background: #07120dc7; }
+.pg-dialog button:focus-visible, .pg-dialog a:focus-visible, .pg-dialog input:focus-visible, .pg-transcript:focus-visible { outline: 3px solid var(--moss-dark); outline-offset: 3px; }
+.pg-dialog-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 24px 28px 22px; border-bottom: 1px solid #3a5140; background: var(--forest); color: var(--paper-light); }
+.pg-eyebrow { margin: 0 0 6px; color: var(--moss); font-size: 9px; line-height: 1.5; letter-spacing: 1.7px; text-transform: uppercase; }
+.pg-dialog-header h2 { margin: 0; font-family: var(--serif); font-size: 39px; line-height: 1.15; letter-spacing: -1.3px; }
+.pg-title-dot { color: var(--moss); }
+.pg-header-caption { margin: 8px 0 0; color: #c5d0be; font-size: 11px; line-height: 1.5; }
+.pg-close { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 1px solid #61765d; background: transparent; color: var(--paper-light); font-size: 30px; line-height: 1; }
+.pg-close:hover { border-color: var(--moss); background: var(--forest-soft); }
+.pg-dialog .pg-close:focus-visible { outline-color: var(--moss); }
+.pg-dialog-body { display: grid; grid-template-columns: 230px minmax(0,1fr); min-height: 0; }
+.pg-topic-rail { padding: 25px 19px; overflow: auto; border-right: 1px solid var(--rule); background: #e9ecdf; }
+.pg-rail-title { display: block; margin: 0 0 15px; color: var(--moss-dark); font-size: 9px; line-height: 1.5; letter-spacing: 1.2px; text-transform: uppercase; }
+.pg-topic-list { display: flex; flex-direction: column; gap: 3px; }
+.pg-topic { display: flex; align-items: baseline; gap: 11px; width: 100%; min-height: 41px; padding: 9px 7px; border: 1px solid transparent; background: transparent; color: var(--forest); text-align: left; font-size: 12px; line-height: 1.55; }
+.pg-topic > span { color: var(--moss-dark); font-size: 9px; }
+.pg-topic:hover { border-color: #c8d2bc; background: #dde5d2; }
+.pg-topic[aria-current="true"], .pg-topic[aria-pressed="true"] { border-color: #bdcbaa; background: #d6e0c9; }
+.pg-depth-control { padding-top: 24px; margin-top: 19px; border-top: 1px solid #c9d2bd; }
+.pg-depth-control .pg-rail-title { margin-bottom: 10px; }
+.pg-depth-buttons { display: flex; }
+.pg-depth-buttons button { flex: 1; min-height: 35px; padding: 7px 10px; border: 1px solid #acba9d; background: transparent; color: var(--forest); font-size: 11px; }
+.pg-depth-buttons button + button { border-left: 0; }
+.pg-depth-buttons button[aria-pressed="true"] { background: var(--forest); border-color: var(--forest); color: var(--paper-light); }
+.pg-rail-note { margin-top: 24px; color: var(--muted); font-family: var(--serif); font-size: 17px; line-height: 1.4; }
+.pg-conversation { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.pg-transcript { flex: 1; min-height: 80px; padding: 25px 29px 14px; overflow: auto; overscroll-behavior: contain; scrollbar-color: #a0b18f #eff0e7; scrollbar-width: thin; }
+.pg-message { max-width: 100%; margin-bottom: 24px; overflow-wrap: anywhere; }
+.pg-message:last-child { margin-bottom: 10px; }
+.pg-message-label { margin: 0 0 9px; color: var(--moss-dark); font-size: 9px; font-weight: 500; line-height: 1.5; letter-spacing: 1.2px; text-transform: uppercase; }
+.pg-message-user { margin-left: 38px; padding: 14px 18px; border-left: 2px solid #9caf8c; background: #e6ebdc; color: var(--forest); }
+.pg-message-user p { font-size: 13px; line-height: 1.7; }
+.pg-message-user .pg-message-label { margin-bottom: 5px; }
+.pg-message-guide h3, .pg-answer h3 { margin: 0 0 13px; font-family: var(--serif); font-size: 26px; line-height: 1.25; letter-spacing: -.5px; }
+.pg-message-guide p, .pg-answer p { margin-bottom: 13px; font-size: 14px; line-height: 1.8; }
+.pg-message-guide p:last-child, .pg-answer p:last-child { margin-bottom: 0; }
+.pg-message-guide ul, .pg-answer ul { margin: 10px 0 16px; padding-left: 19px; font-size: 14px; line-height: 1.75; }
+.pg-message-guide li + li, .pg-answer li + li { margin-top: 7px; }
+.pg-message-guide strong { font-weight: 600; }
+.pg-answer-note { padding: 11px 14px; border-left: 2px solid #9aab88; background: #edf0e5; color: var(--muted); font-size: 12px !important; }
+.pg-source-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 15px; padding-top: 13px; margin-top: 17px; border-top: 1px solid var(--rule); }
+.pg-source-links > span { color: var(--muted); font-size: 9px; line-height: 1.5; text-transform: uppercase; letter-spacing: 1px; }
+.pg-source-links a { font-size: 11px; line-height: 1.7; }
+.pg-followups { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 15px; }
+.pg-followups button { max-width: 100%; padding: 7px 11px; border: 1px solid #c3cfb7; background: transparent; color: var(--moss-dark); text-align: left; font-size: 11px; line-height: 1.55; }
+.pg-followups button:hover { background: #e9eedf; color: var(--forest); }
+.pg-starters { display: flex; flex-wrap: wrap; gap: 8px; padding: 7px 29px 17px; }
+.pg-starters button { padding: 8px 11px; border: 1px solid #c9d2be; background: #f0f2e9; color: var(--forest); font-size: 11px; line-height: 1.5; text-align: left; }
+.pg-starters button:hover { background: #e1e8d7; }
+.pg-starters button > span { margin-left: 7px; color: var(--moss-dark); }
+.pg-form { flex: none; padding: 17px 29px 13px; border-top: 1px solid var(--rule); background: var(--paper-light); }
+.pg-form > label { display: block; margin-bottom: 8px; font-size: 11px; font-weight: 600; line-height: 1.6; }
+.pg-input-row { display: flex; align-items: stretch; gap: 8px; }
+.pg-input-row input { flex: 1; min-width: 0; min-height: 46px; padding: 11px 12px; border: 1px solid #acb9a1; border-radius: 0; background: white; color: var(--forest); font-size: 14px; line-height: 1.5; }
+.pg-input-row input::placeholder { opacity: 1; color: #62725c; font-size: 12px; }
+.pg-input-row > button { display: flex; align-items: center; justify-content: center; gap: 11px; min-width: 83px; padding: 10px 15px; border: 1px solid var(--forest); background: var(--forest); color: var(--paper-light); font-size: 12px; }
+.pg-input-row > button:hover { background: var(--forest-soft); }
+.pg-input-row > button:disabled { cursor: default; opacity: .6; }
+.pg-input-row > button svg { width: 20px; height: 20px; }
+.pg-status { min-height: 14px; margin: 6px 0 0; color: var(--muted); font-size: 10px; line-height: 1.4; }
+.pg-dialog-footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 13px 22px; border-top: 1px solid var(--rule); background: #eef0e6; }
+.pg-dialog-footer > p { max-width: 560px; margin: 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.pg-session-actions { display: flex; flex-shrink: 0; align-items: center; gap: 13px; }
+.pg-session-actions button { min-height: 32px; padding: 3px 0; border: 0; background: transparent; color: var(--moss-dark); text-decoration: underline; text-underline-offset: 4px; font-size: 10px; }
+.pg-session-actions button:hover { color: var(--forest); }
+
+@media (max-width: 900px) {
+  .pg-feature-body { grid-template-columns: 110px minmax(0,1fr); gap: 24px; }
+  .pg-dialog-body { grid-template-columns: 200px minmax(0,1fr); }
+  .pg-topic-rail { padding: 20px 13px; }
+  .pg-dialog-footer > p { max-width: 430px; }
+  .pg-dialog-footer { gap: 16px; }
+  .pg-session-actions { align-items: flex-start; flex-direction: column; gap: 1px; }
+}
+@media (max-width: 680px) {
+  .pg-feature-body { grid-template-columns: 1fr; gap: 23px; }
+  .pg-feature-aside { display: none; }
+  .pg-question { min-height: 154px; padding: 21px 35px 23px 18px; }
+  .pg-question-text { font-size: 23px; }
+  .pg-question-arrow { right: 15px; bottom: 22px; font-size: 20px; }
+  .pg-dialog { width: calc(100vw - 20px); height: calc(100dvh - 20px); }
+  .pg-dialog-header { padding: 18px 20px 16px; }
+  .pg-dialog-header h2 { font-size: 32px; }
+  .pg-eyebrow { font-size: 8px; letter-spacing: 1.5px; }
+  .pg-header-caption { margin-top: 6px; font-size: 10px; }
+  .pg-close { width: 39px; height: 39px; }
+  .pg-dialog-body { grid-template-columns: 1fr; grid-template-rows: auto minmax(0,1fr); }
+  .pg-topic-rail { display: flex; align-items: center; gap: 14px; min-width: 0; padding: 10px 15px; overflow-x: auto; overflow-y: hidden; border-right: 0; border-bottom: 1px solid var(--rule); scrollbar-width: thin; }
+  .pg-topic-rail > .pg-rail-title, .pg-rail-note { display: none; }
+  .pg-topic-list { flex-direction: row; flex-shrink: 0; gap: 5px; }
+  .pg-topic { width: auto; min-height: 35px; padding: 7px 11px; border-color: #c2cdb6; font-size: 11px; white-space: nowrap; }
+  .pg-topic > span { display: none; }
+  .pg-depth-control { flex-shrink: 0; order: -1; padding: 0 13px 0 0; margin: 0; border-top: 0; border-right: 1px solid #c5d0ba; }
+  .pg-depth-control .pg-rail-title { display: none; }
+  .pg-depth-buttons button { min-height: 35px; padding-inline: 9px; font-size: 10px; }
+  .pg-transcript { padding: 21px 20px 10px; }
+  .pg-message-user { margin-left: 20px; padding: 12px 14px; }
+  .pg-message-guide h3, .pg-answer h3 { font-size: 23px; }
+  .pg-message-guide p, .pg-answer p, .pg-message-guide ul, .pg-answer ul { font-size: 13px; line-height: 1.75; }
+  .pg-starters { padding: 5px 20px 13px; }
+  .pg-starters button { font-size: 10px; }
+  .pg-form { padding: 12px 18px 9px; }
+  .pg-input-row input { font-size: 16px; }
+  .pg-input-row input::placeholder { font-size: 11px; }
+  .pg-input-row > button { min-width: 52px; padding: 10px 12px; }
+  .pg-input-row > button > span { display: none; }
+  .pg-dialog-footer { align-items: flex-start; gap: 13px; padding: 10px 18px; }
+  .pg-dialog-footer > p { max-width: 330px; font-size: 9px; }
+  .pg-session-actions { gap: 2px; }
+  .pg-session-actions button { min-height: 26px; font-size: 9px; white-space: nowrap; }
+  .pg-launcher { right: 15px; bottom: max(15px,env(safe-area-inset-bottom)); min-height: 54px; gap: 9px; padding: 9px 14px; font-size: 12px; }
+  .pg-launcher small { font-size: 8px; }
+  .pg-launcher > svg { width: 21px; height: 21px; }
+  body:has(.pg-launcher:not([hidden])) .toast { bottom: 87px; }
+}
+@media (max-width: 390px) {
+  .pg-question-grid { grid-template-columns: 1fr; }
+  .pg-question { min-height: 126px; }
+  .pg-question-text { max-width: 240px; }
+  .pg-dialog { width: calc(100vw - 12px); height: calc(100dvh - 12px); }
+  .pg-dialog-header { padding-inline: 15px; }
+  .pg-transcript { padding-inline: 15px; }
+  .pg-form { padding-inline: 13px; }
+  .pg-dialog-footer { padding-inline: 13px; gap: 10px; }
+  .pg-dialog-footer > p { font-size: 8px; }
+  .pg-starters { padding-inline: 15px; }
+}
+@media (max-height: 620px) and (min-width: 681px) {
+  .pg-dialog-header { padding-block: 13px; }
+  .pg-dialog-header h2 { font-size: 30px; }
+  .pg-header-caption { margin-top: 4px; }
+  .pg-topic-rail { padding-top: 16px; }
+  .pg-form { padding-top: 11px; padding-bottom: 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pg-question, .pg-launcher { transition: none; }
+  .pg-transcript { scroll-behavior: auto; }
+}
+@media print {
+  .pg-launcher, .pg-dialog, .pg-feature { display: none !important; }
+}
+
+.pg-nav-button{border:0;background:none;padding:0;font:inherit;color:inherit;cursor:pointer}
+.pg-hero-button{background:none;border:0;color:var(--paper);padding:0;margin-top:6px;font:13px/1.6 var(--sans);text-decoration:underline;text-underline-offset:5px;text-align:left}
+.pg-answer-kind{font-size:9px!important;letter-spacing:1px;text-transform:uppercase;color:var(--moss-dark);margin-bottom:7px!important}
+.pg-answer + .pg-answer{border-top:1px solid var(--rule);padding-top:24px;margin-top:24px}
+.pg-more{margin-top:13px;font-size:13px}
+.pg-more>summary{cursor:pointer;color:var(--moss-dark);padding:9px 0;font-size:12px;text-decoration:underline;text-underline-offset:4px}
+.pg-more>p{margin-top:12px}
+.pg-recruiter-callout{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:24px 0 8px;padding:20px 24px;border:1px solid var(--rule);background:#e6ebdc;font-size:13px}
+.pg-recruiter-callout button{border:0;background:none;color:var(--forest);font:inherit;text-decoration:underline;text-underline-offset:5px}
+@media(max-width:680px){.pg-recruiter-callout{align-items:flex-start;flex-direction:column}.pg-nav-button{min-height:44px}.pg-dialog .pg-depth-buttons button{min-height:40px}}
+
 </style>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Jaya Harsha Thippana","url":"https://harshathippana1606.github.io/","jobTitle":"Principal Data Scientist","worksFor":{"@type":"Organization","name":"Vizit"},"sameAs":["https://www.linkedin.com/in/jayaharshathippana/","https://github.com/harshathippana1606"]}</script>
 </head>
@@ -951,11 +1128,11 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
 <header class="site-header">
   <div class="container nav-inner">
     <a class="brand" href="#top" aria-label="Jaya Harsha Thippana, home"><span class="brand-mark">jh.</span><span class="brand-name">JAYA HARSHA<br>THIPPANA</span></a>
-    <nav class="desktop-nav" aria-label="Main navigation"><a href="#leadership">Leadership</a><a href="#work">Selected work</a><a href="#causal-inference">Experimentation</a><a href="#decision-room">Play</a><a href="#experience">Experience</a></nav>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="#leadership">Leadership</a><a href="#work">Selected work</a><a href="#causal-inference">Experimentation</a><button class="pg-nav-button js-feature" data-open-guide hidden>Ask Harsha ↗</button><a href="#decision-room">Play</a><a href="#experience">Experience</a></nav>
     <a class="nav-contact" href="#contact">Let’s connect <span aria-hidden="true">↗</span></a>
     <button class="menu-toggle" aria-controls="mobile-nav" aria-expanded="false" hidden>Menu <span aria-hidden="true">+</span></button>
   </div>
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#leadership">Leadership</a><a href="#work">Selected work</a><a href="#causal-inference">Experimentation</a><a href="#experience">Experience</a><a href="#decision-room">Play the Decision Room</a><a href="#discoveries">Easter eggs</a><a href="#contact">Contact</a><a href="Jaya_Harsha_Thippana_Resume.pdf">Résumé</a></nav>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#leadership">Leadership</a><a href="#work">Selected work</a><a href="#causal-inference">Experimentation</a><a href="#experience">Experience</a><a href="#decision-room">Play the Decision Room</a><button class="pg-nav-button js-feature" data-open-guide hidden>Ask the portfolio guide</button><a href="#discoveries">Easter eggs</a><a href="#contact">Contact</a><a href="Jaya_Harsha_Thippana_Resume.pdf">Résumé</a></nav>
 <div class="mode-bar js-feature" hidden><div class="container mode-inner"><div class="mode-group"><span class="mode-label">CHOOSE YOUR PATH</span><div class="mode-switch" role="group" aria-label="Portfolio view"><button type="button" data-mode-button="explore" aria-pressed="true">Explore <small>the full story</small></button><button type="button" data-mode-button="recruiter" aria-pressed="false">Recruiter brief <small>60 seconds</small></button></div></div><div class="mode-tools"><a href="#decision-room">Play the Decision Room ↗</a><button type="button" class="jump-button" data-open-commands>Jump to <kbd>⌘ / Ctrl K</kbd></button></div></div></div>
 </header>
 <main id="main">
@@ -1026,8 +1203,8 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
       <div id="rb-panel-science" class="rb-lens-panel" role="tabpanel" aria-labelledby="rb-tab-science" tabindex="0" data-lens-panel="science" hidden>
         <div><h3>Go deep.<br>Keep the question useful.</h3><p>Computer vision, representation learning, generative AI, NLP, causal inference and experiment design.</p></div>
         <ul>
-          <li>Led a shift toward commerce-relevant learning objectives for visual AI.</li>
-          <li>Designed more interpretable score aggregation while retaining ML in the underlying signals.</li>
+          <li>Aligned visual-AI research and evaluation with customer decisions and commercial relevance.</li>
+          <li>Led an interpretable scoring improvement and its scientific evaluation.</li>
           <li>Built production predictive models and reusable methods for imbalanced learning.</li>
         </ul>
         <a href="#case-commerce" data-explore-case>See the scientific direction <span aria-hidden="true">↗</span></a>
@@ -1035,7 +1212,7 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
       <div id="rb-panel-product" class="rb-lens-panel" role="tabpanel" aria-labelledby="rb-tab-product" tabindex="0" data-lens-panel="product" hidden>
         <div><h3>Carry the idea<br>into production.</h3><p>Product judgment, validation, production ML pipelines, reusable packages and customer-facing science.</p></div>
         <ul>
-          <li>Used shadow-mode RCTs and cross-functional delivery to bring interpretable scoring into production.</li>
+          <li>Used randomized evaluation and cross-functional delivery to bring a scoring improvement into production.</li>
           <li>Built and deployed disability-claims prediction at Northwestern Mutual.</li>
           <li>Made repeated customer impact analysis more accessible through self-serve dashboards.</li>
         </ul>
@@ -1044,7 +1221,7 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
       <div id="rb-panel-experimentation" class="rb-lens-panel" role="tabpanel" aria-labelledby="rb-tab-experimentation" tabindex="0" data-lens-panel="experimentation" hidden>
         <div><h3>From test design<br>to decisions.</h3><p>Causal inference, randomized controlled trials (RCTs), A/B testing, difference-in-differences and experiment design.</p><p class="rb-lens-metric"><span>DELIVERY SCALE AT VIZIT</span><strong>60 impact studies<br>5,000+ analyst hours automated</strong></p></div>
         <ul>
-          <li>Used RCTs during shadow evaluation of Vizit’s formula-based scores replacing GAM aggregation, assessing the change and building rollout confidence.</li>
+          <li>Used RCTs during a scoring improvement to assess the change and build confidence in a controlled rollout.</li>
           <li>Applied difference-in-differences to customer impact studies at Vizit.</li>
           <li>Presented and defended methodology with customer stakeholders, and made repeated analysis accessible through self-serve dashboards.</li>
         </ul>
@@ -1066,9 +1243,9 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
       <div><p class="rb-eyebrow">YOUR NEXT STEP</p><h2 id="rb-connect-title">Let’s compare notes.</h2><p>AI leadership. Scientific depth. Products that make research useful.</p><a class="rb-email" href="mailto:harshathippana1606@gmail.com">harshathippana1606@gmail.com <span aria-hidden="true">↗</span></a></div>
       <div class="rb-connect-links"><a href="Jaya_Harsha_Thippana_Resume.pdf">Résumé <span aria-hidden="true">↗</span></a><a href="Jaya_Harsha_Thippana_CV.pdf">Full CV <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/jayaharshathippana/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/harshathippana1606" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></div>
     </section>
-    <div class="rb-utility js-feature" hidden aria-label="Save or share this brief"><button type="button" data-copy-brief>Copy a short introduction</button><button type="button" data-copy-recruiter-link>Copy recruiter link</button><button type="button" data-print-brief>Print / save as PDF</button><a href="?view=recruiter">Direct link to this view <span aria-hidden="true">↗</span></a></div>
+    <div class="pg-recruiter-callout js-feature" hidden><span>Looking for a specific skill or project?</span><button type="button" data-open-guide>Ask the portfolio guide ↗</button></div><div class="rb-utility js-feature" hidden aria-label="Save or share this brief"><button type="button" data-copy-brief>Copy a short introduction</button><button type="button" data-copy-recruiter-link>Copy recruiter link</button><button type="button" data-print-brief>Print / save as PDF</button><a href="?view=recruiter">Direct link to this view <span aria-hidden="true">↗</span></a></div>
     <p id="rb-copy-status" class="rb-status" role="status" aria-live="polite"></p>
-    <div id="rb-copy-text" hidden>Jaya Harsha Thippana is a Principal Data Scientist at Vizit, where he leads R&amp;D and Data Science, reports directly to the CEO and leads a team of five. His experience combines scientific strategy, hands-on machine learning, causal inference, experimentation, team building and production delivery. His experimentation work includes RCTs during shadow evaluation of Vizit’s transition from GAM aggregation to formula-based scores, as well as difference-in-differences and experiment design. At Vizit, he scaled causal-inference impact studies and self-serve analysis, reporting 60 studies delivered and 5,000+ analyst hours automated. Previously, he was a Senior Data Scientist at Northwestern Mutual and Harley-Davidson’s first data science hire. M.S. Computer Science, University of Oklahoma. Portfolio: https://harshathippana1606.github.io/?view=recruiter · Contact: harshathippana1606@gmail.com</div>
+    <div id="rb-copy-text" hidden>Jaya Harsha Thippana is a Principal Data Scientist at Vizit, where he leads R&amp;D and Data Science, reports directly to the CEO and leads a team of five. His experience combines scientific strategy, hands-on machine learning, causal inference, experimentation, team building and production delivery. His experimentation work includes randomized evaluation of a scoring improvement, difference-in-differences and experiment design. At Vizit, he scaled causal-inference impact studies and self-serve analysis, reporting 60 studies delivered and 5,000+ analyst hours automated. Previously, he was a Senior Data Scientist at Northwestern Mutual and Harley-Davidson’s first data science hire. M.S. Computer Science, University of Oklahoma. Portfolio: https://harshathippana1606.github.io/?view=recruiter · Contact: harshathippana1606@gmail.com</div>
   </div>
 </section>
 
@@ -1078,7 +1255,7 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
         <p class="eyebrow hero-kicker">PRINCIPAL DATA SCIENTIST & AI LEADER</p>
         <h1 id="hero-title">Deep in the science.<br><span class="accent">Accountable for<br>the outcome.</span></h1>
         <p class="hero-intro">I’m Jaya Harsha Thippana. I build AI systems, lead data science teams, and use causal inference and experimentation to connect scientific decisions with business outcomes.</p>
-        <div class="hero-actions"><a class="button button-light" href="?view=recruiter" data-mode-button="recruiter">Get the 60-second brief <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#work">Explore my decisions <span aria-hidden="true">↗</span></a><a class="hero-play" href="#decision-room">Or step into the Decision Room · a 2-minute game ↗</a></div>
+        <div class="hero-actions"><a class="button button-light" href="?view=recruiter" data-mode-button="recruiter">Get the 60-second brief <span aria-hidden="true">↗</span></a><a class="button button-outline" href="#work">Explore my decisions <span aria-hidden="true">↗</span></a><button class="pg-hero-button js-feature" data-open-guide hidden>Have a question? Ask the portfolio guide ↗</button><a class="hero-play" href="#decision-room">Or step into the Decision Room · a 2-minute game ↗</a></div>
         <div class="hero-meta"><span>Currently at <strong>Vizit</strong></span><span>Boston, MA</span><a href="https://www.linkedin.com/in/jayaharshathippana/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
       </div>
       <div class="hero-visual" aria-label="My approach connects scientific depth, product judgment and delivery to useful decisions.">
@@ -1100,6 +1277,53 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
     <div class="metric"><span class="metric-value">$15M+</span><span class="metric-label">Reported annual savings</span><span class="metric-source">NORTHWESTERN MUTUAL</span></div>
     <div class="metric"><span class="metric-value">0 → 1</span><span class="metric-label">Data science function building</span><span class="metric-source">PEOPLE · SYSTEMS · STANDARDS</span></div>
   </div></section>
+
+<section class="section container explore-only pg-feature" id="ask-harsha" aria-labelledby="pg-feature-title">
+  <div class="section-heading">
+    <span class="section-index">A guided conversation</span>
+    <div>
+      <h2 class="section-title" id="pg-feature-title">A question is a good<br>place to <em>start.</em></h2>
+      <p class="section-intro">Looking for the thread between scientific depth, leadership, and business impact? Ask the portfolio guide. It connects your question to Harsha’s experience and the work behind it.</p>
+    </div>
+  </div>
+  <div class="pg-feature-body">
+    <div class="pg-feature-aside">
+      <span class="pg-feature-mark" aria-hidden="true">?</span>
+      <p>Find the story<br>that matters to you.</p>
+      <span class="pg-feature-caption">Prepared answers.<br>Links to explore further.</span>
+    </div>
+    <div>
+      <div class="pg-question-grid js-feature" hidden>
+        <button class="pg-question" type="button" data-pg-prompt="What should a recruiter know about Harsha?">
+          <span class="pg-question-label">01 · The overview</span>
+          <span class="pg-question-text">What should a recruiter know?</span>
+          <span class="pg-question-arrow" aria-hidden="true">↗</span>
+        </button>
+        <button class="pg-question" type="button" data-pg-prompt="How does Harsha approach causal inference and experiments?">
+          <span class="pg-question-label">02 · Scientific judgment</span>
+          <span class="pg-question-text">How does he establish what works?</span>
+          <span class="pg-question-arrow" aria-hidden="true">↗</span>
+        </button>
+        <button class="pg-question" type="button" data-pg-prompt="Tell me about Harsha’s leadership experience.">
+          <span class="pg-question-label">03 · People & direction</span>
+          <span class="pg-question-text">What kind of leader is he?</span>
+          <span class="pg-question-arrow" aria-hidden="true">↗</span>
+        </button>
+        <button class="pg-question" type="button" data-pg-prompt="How does Harsha turn research into production impact?">
+          <span class="pg-question-label">04 · From idea to impact</span>
+          <span class="pg-question-text">How does the science reach production?</span>
+          <span class="pg-question-arrow" aria-hidden="true">↗</span>
+        </button>
+      </div>
+      <div class="pg-feature-actions">
+        <button class="button pg-open-button js-feature" type="button" data-open-guide hidden>Ask your own question <span aria-hidden="true">↗</span></button>
+        <a href="#work">Browse the case studies</a>
+      </div>
+      <p class="pg-feature-note">A guide to approved career information. No live AI model, account, or sign-in.</p>
+    </div>
+  </div>
+</section>
+
 
   <section class="section container explore-only" id="leadership" aria-labelledby="leadership-title">
     <div class="section-heading"><p class="section-index">01 / LEADERSHIP</p><h2 class="section-title" id="leadership-title">The model is one part.<br>The responsibility is bigger.</h2></div>
@@ -1135,7 +1359,7 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
     </div>
   </div>
 
-  <article class="ci-rct-story"><div><p class="ci-eyebrow">RCTs in practice / Vizit</p><h3>A scoring change.<br>A question of confidence.</h3></div><div><p>When replacing GAM score aggregation with formula-based scores, I used randomized controlled trials during shadow-mode evaluation to understand the size and impact of the change. The tests helped build confidence in the new approach alongside the work of making the score more interpretable.</p><a href="#case-scoring">Explore the scoring transition <span aria-hidden="true">↗</span></a></div></article>
+  <article class="ci-rct-story"><div><p class="ci-eyebrow">RCTs in practice / Vizit</p><h3>A scoring change.<br>A question of confidence.</h3></div><div><p>I led an interpretable scoring improvement and used randomized controlled trials to assess the size and impact of the change. The evaluation helped build confidence in a controlled rollout, with product and engineering as delivery partners.</p><a href="#case-scoring">Explore the scoring transition <span aria-hidden="true">↗</span></a></div></article>
   <div class="ci-method-heading"><h3>How I approach the work</h3><p>Open a method to explore the thinking.</p></div>
   <div class="ci-methods">
     <details class="ci-method" open>
@@ -1182,12 +1406,12 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
     <div class="case-list">
       <details class="case-study" id="case-commerce" data-category="strategy" open>
         <summary class="case-summary"><span class="case-number">01</span><div><p class="case-company">VIZIT / SCIENTIFIC DIRECTION</p><h3 class="case-heading">Changing what “better” means.</h3><p class="case-tags">Problem framing · Representation learning · Evaluation</p></div><span class="case-toggle" aria-hidden="true"></span></summary>
-        <div class="case-body"><p class="case-lede">An image that attracts attention is not necessarily an image that helps someone choose a product. I brought that distinction into the learning problem.</p><div class="case-columns"><div class="case-column"><h4>The context</h4><p>Brands use Vizit to evaluate the imagery on their ecommerce pages. Engagement-based learning offered a useful signal, but the product needed guidance relevant to shopping decisions.</p></div><div class="case-column"><h4>The decision I owned</h4><p>I led a shift toward commerce-related learning objectives. That meant revisiting the target, learning from imperfect labels, and evaluating the resulting signal against the problem the product was meant to solve.</p></div><div class="case-column"><h4>The leadership work</h4><p>I connected the research agenda to customer needs and made the scientific trade-offs explicit. Progress meant improving the relevance of the learning problem, alongside the model itself.</p></div></div><div class="case-outcome"><strong>What changed</strong><p>A new learning direction and scoring approach centered on commerce relevance. Predictive evidence supports that direction; proving that an image change causes more purchases is a separate evaluation.</p></div></div>
+        <div class="case-body"><p class="case-lede">A useful AI system starts with the decision it should improve. I aligned visual-AI research and evaluation with customer needs and commercial relevance.</p><div class="case-columns"><div class="case-column"><h4>The context</h4><p>Enterprise customers needed guidance that helped them make better decisions about ecommerce imagery.</p></div><div class="case-column"><h4>The decision I owned</h4><p>I shaped the scientific direction and evaluation priorities around that need, bringing technical judgment and product relevance into the same conversation.</p></div><div class="case-column"><h4>The leadership work</h4><p>I connected the research agenda with product, engineering and customer stakeholders. I made trade-offs explicit and kept the team focused on evidence that could inform a useful decision.</p></div></div><div class="case-outcome"><strong>What changed</strong><p>A research and evaluation direction aligned with commercial use. The work reflects scientific ownership, product judgment and cross-functional delivery.</p></div></div>
       <div class="case-tools js-feature" hidden><button type="button" data-copy-case="case-commerce">Copy link to this case study ↗</button></div>
       </details>
       <details class="case-study" id="case-scoring" data-category="strategy experimentation">
-        <summary class="case-summary"><span class="case-number">02</span><div><p class="case-company">VIZIT / PRODUCT JUDGMENT</p><h3 class="case-heading">A score customers can reason with.</h3><p class="case-tags">RCTs · Shadow evaluation · Interpretable scoring</p></div><span class="case-toggle" aria-hidden="true"></span></summary>
-        <div class="case-body"><p class="case-lede">A competitive ranking can tell you where you stand without telling you what to improve. I made the case for changing the meaning of the score.</p><div class="case-columns"><div class="case-column"><h4>The context</h4><p>The overall product-page score expressed competitive rank. Customers also needed an understandable metric they could use to guide improvements and track a KPI.</p></div><div class="case-column"><h4>The decision I owned</h4><p>I replaced the generalized additive model (GAM) used to combine our signals into an overall score with a more interpretable formula. Machine learning continued to power the underlying signals; the aggregation and meaning of the score changed.</p></div><div class="case-column"><h4>The leadership work</h4><p>I advocated for interpretability as a product requirement and accepted that the new score could not retain the old percentile’s meaning. During shadow evaluation, I used randomized controlled trials (RCTs) to understand the magnitude and impact of the scoring change and build confidence in the formula-based approach. I partnered with product and engineering on delivery.</p></div></div><div class="case-outcome"><strong>What changed</strong><p>The formula reached production with a clearer scoring definition. Shadow-mode RCTs helped assess the size and impact of the change and build confidence in the new approach.</p></div></div>
+        <summary class="case-summary"><span class="case-number">02</span><div><p class="case-company">VIZIT / PRODUCT JUDGMENT</p><h3 class="case-heading">A score customers can reason with.</h3><p class="case-tags">RCTs · Controlled evaluation · Interpretable scoring</p></div><span class="case-toggle" aria-hidden="true"></span></summary>
+        <div class="case-body"><p class="case-lede">Customers need to understand a score before they can act on it. I led a scoring improvement with interpretability and evaluation at its center.</p><div class="case-columns"><div class="case-column"><h4>The context</h4><p>The product needed an understandable metric that could help customers make decisions and track progress.</p></div><div class="case-column"><h4>The decision I owned</h4><p>I made interpretability a product requirement and led the scientific evaluation of the scoring change.</p></div><div class="case-column"><h4>The leadership work</h4><p>I used randomized controlled trials (RCTs) to assess the size and impact of the change and build confidence in the approach. I partnered with product and engineering through a controlled rollout.</p></div></div><div class="case-outcome"><strong>What changed</strong><p>The scoring improvement reached production with a clearer definition and evaluation supporting the transition. This case describes my responsibilities and general methods; implementation details remain private.</p></div></div>
       <div class="case-tools js-feature" hidden><button type="button" data-copy-case="case-scoring">Copy link to this case study ↗</button></div>
       </details>
       <details class="case-study" id="case-delivery" data-category="delivery experimentation">
@@ -1306,7 +1530,64 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
   <section class="contact" id="contact" aria-labelledby="contact-title"><div class="container contact-grid"><div><p class="section-index">05 / LET’S CONNECT</p><h2 class="section-title" id="contact-title">Bring a hard problem.<br>Let’s find the right direction.</h2><p>For conversations about AI leadership, hands-on scientific work, and building teams that turn research into useful products.</p></div><div class="contact-links"><a class="contact-email" href="mailto:harshathippana1606@gmail.com">Email Harsha <span aria-hidden="true">↗</span></a><span>harshathippana1606@gmail.com</span><button class="copy-button" hidden>Copy email</button><a href="https://www.linkedin.com/in/jayaharshathippana/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="Jaya_Harsha_Thippana_Resume.pdf">Résumé ↗</a><a href="Jaya_Harsha_Thippana_CV.pdf">Full CV ↗</a><a href="https://github.com/harshathippana1606" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div></section>
 </main>
 <footer class="site-footer"><div class="container footer-inner"><span>© <span id="year">2026</span> Jaya Harsha Thippana</span><span>Science. Judgment. Impact.</span><div class="footer-shortcuts"><button class="utility-button js-feature" data-open-commands hidden>Jump to…</button><a href="#main">Back to top ↑</a></div></div></footer>
-<dialog class="command-dialog" id="command-dialog" aria-labelledby="command-title"><div class="command-heading"><h2 id="command-title">Where would you like to go?</h2><button type="button" class="dialog-close" id="close-commands" aria-label="Close quick navigation">×</button></div><div class="command-search"><label for="command-search">FIND A PAGE OR ACTION</label><input id="command-search" type="search" placeholder="Try recruiter, play, résumé…" autocomplete="off"></div><ul class="command-list"><li><button data-command="recruiter">Recruiter brief <small>The 60-second view</small></button></li><li><button data-command="work">Selected work <small>5 case studies</small></button></li><li><button data-command="causal-inference">Causal inference & experimentation <small>RCTs · A/B tests · DiD</small></button></li><li><button data-command="decision-room">Play the Decision Room <small>3 decisions · 2 minutes</small></button></li><li><button data-command="experience">Career & experience <small>A decade of building</small></button></li><li><button data-command="discoveries">Easter eggs & field notes <small>A little curiosity</small></button></li><li><a href="Jaya_Harsha_Thippana_Resume.pdf">Open résumé <small>PDF</small></a></li><li><button data-command="email">Copy email address <small>Start a conversation</small></button></li></ul><p class="command-empty" id="command-empty" hidden>No match. Try “work”, “play”, or “email”.</p><p class="command-footer">Enter to choose · Tab to move · Esc to close</p></dialog>
+<button class="pg-launcher js-feature" id="pg-launcher" type="button" data-open-guide aria-haspopup="dialog" aria-controls="portfolio-guide" hidden>
+  <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M5 4.5h14a1.5 1.5 0 0 1 1.5 1.5v10a1.5 1.5 0 0 1-1.5 1.5h-8.5L5 21v-3.5A1.5 1.5 0 0 1 3.5 16V6A1.5 1.5 0 0 1 5 4.5Z" stroke="currentColor" stroke-width="1.4"/><path d="M8 9h8M8 13h5" stroke="currentColor" stroke-width="1.4"/></svg>
+  <span>Ask Harsha<small>Portfolio guide</small></span>
+</button>
+
+<dialog class="pg-dialog" id="portfolio-guide" aria-labelledby="pg-title" aria-describedby="pg-description">
+  <header class="pg-dialog-header">
+    <div>
+      <p class="pg-eyebrow">A guide to Harsha’s work</p>
+      <h2 id="pg-title">Ask Harsha<span class="pg-title-dot" aria-hidden="true">.</span></h2>
+      <p class="pg-header-caption">Prepared answers · Linked to the work</p>
+    </div>
+    <button class="pg-close" type="button" id="pg-close" aria-label="Close portfolio guide"><span aria-hidden="true">×</span></button>
+  </header>
+  <div class="pg-dialog-body">
+    <aside class="pg-topic-rail" aria-label="Explore portfolio topics">
+      <p class="pg-rail-title">Find a starting point</p>
+      <div class="pg-topic-list">
+        <button class="pg-topic" type="button" data-pg-topic="intro"><span>01</span> Career overview</button>
+        <button class="pg-topic" type="button" data-pg-topic="leadership"><span>02</span> Leadership</button>
+        <button class="pg-topic" type="button" data-pg-topic="experimentation"><span>03</span> RCTs & experiments</button>
+        <button class="pg-topic" type="button" data-pg-topic="causal-inference"><span>04</span> Causal inference</button>
+        <button class="pg-topic" type="button" data-pg-topic="scoring"><span>05</span> Scientific judgment</button>
+        <button class="pg-topic" type="button" data-pg-topic="production-ml"><span>06</span> ML in production</button>
+        <button class="pg-topic" type="button" data-pg-topic="vision"><span>07</span> Computer vision</button>
+      </div>
+      <div class="pg-depth-control" role="group" aria-label="Answer detail">
+        <span class="pg-rail-title">Make it</span>
+        <div class="pg-depth-buttons">
+          <button type="button" data-pg-depth="brief" aria-pressed="true">Brief</button>
+          <button type="button" data-pg-depth="deep" aria-pressed="false">Detailed</button>
+        </div>
+      </div>
+      <p class="pg-rail-note">Explore the experience.<br>Follow the evidence.</p>
+    </aside>
+    <div class="pg-conversation">
+      <div class="pg-transcript" id="pg-transcript" role="log" aria-live="polite" aria-relevant="additions" aria-label="Portfolio conversation" tabindex="0"></div>
+      <div class="pg-starters" id="pg-starters" aria-label="Suggested questions">
+        <button type="button" data-pg-prompt="Give me the 30-second introduction.">The 30-second introduction <span aria-hidden="true">↗</span></button>
+        <button type="button" data-pg-prompt="What is Harsha’s experience with RCTs?">His experience with RCTs <span aria-hidden="true">↗</span></button>
+      </div>
+      <form class="pg-form" id="pg-form">
+        <label for="pg-input">What would you like to know?</label>
+        <div class="pg-input-row">
+          <input id="pg-input" name="question" type="text" maxlength="280" autocomplete="off" placeholder="Try “How does he lead a team?”" required>
+          <button id="pg-send" type="submit" aria-label="Send question"><span>Ask</span><svg viewBox="0 0 20 20" aria-hidden="true" fill="none"><path d="M4 10h12M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        </div>
+        <p class="pg-status" id="pg-status" role="status"></p>
+      </form>
+    </div>
+  </div>
+  <footer class="pg-dialog-footer">
+    <p id="pg-description">A portfolio guide built from approved career information. No live AI model. Questions stay in this tab.</p>
+    <div class="pg-session-actions"><button type="button" id="pg-copy">Copy conversation</button><button type="button" id="pg-clear">Start over</button></div>
+  </footer>
+</dialog>
+
+<dialog class="command-dialog" id="command-dialog" aria-labelledby="command-title"><div class="command-heading"><h2 id="command-title">Where would you like to go?</h2><button type="button" class="dialog-close" id="close-commands" aria-label="Close quick navigation">×</button></div><div class="command-search"><label for="command-search">FIND A PAGE OR ACTION</label><input id="command-search" type="search" placeholder="Try recruiter, play, résumé…" autocomplete="off"></div><ul class="command-list"><li><button data-command="recruiter">Recruiter brief <small>The 60-second view</small></button></li><li><button data-open-guide>Ask Harsha <small>Prepared portfolio answers</small></button></li><li><button data-command="work">Selected work <small>5 case studies</small></button></li><li><button data-command="causal-inference">Causal inference & experimentation <small>RCTs · A/B tests · DiD</small></button></li><li><button data-command="decision-room">Play the Decision Room <small>3 decisions · 2 minutes</small></button></li><li><button data-command="experience">Career & experience <small>A decade of building</small></button></li><li><button data-command="discoveries">Easter eggs & field notes <small>A little curiosity</small></button></li><li><a href="Jaya_Harsha_Thippana_Resume.pdf">Open résumé <small>PDF</small></a></li><li><button data-command="email">Copy email address <small>Start a conversation</small></button></li></ul><p class="command-empty" id="command-empty" hidden>No match. Try “work”, “play”, or “email”.</p><p class="command-footer">Enter to choose · Tab to move · Esc to close</p></dialog>
 <div class="toast" role="status" aria-live="polite"></div>
 <script>
 (() => {
@@ -1413,6 +1694,7 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
  $$('.command-list [data-command]').forEach(button=>button.addEventListener('click',()=>{const cmd=button.dataset.command;closeCommands();if(cmd==='recruiter')setMode('recruiter',{focus:true});else if(cmd==='email')copyText('harshathippana1606@gmail.com','Email address copied.');else goTo(cmd);}));
  $$('.command-list a').forEach(anchor=>anchor.addEventListener('click',closeCommands));
  document.addEventListener('keydown',event=>{
+  if(document.querySelector('#portfolio-guide')?.open)return;
   const editable=event.target.closest('input,textarea,select,[contenteditable="true"],[contenteditable=""]');
   if(!editable && ((event.key.toLowerCase()==='k' && (event.metaKey||event.ctrlKey)) || (event.key==='/' && !event.metaKey&&!event.ctrlKey&&!event.altKey))){event.preventDefault();openCommands();}
   if(event.key==='Escape'&&!nav.hidden){closeMenu();menu.focus();}
@@ -1514,9 +1796,9 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
     setPhase('result');
     const route = getRoute();
     const debriefs = [
-      { label: '01 / A relevant objective', title: 'What should the model learn?', copy: 'In my commerce-learning work, I shifted the objective toward shopping relevance and worked through imperfect labels.', target: 'case-commerce', link: 'Explore the learning decision' },
+      { label: '01 / A relevant objective', title: 'What should the model learn?', copy: 'In visual-AI work, I aligned scientific direction and evaluation with customer decisions and commercial relevance.', target: 'case-commerce', link: 'Explore the learning decision' },
       { label: '02 / A defensible claim', title: 'What does the evidence support?', copy: 'In customer impact work, I used experiment design and difference-in-differences, then made the analysis repeatable.', target: 'case-delivery', link: 'Explore customer impact' },
-      { label: '03 / A usable product', title: 'What does the number mean?', copy: 'In scoring work, I replaced GAM aggregation with an interpretable formula, used shadow-mode RCTs to assess the change, and partnered on delivery.', target: 'case-scoring', link: 'Explore the scoring decision' }
+      { label: '03 / A usable product', title: 'What does the number mean?', copy: 'In scoring work, I led an interpretable improvement, used randomized evaluation to assess the change, and partnered on delivery.', target: 'case-scoring', link: 'Explore the scoring decision' }
     ];
     content.innerHTML = `${topbarMarkup()}<div class="dr-result"><div class="dr-result-heading"><div><p class="dr-kicker">Decision maker unlocked · 3 of 3</p><h3 class="dr-result-title" id="dr-result-title" tabindex="-1">${route.title}</h3><p>${route.text}</p></div>${scoreMarkup()}</div><p class="dr-choice-label">The scenario was fictional. The questions connect to real work.</p><div class="dr-result-links">${debriefs.map((item, i) => `<article class="dr-result-card"><span>${item.label}</span><h4>${item.title}</h4><p><strong>Your choice:</strong> ${rounds[i].options[state.choices[i]].title}.</p><p>${item.copy}</p><a href="#${item.target}" data-dr-case="${item.target}">${item.link} <span aria-hidden="true">↗</span></a></article>`).join('')}</div><div class="dr-result-actions"><button type="button" class="dr-primary" data-dr-action="replay">Try another route <span aria-hidden="true">↻</span></button><button type="button" class="dr-secondary" data-dr-action="copy">Copy my game result</button></div><p id="dr-share-status" class="dr-share-status" role="status" aria-live="polite"></p><div id="dr-share-fallback-slot"></div><p class="dr-fine">This is a reflection game, not a personality test. The points are illustrative and do not describe actual project performance. Nothing is submitted or sent.</p></div>`;
     status.textContent = 'All three decisions complete. Decision maker unlocked.';
@@ -1754,6 +2036,204 @@ kbd { font-family: var(--sans); font-size: 10px; padding: 1px 4px; border: 1px s
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initializeDiscoveries, { once: true });
   else initializeDiscoveries();
+})();
+
+</script>
+<script id="portfolio-guide-knowledge" type="application/json">[{"id":"intro","title":"Meet Harsha","aliases":["who is harsha","tell me about yourself","introduce yourself","about him","background","summary","what does he do","jaya harsha thippana","30-second introduction","introduction","quick introduction","brief introduction","what should a recruiter know about Harsha","recruiter overview","30 second summary"],"summary":"Jaya Harsha Thippana is a Principal Data Scientist at Vizit. He combines AI and data science leadership with hands-on machine learning, causal inference, experimentation and product delivery.","details":["At Vizit, Harsha leads R\u0026D and Data Science, reports directly to the CEO, and leads a team of five. His work connects scientific direction, team development, production delivery and customer-facing science.","His earlier experience includes production ML at Northwestern Mutual, building a data science function as Harley-Davidson’s first data science hire, research at the University of Oklahoma, and Java development at Pyro Group."],"facts":["Current role: Principal Data Scientist, Vizit","Leadership and individual-contributor depth","Experience across visual AI, financial services, customer intelligence and research"],"sources":[{"label":"The 60-second recruiter brief","href":"?view=recruiter"},{"label":"Career timeline","href":"?view=explore#experience"}],"related":["leadership","role-fit","career"],"kind":"experience","tags":["intro","career","recruiter"]},{"id":"leadership","title":"Leadership that stays close to the science","aliases":["leadership","team size","how many people","manager","management","ceo","executive","head of ai","chief ai officer","people leadership","r\u0026d","hired","mentored","hired and mentored","mentoring","hiring people","led people","manages a team"],"summary":"Harsha leads R\u0026D and Data Science at Vizit, reports directly to the CEO, and leads a team of five. His leadership spans scientific strategy, hiring, mentorship, delivery and enterprise customer engagement.","details":["He connects research priorities to the decision a customer needs to make, makes technical trade-offs understandable, and carries scientific decisions through implementation with product and engineering.","His function-building experience also includes being Harley-Davidson’s first data science hire. His formal current title is Principal Data Scientist; the portfolio does not claim a Chief AI Officer appointment."],"facts":["Team of five at Vizit","Direct CEO reporting","Hiring, mentorship and scientific direction","Earlier experience building a data science function from zero"],"sources":[{"label":"Leadership approach","href":"?view=explore#leadership"},{"label":"Harley-Davidson case study","href":"?view=explore#case-growth"}],"related":["stakeholder-communication","harley","role-fit"],"kind":"experience","tags":["leadership","management","team","strategy"]},{"id":"career","title":"A career spanning engineering, research and AI leadership","aliases":["career","career timeline","work history","employment history","companies","where has he worked","current company","current position","vizit","promotion","principal data scientist","staff data scientist","senior to principal","present job"],"summary":"Harsha’s career spans Java development, university research, building a data science function, production ML and AI leadership. He is currently Principal Data Scientist at Vizit, where he leads R\u0026D and Data Science.","details":["Vizit, April 2025–present: joined as Senior Data Scientist, became Staff in September 2025 and Principal in March 2026. His current responsibilities include scientific direction, team leadership, experimentation, product delivery and customer-facing science.","Northwestern Mutual, December 2021–April 2025: Senior Data Scientist working on claims, retention, document intelligence, reusable modeling methods and team development. Harley-Davidson, August 2019–December 2021: the first data science hire, building the function and customer intelligence.","University of Oklahoma, March 2018–June 2019: intern to data scientist, with research, data pipelines and graduate teaching. Pyro Group, June 2016–July 2017: Java development and dynamic web applications."],"facts":["Vizit: April 2025–present; Senior → Staff → Principal","Northwestern Mutual: December 2021–April 2025","Harley-Davidson: August 2019–December 2021","University of Oklahoma: March 2018–June 2019","Pyro Group: June 2016–July 2017"],"sources":[{"label":"Vizit on the career timeline","href":"?view=explore#experience"},{"label":"Selected work","href":"?view=explore#work"}],"related":["leadership","harley","claims","early-career"],"kind":"experience","tags":["career","timeline","vizit","leadership"]},{"id":"commerce","title":"Connecting visual AI with customer decisions","aliases":["commerce","ecommerce","shopping","business objective","problem framing","customer decision","scientific strategy","commercial relevance"],"summary":"At Vizit, Harsha aligned visual-AI research and evaluation with customer decisions and commercial relevance. His contribution connects scientific judgment to the question a product needs to help customers answer.","details":["He linked research priorities to customer needs and made the scientific trade-offs understandable across teams. The approved public story focuses on the direction and decision-making, rather than internal research implementation.","Commercial relevance and causal business impact remain different claims. An evaluation can support the usefulness of a signal without establishing that an intervention caused additional purchases."],"facts":["Visual AI in an ecommerce context","Research and evaluation aligned with customer decisions","Predictive relevance distinguished from causal business impact"],"sources":[{"label":"Changing what “better” means","href":"?view=explore#case-commerce"}],"related":["vision","causal-vs-predictive","evaluation-approach"],"kind":"experience","tags":["vizit","strategy","commerce","evaluation"]},{"id":"scoring","title":"Making a score useful to customers","aliases":["score","scoring","interpretability","explainability","product judgment","kpi","metrics","scoring transition","understandable score","score meaning","scores","interpretable","make scores interpretable"],"summary":"Harsha led an interpretable scoring improvement at Vizit and used randomized evaluation during a controlled rollout to assess the change and build confidence, partnering with product and engineering.","details":["The public story highlights product judgment: customers need useful, understandable metrics. He worked across science, product and engineering to deliver an improvement and evaluate its effect.","The guide covers the leadership decision and high-level validation. Proprietary scoring structures, model choices and implementation mechanics are outside its scope."],"facts":["Interpretable scoring improvement","Randomized evaluation during a controlled rollout","Cross-functional delivery with product and engineering"],"sources":[{"label":"A score customers can reason with","href":"?view=explore#case-scoring"},{"label":"Experimentation experience","href":"?view=explore#causal-inference"}],"related":["experimentation","stakeholder-communication","production-ml"],"kind":"experience","tags":["vizit","product","interpretability","experimentation"]},{"id":"experimentation","title":"RCTs in a real scoring transition","aliases":["rct","rcts","randomized controlled trial","randomised","randomized experiment","a/b test","ab testing","controlled trial","randomization","experiment experience","experiments","run experiments","experiments actually run","randomized trials"],"summary":"At Vizit, Harsha used randomized evaluation during a controlled scoring rollout to assess the change and build confidence. This is a concrete example of experimentation informing a product decision.","details":["The approved story connects experiment-led evaluation with an interpretable scoring improvement and cross-functional delivery. It demonstrates experience using randomized controlled trials in an applied product setting.","The approved public summary does not specify assignment units, sample size, trial duration, p-values or a quantified uplift. Those details should not be inferred from the fact that an RCT was used."],"facts":["Company: Vizit","Context: a scoring transition","Purpose: assess the change and support decision confidence","Public story kept at a high level"],"sources":[{"label":"RCTs in practice","href":"?view=explore#causal-inference"},{"label":"The scoring transition","href":"?view=explore#case-scoring"}],"related":["experiment-design","causal-inference","scoring"],"kind":"experience","tags":["vizit","causal","rct","experimentation"]},{"id":"causal-inference","title":"Causal inference from design to decisions","aliases":["causal inference","causality","causal experience","measurement","incrementality","experimentation","causal impact","what caused it","attribution","difference-in-differences","did","quasi experiment","impact studies","customer impact studies","scale customer impact studies","60 studies","5000 hours","5,000","dashboards","self serve","automation"],"summary":"Harsha’s causal-inference experience includes randomized evaluation of a Vizit scoring transition and difference-in-differences for customer impact studies. He connects study design, interpretation and customer communication.","details":["His portfolio emphasizes a useful distinction: observing a change and attributing that change to an intervention are different tasks. The design and its assumptions determine what an analysis can support.","At Vizit, he applied difference-in-differences and experiment design to customer impact studies, carried the work through analysis and customer presentations, and presented and defended methodology directly with customer stakeholders.","Self-serve dashboards made repeated analysis scalable. His reported outcomes include 60 studies delivered and more than 5,000 analyst hours automated. Those counts describe delivery and efficiency, not sales uplift."],"facts":["Randomized controlled trials","Difference-in-differences","Experiment design and interpretation","Customer-facing methodology communication","60 customer impact studies delivered","5,000+ analyst hours automated through self-serve analysis"],"sources":[{"label":"Causal inference and experimentation","href":"?view=explore#causal-inference"},{"label":"Customer impact studies","href":"?view=explore#case-delivery"}],"related":["experimentation","impact","causal-vs-predictive"],"kind":"experience","tags":["causal","experimentation","measurement","vizit","did","automation","customer"]},{"id":"impact","title":"Reported career outcomes","aliases":["business results","biggest business results","highest impact","highest impact project","biggest impact","biggest achievements","career outcomes","career results","reported outcomes","business impact","measurable impact","achievements","accomplishments","results across companies"],"summary":"Harsha’s portfolio reports business and delivery outcomes across several initiatives: $35M annualized revenue at Harley-Davidson, $15M+ annual retention savings and 75% less claims decision time at Northwestern Mutual, and scaled customer impact analysis at Vizit. These are distinct reported results, not a cumulative total or a ranking of projects.","details":["Harley-Davidson: $35M in annualized revenue attributed to the prospect-identification initiative. Harsha was the company’s first data science hire and helped build the function.","Northwestern Mutual: more than $15M in annual savings from the retention initiative. Separately, the claims initiative reported 75% less decision time. Those figures describe different projects.","Vizit: 60 customer impact studies delivered and more than 5,000 analyst hours automated through self-serve analysis. These describe delivery scale and efficiency, not a sales-lift estimate.","These are self-reported career results from his résumé and portfolio, rather than an independent causal audit. A fair discussion keeps the initiative, units and attribution of each result visible."],"facts":["Harley-Davidson: $35M reported annualized revenue, prospect identification","Northwestern Mutual: $15M+ reported annual savings, retention","Northwestern Mutual: 75% less claims decision time, separate initiative","Vizit: 60 impact studies and 5,000+ analyst hours automated"],"sources":[{"label":"Harley-Davidson case study","href":"?view=explore#case-growth"},{"label":"Northwestern Mutual case study","href":"?view=explore#case-claims"},{"label":"Vizit impact-study case study","href":"?view=explore#case-delivery"}],"related":["harley","claims","retention","causal-inference"],"kind":"experience","tags":["impact","outcomes","results","recruiter"]},{"id":"causal-vs-predictive","title":"Prediction and causation answer different questions","aliases":["prediction versus causation","correlation causation","predictive evidence","causal lift","association","does accuracy prove impact","prove sales","predictive vs causal"],"summary":"A model can predict an outcome without establishing that changing its input will cause that outcome to improve. Harsha’s portfolio makes this distinction explicit in the commerce-learning and impact-study stories.","details":["Prediction asks whether a signal helps anticipate an outcome. Causal inference asks what would change because of an intervention, compared with what would have happened otherwise.","Randomization can support that comparison when a study is properly designed and executed. Quasi-experimental methods such as difference-in-differences depend on explicit identifying assumptions. This is a general explanation, not a claim that every study used the same procedure."],"facts":["Association is not automatically intervention impact","Business attribution and causal estimation are distinct","The strength of a conclusion depends on its design and assumptions"],"sources":[{"label":"Commerce-learning case study","href":"?view=explore#case-commerce"},{"label":"Causal-inference approach","href":"?view=explore#causal-inference"}],"related":["causal-inference","experiment-design","evaluation-approach"],"kind":"approach","tags":["causal","technical-explanation","evaluation"]},{"id":"experiment-design","title":"How to frame a useful experiment","aliases":["how to design an experiment","power","sample size","guardrails","primary metric","treatment control","parallel trends","significance","experiment plan"],"summary":"Harsha’s published approach starts with the decision, then designs the test around it: define a meaningful outcome, choose the assignment unit, plan the evidence needed, and make uncertainty visible.","details":["For a randomized experiment, the portfolio’s method notes emphasize comparable treatment and control groups, a primary metric, guardrails, a practically meaningful effect, and adequate power and duration.","For difference-in-differences, the notes emphasize a credible comparison group, the plausibility of parallel trends, concurrent changes, spillovers and sensitivity. Pre-period checks can inform the parallel-trends judgment; they cannot prove it.","These are general methodological principles. They are not a disclosure of a particular Vizit trial protocol."],"facts":["Start with the decision and meaningful effect","Separate primary metrics from guardrails","Review execution, uncertainty and practical importance","State assumptions and limitations explicitly"],"sources":[{"label":"How I approach the work","href":"?view=explore#causal-inference"}],"related":["experimentation","impact","causal-vs-predictive"],"kind":"approach","tags":["experimentation","technical-explanation","rct","did"]},{"id":"production-ml","title":"Taking science into production","aliases":["production","deployment","mlops","engineering","python","sql","xgboost","onnx","aws","snowflake","pipeline","tech stack","tools","hands on","built in production","built for production","production experience","production systems"],"summary":"Harsha’s public experience includes production ML pipelines, deployed claims prediction, reusable Python tooling, and cross-functional delivery of AI product changes.","details":["At Northwestern Mutual, he built and deployed an XGBoost pipeline for disability claims and packaged an imbalanced-learning method for reuse. At Vizit, he partnered with product and engineering to carry scientific changes into production.","His listed technical range includes Python, SQL, XGBoost, ONNX, AWS, Snowflake, validation and reusable packages. A skills list indicates his stated range; it does not disclose a company’s internal architecture."],"facts":["Python and SQL","Production ML pipelines and validation","XGBoost, ONNX, AWS and Snowflake in the published skill set","Reusable packages and cross-functional delivery"],"sources":[{"label":"Production ML case study","href":"?view=explore#case-claims"},{"label":"Scoring transition","href":"?view=explore#case-scoring"},{"label":"Career and technical range","href":"?view=explore#experience"}],"related":["claims","generative-ai","scoring"],"kind":"experience","tags":["engineering","production","technical","python"]},{"id":"vision","title":"Computer vision with a decision in mind","aliases":["computer vision","visual ai","images","image models","representation learning","deep learning","vision experience","mammography"],"summary":"Visual AI is a major part of Harsha’s work at Vizit, where he connects image-related science to commerce decisions. His earlier research at the University of Oklahoma included mammography classification.","details":["The Vizit case study focuses on aligning visual-AI research and evaluation with customer decisions and commercial relevance. It describes scientific judgment and collaboration at a high level.","Computer vision and representation learning are part of his published technical range. This guide does not provide Vizit’s internal model architecture, training data, implementation or research recipes. The university work is described as research, not clinical deployment."],"facts":["Visual AI for commerce at Vizit","Computer vision and representation learning","Earlier mammography classification research"],"sources":[{"label":"Commerce-relevant visual AI","href":"?view=explore#case-commerce"},{"label":"Earlier research experience","href":"?view=explore#experience"}],"related":["commerce","evaluation-approach","early-career"],"kind":"experience","tags":["vision","research","vizit","technical"]},{"id":"nlp","title":"NLP in an operational workflow","aliases":["nlp","natural language processing","language model","documents","extraction","handwritten forms","medical terminology","text"],"summary":"At Northwestern Mutual, Harsha worked on language-model extraction of medical terminology from handwritten forms. NLP is part of his broader published technical range.","details":["The work sat alongside disability-claims prediction, connecting document intelligence with an operational workflow. It illustrates experience beyond image models: using language-related methods to make information more usable.","The portfolio does not publish the extraction model’s architecture, a full evaluation dataset or a project-specific deployment blueprint."],"facts":["Northwestern Mutual experience","Medical-terminology extraction from handwritten forms","NLP and language-related modeling"],"sources":[{"label":"Northwestern Mutual production ML","href":"?view=explore#case-claims"}],"related":["claims","production-ml","generative-ai"],"kind":"experience","tags":["nlp","documents","northwestern-mutual","technical"]},{"id":"generative-ai","title":"Generative methods that other teams could reuse","aliases":["generative ai","gen ai","genai","oversampling","imbalanced learning","class imbalance","synthetic data","internal python library","reusable research"],"summary":"At Northwestern Mutual, Harsha developed a generative-AI oversampling method for imbalanced learning and packaged it as an internal Python library for reuse.","details":["The contribution combined modeling work with team capability: a method became a tool other data science teams could use, rather than remaining a one-off analysis.","This is the documented generative-AI example in the portfolio. It should not be stretched into a claim that he deployed every kind of generative-AI system or a particular commercial chatbot platform."],"facts":["Imbalanced-learning use case","Generative-AI oversampling method","Reusable internal Python package"],"sources":[{"label":"Reusable research at Northwestern Mutual","href":"?view=explore#case-claims"}],"related":["production-ml","nlp","evaluation-approach"],"kind":"experience","tags":["generative-ai","imbalanced-learning","northwestern-mutual","python"]},{"id":"claims","title":"Reducing the wait for claims decisions","aliases":["claims","disability","insurance","75%","75 percent","claims automation","northwestern mutual","xgboost pipeline"],"summary":"At Northwestern Mutual, Harsha built and deployed an XGBoost pipeline for disability claims and worked on document extraction. His résumé and portfolio report 75% less claims decision time.","details":["He worked as a Senior Data Scientist at Northwestern Mutual from December 2021 to April 2025. The claims work combined predictive modeling with improvements to information extraction.","The 75% figure is a reported career result for the claims initiative. The separately reported $15M+ annual savings belong to retention, so the two outcomes should not be treated as one project or added together."],"facts":["Senior Data Scientist, December 2021–April 2025","Built and deployed an XGBoost claims pipeline","Reported 75% less claims decision time"],"sources":[{"label":"Claims and retention case study","href":"?view=explore#case-claims"},{"label":"Career timeline","href":"?view=explore#experience"}],"related":["retention","nlp","production-ml"],"kind":"experience","tags":["northwestern-mutual","claims","production","impact"]},{"id":"retention","title":"Turning churn prediction into action","aliases":["retention","churn","15m","15 million","annual savings","financial representative","business impact","cost savings"],"summary":"At Northwestern Mutual, Harsha built financial-representative churn prediction and connected model outputs to business decisions. His résumé and portfolio report more than $15M in annual savings for the retention initiative.","details":["The story is about making a predictive signal actionable in an operational setting. It sits alongside his claims, document-intelligence and reusable-modeling work at the company.","The savings are a self-reported career outcome, not an independently audited causal estimate. They are separate from the claims initiative’s reported reduction in decision time."],"facts":["Financial-representative churn prediction","Reported $15M+ annual savings","A separate initiative from claims automation"],"sources":[{"label":"Northwestern Mutual case study","href":"?view=explore#case-claims"}],"related":["claims","causal-vs-predictive","intro"],"kind":"experience","tags":["retention","northwestern-mutual","impact","prediction"]},{"id":"harley","title":"Building a data science function from zero","aliases":["harley","harley davidson","first hire","zero to one","0 to 1","35m","35 million","revenue","customer intelligence","prospect identification","lifetime value","sentiment","marketing"],"summary":"Harsha was Harley-Davidson’s first data science hire and helped build its data science function. His work included prospect identification and customer intelligence; the portfolio reports $35M in annualized revenue attributed to the prospect-identification initiative.","details":["From August 2019 to December 2021, he developed models and metrics spanning lifetime value, lead and retention scores, sentiment and purchase journeys. He also grew the function and communicated insights to executives.","The revenue figure is a reported result of that initiative. It should not be presented as an independently established causal lift or combined with savings from unrelated roles."],"facts":["First data science hire","Team and function building","Customer intelligence and prospect-identification models","Reported $35M annualized revenue attributed to the prospect initiative"],"sources":[{"label":"The Harley-Davidson story","href":"?view=explore#case-growth"},{"label":"Career timeline","href":"?view=explore#experience"}],"related":["leadership","stakeholder-communication","role-fit"],"kind":"experience","tags":["harley-davidson","leadership","customer-intelligence","impact"]},{"id":"stakeholder-communication","title":"Making technical judgment understandable","aliases":["stakeholders","communication","customers","enterprise","presentations","executives","explain science","cross functional","product engineering","mentoring","hiring"],"summary":"Harsha’s work includes direct CEO reporting, enterprise customer science, executive communication, hiring and mentorship. A recurring part of his role is explaining what the evidence means for a decision.","details":["At Vizit, he presented and defended customer impact-study methodology and worked with product and engineering on a scoring transition. At Harley-Davidson, he communicated customer-intelligence insights to executives.","His leadership approach is to make objectives, assumptions and trade-offs clear enough for other people to act on them, while staying close to the technical work."],"facts":["Customer-facing methodology discussions","Product and engineering partnership","Executive communication","Hiring and mentorship"],"sources":[{"label":"Leadership approach","href":"?view=explore#leadership"},{"label":"Customer impact studies","href":"?view=explore#case-delivery"}],"related":["leadership","impact","scoring"],"kind":"experience","tags":["communication","leadership","customer","collaboration"]},{"id":"early-career","title":"A research and engineering foundation","aliases":["early career","university of oklahoma","research","teaching assistant","pyro","java","best employee","2016","2018"],"summary":"Before his industry data science roles, Harsha worked in research and data science at the University of Oklahoma and in Java development at Pyro Group.","details":["At the University of Oklahoma, from March 2018 to June 2019, he progressed from intern to data scientist. His work included mammography classification research, data pipelines and gray-market device detection; he also served as a graduate teaching assistant.","At Pyro Group, from June 2016 to July 2017, he built dynamic web applications in an agile team. His résumé reports a Best Employee award for design and development."],"facts":["University of Oklahoma: research, pipelines and teaching","Pyro Group: Java and web application development","Mammography work described as research, not clinical deployment"],"sources":[{"label":"The earlier career timeline","href":"?view=explore#experience"}],"related":["education","vision","production-ml"],"kind":"experience","tags":["career","research","education","engineering"]},{"id":"education","title":"Education and technical range","aliases":["education","degree","masters","btech","jntu","qualifications","skills","languages","english","hindi","telugu","technical depth","ms","m s","computer science","masters degree","master degree","master of science"],"summary":"Harsha holds an M.S. in Computer Science from the University of Oklahoma and a B.Tech in Computer Science from Jawaharlal Nehru Technological University. His published range spans research, engineering and leadership.","details":["The portfolio lists computer vision, representation learning, generative AI, NLP, causal inference, RCTs/A/B testing, difference-in-differences, experiment design and imbalanced learning.","His engineering range includes Python, SQL, XGBoost, ONNX, AWS, Snowflake, production pipelines, validation and reusable packages. His listed languages are English, Hindi and Telugu."],"facts":["M.S. Computer Science, University of Oklahoma","B.Tech Computer Science, JNTU","English, Hindi and Telugu","Scientific strategy, team building and technical delivery"],"sources":[{"label":"Career and technical range","href":"?view=explore#experience"},{"label":"Recruiter brief","href":"?view=recruiter"}],"related":["production-ml","causal-inference","role-fit"],"kind":"experience","tags":["education","skills","technical","languages"]},{"id":"role-fit","title":"Where his experience can add value","aliases":["hire","hiring","role fit","why hire","recruiter","jobs","principal","staff","head of data science","ai leader","position","strengths","talents"],"summary":"Harsha’s experience supports conversations across AI and data science leadership, Principal or Staff-level scientific work, applied ML delivery, and experimentation-focused roles.","details":["For leadership roles, the strongest evidence is team and function building, scientific direction, CEO reporting and customer communication. For technical roles, it is hands-on production ML, visual AI, experimentation and reusable modeling work.","His recruiter brief offers four views: leadership, hands-on science, product and delivery, and experimentation. A specific role still needs a discussion about its mandate, domain and expectations; this guide cannot confirm availability or employment terms."],"facts":["Leadership: people, direction and cross-functional decisions","Science: applied ML, vision and causal inference","Delivery: production systems and reusable tools","Experimentation: RCTs, DiD and customer impact analysis"],"sources":[{"label":"The recruiter brief","href":"?view=recruiter"},{"label":"Contact Harsha","href":"?view=explore#contact"}],"related":["leadership","causal-inference","production-ml"],"kind":"experience","tags":["recruiter","roles","leadership","technical"]},{"id":"contact","title":"Start a conversation with Harsha","aliases":["contact","email","linkedin","resume","cv","reach him","talk to harsha","schedule","interview","connect","download"],"summary":"You can reach Harsha at harshathippana1606@gmail.com, connect on LinkedIn, or open his résumé and full CV from the portfolio.","details":["For a focused conversation, include the role or problem, the scope of responsibility, and what you would like to explore. The recruiter view is the fastest introduction to his background.","This guide does not send messages or book meetings. It can point you to the public contact links."],"facts":["Email: harshathippana1606@gmail.com","LinkedIn: Jaya Harsha Thippana","Résumé and full CV available as PDFs"],"sources":[{"label":"Email Harsha","href":"mailto:harshathippana1606@gmail.com"},{"label":"LinkedIn","href":"https://www.linkedin.com/in/jayaharshathippana/"},{"label":"Open résumé","href":"Jaya_Harsha_Thippana_Resume.pdf"},{"label":"Open full CV","href":"Jaya_Harsha_Thippana_CV.pdf"}],"related":["intro","role-fit"],"kind":"experience","tags":["contact","recruiter","resume"]},{"id":"knowledge-scope","title":"What this guide can answer","aliases":["how does this work","are you ai","are you harsha","chatbot","sources","knowledge","limitations","confidential","proprietary","core ip","internal details","architecture","training data","secret","compensation","salary","availability","visa","personal information","is this a real llm","is this an llm","are you an llm","are you a real ai","is this generative ai","how does this chatbot work","are you using an api","prepared guide"],"summary":"This is a prepared portfolio guide about Harsha, not Harsha himself. It answers from public career information and approved project summaries, with links back to the portfolio.","details":["It can explain his roles, skills, project decisions, leadership experience and published outcomes. Technical explanations are labeled as approaches so they are not confused with undocumented procedures from a past project.","It does not disclose proprietary implementation details, internal architectures, training recipes, private datasets, unpublished measurements or confidential company information. It also does not know current compensation expectations, interview availability, employment terms or unlisted personal details.","If a question goes beyond the approved material, the best next step is to contact Harsha or ask about a related public case study."],"facts":["Prepared career knowledge with source links","Public information and approved summaries","No confidential implementation details","No live messaging or meeting booking"],"sources":[{"label":"Public case studies","href":"?view=explore#work"},{"label":"Contact Harsha","href":"?view=explore#contact"}],"related":["intro","contact","role-fit"],"kind":"approach","tags":["guide","scope","privacy","sources"]},{"id":"evaluation-approach","title":"Evaluate the decision, not only the model","aliases":["evaluation","model performance","validation","accuracy","benchmark","trade offs","good model","decision quality","scientific judgment"],"summary":"Harsha’s portfolio emphasizes choosing an evaluation that matches the decision a system is supposed to improve. A stronger model metric is useful only when it supports the intended product or customer outcome.","details":["The commerce case shows the importance of connecting research and evaluation with customer decisions. The scoring case shows that interpretability matters. The causal-inference work shows why an observed improvement is not automatically an intervention effect.","A useful general approach is to define the decision, identify the evidence needed, examine uncertainty and failure cases, and state what would change the recommendation. This describes the reasoning behind the public work without exposing internal benchmarks or implementation."],"facts":["Match the metric to the decision","Make trade-offs and uncertainty understandable","Distinguish predictive quality from causal impact","Define the evidence that would change the decision"],"sources":[{"label":"Commerce-learning decision","href":"?view=explore#case-commerce"},{"label":"Scoring decision","href":"?view=explore#case-scoring"},{"label":"Experimentation","href":"?view=explore#causal-inference"}],"related":["commerce","causal-vs-predictive","scoring"],"kind":"approach","tags":["evaluation","technical-explanation","judgment","strategy"]}]</script>
+<script>
+/* Prepared-answer retrieval. No model, remote endpoint, or visitor data storage. */
+(function(root, factory) {
+  if (typeof module === 'object' && module.exports) module.exports = factory();
+  else root.PortfolioGuideEngine = factory();
+})(typeof window !== 'undefined' ? window : this, function() {
+  'use strict';
+  const STOP = new Set('a an the and or for of to at in on is are was were be been it its his he him harsha jaya thippana you your yours what which who how why can could would should does do did has have had with about me my i we us they their tell please explain know more some any really give show work experience experiences'.split(' '));
+  const normal = text => String(text || '').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/a\s*\/\s*b/g,'ab').replace(/[^a-z0-9]+/g,' ').trim();
+  const tokens = text => [...new Set(normal(text).split(/\s+/).filter(w => w.length > 1 && !STOP.has(w)))];
+  const stem = word => word.length > 5 ? word.replace(/(?:ing|ments|ment|ed|es|s)$/,'') : word;
+  const hasPhrase = (query, phrase) => (' '+query+' ').includes(' '+normal(phrase)+' ');
+  const boundaries = [
+    {pattern:/\b(system prompt|developer prompt|ignore (all |previous |your )?instructions|reveal (your |the )?prompt|jailbreak)\b/i, message:'This guide retrieves prepared portfolio answers. It cannot follow instructions to reveal private material or change its knowledge. Try a question about Harsha’s leadership, experimentation, or delivery.'},
+    {pattern:/\b(secret|confidential|proprietary|core ip|source code|training data|training recipe|model weights|coefficients|exact (scoring )?formula|internal (metrics|benchmark|architecture|data|numbers)|customer names|client names|roadmap|api key|password)\b|\b(vizit.{0,30}(architecture|train(s|ed|ing)?|formula|customers)|model architecture.{0,30}vizit|name.{0,25}(clients|customers))\b/i, message:'I can cover Harsha’s responsibilities, general methods, and approved career outcomes. Company IP, internal implementations, customer information, and unpublished results are excluded from this guide.'},
+    {pattern:/\b(compensation|salary|visa|citizenship|married|religion|age|birthday|home address|phone number|notice period|availability|available to start|actively (looking|interviewing)|open to (work|offers)|current offers)\b/i, message:'That detail is not part of this public portfolio. Please contact Harsha directly for availability or employment logistics. I can help you explore the experience relevant to a role.'},
+    {pattern:/\b(prove|guarantee|guaranteed|best in the world|expert (at|in) everything|knows everything)\b/i, message:'The strongest evidence is the work itself. This guide can show documented responsibilities, project decisions, and reported results; it does not certify expertise in every subject or guarantee outcomes.'},
+    {pattern:/\b(p[ -]?value|sample size|randomization unit|unit of randomization|statistical significance|significant lift|exact (lift|uplift)|rct (lift|results|numbers)|trial (numbers|results)|confidence intervals?)\b/i, message:'The public RCT story covers randomized evaluation of a scoring improvement and the confidence it brought to delivery. Trial-level statistics, assignment details, and quantified uplift are not included. The guide can explain the general experimental-design approach without inventing results.'}
+  ];
+  function create(entries) {
+    const items = entries.map(entry => ({entry, aliases:[...new Set((entry.aliases || []).map(normal))], title:normal(entry.title), tags:(entry.tags || []).map(normal), words:tokens([entry.title, ...(entry.tags||[]), ...(entry.aliases||[]), entry.summary].join(' ')).map(stem)}));
+    const byId = new Map(entries.map(entry => [entry.id,entry]));
+    const fallbackIds = ['intro','leadership','experimentation','causal-inference','production-ml','contact'];
+    const suggestions = (ids=fallbackIds) => ids.filter(id => byId.has(id)).slice(0,4);
+    function resolve(question, lastId) {
+      const original = String(question || '').trim().slice(0,280);
+      const q = normal(original);
+      if (!q) return {kind:'empty',message:'Enter a question or choose a topic.',suggested:suggestions()};
+      const generalDesign=/\b(how (would|should|do|to)|what is|what are|why|explain|define)\b/i.test(original) && !/\b(vizit|his (trial|rct|test)|actual|exact|observed|your (trial|rct|test))\b/i.test(original);
+      for (const rule of boundaries) if(rule.pattern.test(original)) {
+        if(generalDesign && rule.pattern.source.includes('sample size')) return {kind:'answer',ids:['experiment-design'],deep:true};
+        return {kind:'boundary',message:rule.message,suggested:suggestions(/salary|visa|availability|phone|notice/i.test(original)?['contact','career','intro']:['experimentation','leadership','scoring'])};
+      }
+      if (/^(hi|hello|hey|good morning|good evening|thanks|thank you)[ !.]*$/i.test(original)) return {kind:'greeting',message:/thank/i.test(q)?'You’re welcome. Pick another topic, or follow a source link to explore the work.':'Hello. I’m a prepared guide to Harsha’s work. Ask about a project, a technical method, leadership, or a role you’re hiring for.',suggested:suggestions()};
+      if (/^(tell me more( about (that|this|it))?|more|go deeper|go deep|deep dive|details|expand|why|how|what else|explain further|explain the results?|more detail|more details|technical details|what was the impact|what were the results|what was (his|harsha s) role( in (that|this|it))?|what did he do|sources|show sources)$/.test(q)) {
+        if(lastId && byId.has(lastId)) return {kind:'answer',ids:[lastId],deep:true,followup:true};
+        return {kind:'clarify',message:'Which part of Harsha’s work would you like to explore?',suggested:suggestions()};
+      }
+      const mentionsDiD=/\b(difference in differences|quasi experiments?)\b/.test(q) || /\bDiD\b/.test(original) || /\b(vs|versus|and|compare) did\b/.test(q) || /\bdid\s+(?:vs|versus|and)\s+(?:rcts?|randomized|ab\s+tests?)\b/.test(q);
+      if(/\b(rcts?|randomized|ab tests?|a b tests?)\b/.test(q) && mentionsDiD && /\b(and|compare|vs|versus|difference)\b/.test(q))return {kind:'answer',ids:['experimentation','causal-inference'],deep:true};
+      const words = tokens(q).map(stem);
+      const ranked = items.map(item => {
+        let score = 0, hits = 0, phraseMatch = false;
+        for (const alias of item.aliases) if(alias && hasPhrase(q,alias)) { score += Math.min(15,5+alias.split(' ').length*2); if(tokens(alias).length>1)phraseMatch=true; }
+        if (hasPhrase(q,item.entry.id.replace(/-/g,' '))) score+=9;
+        for (const word of words) {
+          if(item.words.includes(word)) { const frequency=items.filter(other=>other.words.includes(word)).length;score+=2+Math.log(1+items.length/(frequency||1));hits++; }
+        }
+        return {id:item.entry.id,score,hits,phraseMatch};
+      }).sort((a,b)=>b.score-a.score);
+      const first=ranked[0],second=ranked[1];
+      if (!first || first.score<6 || (!first.hits && first.score<9) || (words.length>=3 && first.hits<=1 && !first.phraseMatch)) return {kind:'unknown',message:'I don’t have a prepared answer for that question. Try a more specific topic from Harsha’s portfolio, such as RCTs, causal inference, team leadership, computer vision, or production ML.',suggested:suggestions()};
+      if (first.score<13 && second && first.score-second.score<2.5) return {kind:'clarify',message:'A few parts of the portfolio could fit. Which would you like to explore?',suggested:suggestions(ranked.slice(0,4).map(x=>x.id))};
+      const ids=[first.id];
+      if(/\b(and|versus|vs|compare)\b/i.test(original) && second && second.score>=15 && second.score>=first.score*.72 && second.hits>=1) ids.push(second.id);
+      return {kind:'answer',ids,deep:/\b(deep|detailed|technical|explain|how)\b/i.test(original)};
+    }
+    return {resolve,get:id=>byId.get(id),suggestions,entries};
+  }
+  return {create,normal,tokens};
+});
+
+(() => {
+  'use strict';
+  const dialog=document.getElementById('portfolio-guide');
+  const data=document.getElementById('portfolio-guide-knowledge');
+  if(!dialog || !data || !window.PortfolioGuideEngine)return;
+  const engine=window.PortfolioGuideEngine.create(JSON.parse(data.textContent));
+  const transcript=document.getElementById('pg-transcript');
+  const input=document.getElementById('pg-input');
+  const status=document.getElementById('pg-status');
+  const starters=document.getElementById('pg-starters');
+  const copyButton=document.getElementById('pg-copy');
+  const clearButton=document.getElementById('pg-clear');
+  const depthButtons=[...dialog.querySelectorAll('[data-pg-depth]')];
+  let previousFocus=null,lastId=null,depth='brief',turns=[],answerNumber=0,previousOverflow='';
+  const node=(tag,className,text)=>{const el=document.createElement(tag);if(className)el.className=className;if(text!==undefined)el.textContent=text;return el;};
+  function message(role,text) {
+    const article=node('article','pg-message pg-message-'+role);
+    article.append(node('p','pg-message-label',role==='user'?'Your question':'Portfolio guide'));
+    if(text)article.append(node('p','',text));
+    transcript.append(article);return article;
+  }
+  function topics(container,ids) {
+    const row=node('div','pg-followups');row.setAttribute('aria-label','Continue exploring');
+    for(const id of ids.slice(0,3)) {const entry=engine.get(id);if(!entry)continue;const button=node('button','',entry.title);button.type='button';button.dataset.pgTopic=id;row.append(button);}
+    if(row.childElementCount)container.append(row);
+  }
+  function welcome() {
+    transcript.replaceChildren();const article=message('guide');
+    article.append(node('h3','','What would you like to discover?'));
+    article.append(node('p','','I connect questions with prepared answers about Harsha’s experience, scientific judgment, and leadership. Each answer points back to the work.'));
+    article.append(node('p','pg-answer-note','Try a topic, then ask “go deeper.” For open-ended questions beyond the prepared knowledge, I’ll help you find a relevant topic or contact Harsha.'));
+    starters.hidden=false;copyButton.disabled=true;clearButton.disabled=true;
+  }
+  function openGuide(query,id) {
+    if(!dialog.open) {
+      previousFocus=document.activeElement;
+      const other=document.getElementById('command-dialog');if(other?.open)other.close();
+      previousOverflow=document.body.style.overflow;document.body.style.overflow='hidden';
+      dialog.showModal();
+    }
+    input.focus({preventScroll:true});
+    if(query || id)ask(query || engine.get(id)?.title || '',id);
+  }
+  function closeGuide(restore=true) {
+    if(!dialog.open)return;
+    dialog.close();document.body.style.overflow=previousOverflow;
+    if(restore && previousFocus?.isConnected && previousFocus.getClientRects().length)previousFocus.focus({preventScroll:true});
+  }
+  function safeSource(source) {
+    const url=new URL(source.href,location.href);
+    const local=url.origin===location.origin && (url.pathname===location.pathname || /\/Jaya_Harsha_Thippana_(Resume|CV)\.pdf$/.test(url.pathname));
+    const professional=['https://www.linkedin.com/in/jayaharshathippana/','https://github.com/harshathippana1606','mailto:harshathippana1606@gmail.com'].includes(source.href);
+    if(!local&&!professional)return null;
+    const link=node('a','',source.label+' ↗');link.href=source.href;
+    if(local && url.pathname===location.pathname) {
+      link.addEventListener('click',event=>{
+        if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+        event.preventDefault();event.stopPropagation();closeGuide(false);
+        if(url.hash && window.portfolioNavigate)window.portfolioNavigate(url.hash);
+        else if(url.searchParams.get('view')==='recruiter')document.querySelector('.mode-switch [data-mode-button="recruiter"]')?.click();
+        else window.portfolioNavigate?.('top');
+      });
+    } else if(url.protocol!=='mailto:'){link.target='_blank';link.rel='noopener noreferrer';}
+    return link;
+  }
+  function renderAnswer(entry,article,isDeep) {
+    const wrapper=node('div','pg-answer');wrapper.dataset.pgAnswer=entry.id;
+    wrapper.append(node('p','pg-answer-kind',entry.kind==='approach'?'General technical approach':'Career experience'));
+    wrapper.append(node('h3','',entry.title));wrapper.append(node('p','',entry.summary));
+    if(entry.facts?.length) {const list=node('ul','');for(const fact of entry.facts)list.append(node('li','',fact));wrapper.append(list);}
+    if(entry.details?.length) {
+      const details=node('details','pg-more');details.open=isDeep;
+      const summary=node('summary','','Explore the reasoning and context');details.append(summary);
+      for(const paragraph of entry.details)details.append(node('p','',paragraph));
+      wrapper.append(details);
+    }
+    const sources=node('div','pg-source-links');sources.append(node('span','','Explore the source'));
+    for(const source of entry.sources||[]){const a=safeSource(source);if(a)sources.append(a);}
+    if(sources.childElementCount>1)wrapper.append(sources);
+    article.append(wrapper);
+  }
+  function ask(raw,id) {
+    const query=String(raw||'').trim().slice(0,280);if(!query)return;
+    if(turns.length>=20) {status.textContent='This conversation has 20 questions. Copy it if useful, then choose Start over to continue.';input.focus();return;}
+    const result=id&&engine.get(id)?{kind:'answer',ids:[id]}:engine.resolve(query,lastId);
+    if(result.kind==='empty')return;
+    status.textContent='';starters.hidden=true;
+    message('user',query);
+    const article=message('guide');article.id='pg-answer-'+(++answerNumber);article.tabIndex=-1;
+    let copyText='';
+    if(result.kind==='answer') {
+      const ids=result.ids.filter(key=>engine.get(key));
+      for(const key of ids) {
+        const entry=engine.get(key);renderAnswer(entry,article,depth==='deep'||result.deep);
+        copyText+=entry.title+'\n'+entry.summary+'\n'+(entry.facts||[]).map(f=>'• '+f).join('\n')+'\n'+(entry.details||[]).join('\n')+'\n'+(entry.sources||[]).map(s=>s.label+': '+new URL(s.href,'https://harshathippana1606.github.io/').href).join('\n')+'\n\n';
+      }
+      lastId=ids[0]||lastId;
+      const related=engine.get(lastId)?.related||[];topics(article,related);
+    } else {
+      article.append(node('p','',result.message));copyText=result.message;
+      topics(article,result.suggested||engine.suggestions());
+    }
+    turns.push({question:query,answer:copyText.trim()});
+    copyButton.disabled=false;clearButton.disabled=false;input.value='';
+    for(const button of dialog.querySelectorAll('.pg-topic'))button.setAttribute('aria-pressed',String(button.dataset.pgTopic===lastId));
+    // Keep the start of a long answer visible without moving focus away from the composer.
+    requestAnimationFrame(()=>{transcript.scrollTop=article.offsetTop-transcript.offsetTop-12;});
+  }
+  document.addEventListener('click',event=>{
+    if(!(event.target instanceof Element))return;
+    const launch=event.target.closest('[data-open-guide]');if(launch){event.preventDefault();openGuide();return;}
+    const topic=event.target.closest('[data-pg-topic]');if(topic){event.preventDefault();openGuide('',topic.dataset.pgTopic);return;}
+    const prompt=event.target.closest('[data-pg-prompt]');if(prompt){event.preventDefault();openGuide(prompt.dataset.pgPrompt);}
+  });
+  document.getElementById('pg-form').addEventListener('submit',event=>{event.preventDefault();ask(input.value);input.focus({preventScroll:true});});
+  document.getElementById('pg-close').addEventListener('click',()=>closeGuide());
+  dialog.addEventListener('cancel',event=>{event.preventDefault();closeGuide();});
+  dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)closeGuide();}});
+  depthButtons.forEach(button=>button.addEventListener('click',()=>{
+    depth=button.dataset.pgDepth;
+    for(const item of depthButtons)item.setAttribute('aria-pressed',String(item.dataset.pgDepth===depth));
+    const last=transcript.querySelector('.pg-message-guide:last-child');
+    for(const details of last?.querySelectorAll('.pg-more')||[])details.open=depth==='deep';
+    status.textContent=depth==='deep'?'Detailed answers selected.':'Brief answers selected.';
+  }));
+  clearButton.addEventListener('click',()=>{turns=[];lastId=null;welcome();for(const button of dialog.querySelectorAll('.pg-topic'))button.setAttribute('aria-pressed','false');status.textContent='Conversation cleared. Choose a topic or ask another question.';input.value='';input.focus();});
+  copyButton.addEventListener('click',async()=>{
+    const text='Harsha’s portfolio guide — prepared answers\nhttps://harshathippana1606.github.io/\n\n'+turns.map(turn=>'Q: '+turn.question+'\n\n'+turn.answer).join('\n\n——\n\n');
+    try {await navigator.clipboard.writeText(text);status.textContent='Conversation copied, including source links.';}
+    catch {status.textContent='Copy is unavailable here. You can select and copy the conversation text.';transcript.focus();}
+  });
+  welcome();
 })();
 
 </script>
