@@ -16,7 +16,7 @@ Decision game: https://harshathippana1606.github.io/#decision-room
 - Project details expand on demand. Legacy case-study links remain supported.
 - The 60-second recruiter brief opens in a dialog, with résumé, full CV, contact, copy and print actions.
 - Ask Harsha provides 25 prepared, source-linked topics, brief/detailed answers, follow-ups, and copy/reset controls. It is not a live AI model. Cmd/Ctrl+K opens the guide outside text fields.
-- The optional lab contains a three-decision fictional game. Field notes appear only after they are discovered; no unlock instructions or unrevealed cards are displayed.
+- The optional lab contains a three-decision fictional game. Contextual field notes connect career facts with decision questions. They appear only after discovery, with a quiet read/dismiss notice; no unlock instructions or unrevealed cards are displayed.
 
 ## Automatic presentation
 
