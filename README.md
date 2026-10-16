@@ -16,22 +16,15 @@ Decision game: https://harshathippana1606.github.io/#decision-room
 - Project details expand on demand. Legacy case-study links remain supported.
 - The 60-second recruiter brief opens in a dialog, with résumé, full CV, contact, copy and print actions.
 - Ask Harsha provides 25 prepared, source-linked topics, brief/detailed answers, follow-ups, and copy/reset controls. It is not a live AI model. Cmd/Ctrl+K opens the guide outside text fields.
-- The optional lab contains a three-decision fictional game and four discoverable field notes. The opening spark, typing THINK outside text fields, exploring three cases, or finishing the game reveal notes. Touch-accessible clues and reveal controls are also provided.
+- The optional lab contains a three-decision fictional game. Field notes appear only after they are discovered; no unlock instructions or unrevealed cards are displayed.
 
-## Appearance and adaptive focus
+## Automatic presentation
 
-System follows the browser/OS color preference live. Dark and Light are manual overrides, saved only in this browser. Reduced-motion preferences are respected; print uses a light palette.
+Appearance follows the browser/OS color preference live. There is no website theme selector, and older saved overrides are ignored. Reduced-motion preferences are respected; print uses a light palette.
 
-The default Auto focus adapts to arrival context, not identity. An `audience` parameter in a shared link selects the initial focus. A recognized career-platform referrer gives a career focus. Unknown arrivals get a balanced introduction. Opening the recruiter brief, leadership guide topics, the lab or the personal challenge can refine the focus during that visit. A visitor can override it using Your focus. Inferred interests are never persisted. The website cannot read a visitor’s Chrome cache, browsing history, name, employer or job title.
+The introduction and primary shortcuts adapt automatically to arrival context and current-visit interests. There is no role selector. Recognized audience links and career-platform referrers can tailor the first view; unknown arrivals get a balanced introduction. The website cannot read visitor identities, Chrome cache, browsing history or job titles. Inferred interests are never persisted.
 
-Audience-specific links:
-- Recruiter: https://harshathippana1606.github.io/?audience=recruiter
-- Executive: https://harshathippana1606.github.io/?audience=executive
-- Explorer: https://harshathippana1606.github.io/?audience=explorer
-
-## Beyond work
-
-The off-court section includes owner-approved personal facts: married, no children, competitive badminton/cricket and PS5 gaming. Its optional clue trail ends with an explicit photo reveal. The image is fetched only after that request. The supplied photo is published with the owner’s explicit approval as a public Easter egg; hidden navigation is not access control. Embedded JPEG metadata has been removed without changing image pixels. The photo is not used in social-preview metadata.
+The off-court section includes owner-approved personal facts: married, no children, competitive badminton/cricket and PS5 gaming. Optional discoveries are unadvertised. The supplied photo remains a public asset with the owner’s explicit approval; hidden navigation is not access control. It is fetched only after an intentional reveal. Embedded JPEG metadata has been removed without changing image pixels.
 
 ## Hosting and editing
 
@@ -43,7 +36,7 @@ Open `index.html` directly or use a local static web server for preview. Clipboa
 
 Semantic content, native disclosures and dialogs, keyboard tabs, visible focus, responsive layouts, reduced-motion support and print styles are included. Core career content and PDF downloads work without JavaScript. The guide, recruiter dialog and lab need JavaScript.
 
-The site includes no analytics, tracking scripts, account, form submission or remote AI service. Guide questions remain in page memory; reload or Start over clears the conversation. Copy actions only write to the visitor’s clipboard when requested. Discovery progress is saved in the visitor’s browser and can be reset or restored with Undo. GitHub Pages has its own hosting policies.
+The site includes no analytics, tracking scripts, account, form submission or remote AI service. Guide questions remain in page memory; reload or Start over clears the conversation. Copy actions only write to the visitor’s clipboard when requested. Found field notes are saved in the visitor’s browser. The personal-photo discovery state lasts only for the current page visit. GitHub Pages has its own hosting policies.
 
 All shipped files, including the optional personal photo, are public. Public career summaries and general scientific explanations exclude company formulas, model architecture, training recipes/data, private customer identities, internal financial figures, and trial-level statistics. Boundary messages explain this scope; they cannot protect secrets placed in a public file.
 
